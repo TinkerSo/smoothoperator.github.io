@@ -3,25 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucidchart Interactive Diagram</title>
+    <title>SmoothOperator - Interactive Diagram & Project Summary</title>
     <style>
         body {
-            text-align: center;
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 0;
+            text-align: center;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
         }
         iframe {
             width: 100%;
-            height: 90vh;
+            height: 600px;
             border: none;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: left;
         }
     </style>
 </head>
 <body>
+
+    <h1>SmoothOperator</h1>
     <h2>Interactive Lucidchart Diagram</h2>
-    <iframe allowfullscreen frameborder="0"
-            src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13">
+    <iframe allowfullscreen frameborder="0" 
+        src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13">
     </iframe>
+
+    <div class="container">
+        <h2>Project Summary</h2>
+        <p>
+            Since the supply of workers in the hospitality industry such as airports and hotels has significantly declined post-COVID, people with mobility impairments face more challenges in moving heavy objects such as their luggage to their desired destinations. 
+            To improve their quality of life, SmoothOperator provides a general and elegant solution: a robotized dolly. 
+            We will develop a network of sensors, actuators, algorithms, and communication protocols for SmoothOperator to semi-autonomously transport luggage through various consumer environments through pre-determined locations or by user commands. 
+            In addition to the robotic platform, SmoothOperator system will have a user-friendly UI that allows users to connect and control a specific robot. 
+            These controls will have a safety layer that avoids obstacles and puts human interaction at the forefront of its navigation planning. 
+            SmoothOperator aims to revolutionize the hospitality industry, enhancing the quality of life for all, particularly individuals with mobility impairments.
+        </p>
+
+        <h2>Need for this Project</h2>
+        <p>
+            In fast-paced environments like airports and hotels, labor shortages are leading to a significant reduction in available service workers. 
+            In response, 90% of airports and 36% of hotels have shifted to self-service solutions, according to a recent study by Deloitte. 
+            However, these self-service options do not fully address the needs of individuals with mobility impairments, who find it particularly challenging to move heavy luggage or other objects without assistance. 
+            As the number of available workers declines, the demand for solutions that cater to these individuals increases.
+        </p>
+        <p>
+            In airports, wheelchair service is done by human service workers. The process to get from the entrance of the airport to your gate is as follows: we request wheelchair service, then wait until the next available worker comes to pick you up in a wheelchair. 
+            These workers then carry your luggage and push your wheelchair to your gate. This process typically has long wait times. 
+            The decline of these workers has further exacerbated the problem, causing anxiety and discomfort among passengers with mobility impairments. 
+            There have been minimal efforts to directly resolve these challenges. 
+        </p>
+
+        <h2>Problem Statement and Deliverables</h2>
+        <h3>Problem Statement</h3>
+        <p>
+            In fast-paced environments requiring hospitality such as airports and hotels, there is a decline in service workers in the U.S. 
+            For those with mobility impairments, moving luggage and heavy objects can be a daunting task. 
+            As the number of service workers decreases, we aim to provide a new solution to enhance the quality of life by facilitating easy and safe movement of objects. 
+            We seek to create a common platform that can be adaptable to these environments with the ability to help people with mobility impairments or to replace repetitive object delivery services.
+        </p>
+        <p>
+            Currently, solutions like luggage carts, dollies, or roboticized luggage often require substantial physical strength when fully loaded or are designed for very specific use cases. 
+            For example, carry-on robotic luggage can follow users, but it is limited to small, personal items. 
+            Other options, such as the gitaplus cargo-carrying dolly, can assist users by carrying up to 40 lbs, but its capacity and functionality are restricted to everyday objects within a small container. 
+            These solutions are either limited in carrying capacity or are overly specialized, providing little versatility in meeting broader needs. 
+            Additionally, they often require ownership by the user, which limits their availability in shared environments.
+        </p>
+        <p>
+            Our solution, SmoothOperator, addresses these gaps by offering a semi-autonomous dolly system that not only transports but also lifts larger objects once positioned. 
+            Unlike current solutions, SmoothOperator is designed for use in shared environments like airports and hotels, making it available to all users. 
+            It can handle a variety of objects and is adaptable to different tasks, from moving luggage to transporting heavy or awkward items without requiring user effort. 
+            This system aims to improve mobility and independence for individuals with physical challenges while also providing a cost-effective solution for businesses experiencing labor shortages.
+        </p>
+    </div>
+
 </body>
 </html>
+
