@@ -196,6 +196,7 @@ footer {
   margin-top: 2rem;
 }
 
+
 /* Mobile & Tablet */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -227,4 +228,16 @@ footer {
   section {
     padding: 2rem 1rem;
   }
+}
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;          /* allow multiple rows */
+  justify-content: center;  /* center each row’s items */
+  gap: 2rem;                /* spacing between cards */
+  margin-top: 2rem;
+}
+
+.team-member {
+  flex: 0 1 250px;          /* each card is 250px wide, but can shrink */
+  max-width: 100%;
 }
