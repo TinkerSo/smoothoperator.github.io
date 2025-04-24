@@ -1,94 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmoothOperator - Project Overview & Interactive Diagram</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            padding: 0;
-            text-align: center;
-            line-height: 1.6;
-        }
-        h1, h2, h3 {
-            text-align: center; /* Center all headers */
-            color: #333
-        }
-        p {
-            text-align: justify;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            margin-top: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            text-align: left;
-        }
-        .team-section {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .team-photo {
-            width: 90%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmoothOperator</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #ecf0f1;
+      --accent: #3498db;
+      --text: #333;
+      --bg-light: #f7f9fa;
+      --transition: 0.3s ease;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: var(--transition); }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .logo {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--secondary);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section:nth-child(even) { background: white; }
+    section:nth-child(odd) { background: var(--secondary); }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      margin-top: 1rem;
+    }
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .team-member {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .team-member img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      max-width: 150px;
+      margin-bottom: 1rem;
+    }
+    .team-member h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .team-member p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: var(--secondary);
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">SmoothOperator</div>
+      <ul class="nav-links">
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#need">Need</a></li>
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#diagram">Diagram</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <section class="hero">
     <h1>SmoothOperator</h1>
+    <p>Your semi-autonomous luggage companion, engineered for accessibility and safety in hospitality environments.</p>
+  </section>
 
-    <div class="container">
-        <h2>Project Summary</h2>
-        <p>
-            Since the supply of workers in the hospitality industry such as airports and hotels has significantly declined post-COVID, people with mobility impairments face more challenges in moving heavy objects such as their luggage to their desired destinations. 
-            To improve their quality of life, SmoothOperator provides a general and elegant solution: a robotized dolly. 
-            We will develop a network of sensors, actuators, algorithms, and communication protocols for SmoothOperator to semi-autonomously transport luggage through various consumer environments through pre-determined locations or by user commands. 
-            In addition to the robotic platform, SmoothOperator system will have a user-friendly UI that allows users to connect and control a specific robot. 
-            These controls will have a safety layer that avoids obstacles and puts human interaction at the forefront of its navigation planning. 
-            SmoothOperator aims to revolutionize the hospitality industry, enhancing the quality of life for all, particularly individuals with mobility impairments.
-        </p>
+  <section id="summary">
+    <h2>Project Summary</h2>
+    <p>
+      Since the supply of workers in the hospitality industry such as airports and hotels has significantly declined post-COVID, people with mobility impairments face more challenges in moving heavy objects such as their luggage to their desired destinations.
+      To improve their quality of life, SmoothOperator provides a general and elegant solution: a robotized dolly.
+      We will develop a network of sensors, actuators, algorithms, and communication protocols for SmoothOperator to semi-autonomously transport luggage through various consumer environments through pre-determined locations or by user commands.
+      In addition to the robotic platform, SmoothOperator system will have a user-friendly UI that allows users to connect and control a specific robot.
+      These controls will have a safety layer that avoids obstacles and puts human interaction at the forefront of its navigation planning.
+      SmoothOperator aims to revolutionize the hospitality industry, enhancing the quality of life for all, particularly individuals with mobility impairments.
+    </p>
+  </section>
 
-        <h2>Need for this Project</h2>
-        <p>
-            In fast-paced environments like airports and hotels, labor shortages are leading to a significant reduction in available service workers. 
-            In response, 90% of airports and 36% of hotels have shifted to self-service solutions, according to a recent study by Deloitte. 
-            However, these self-service options do not fully address the needs of individuals with mobility impairments, who find it particularly challenging to move heavy luggage or other objects without assistance. 
-            As the number of available workers declines, the demand for solutions that cater to these individuals increases.
-        </p>
+  <section id="need">
+    <h2>Need for this Project</h2>
+    <p>
+      In fast-paced environments like airports and hotels, labor shortages are leading to a significant reduction in available service workers.
+      In response, 90% of airports and 36% of hotels have shifted to self-service solutions, according to a recent study by Deloitte.
+      However, these self-service options do not fully address the needs of individuals with mobility impairments, who find it particularly challenging to move heavy luggage or other objects without assistance.
+      As the number of available workers declines, the demand for solutions that cater to these individuals increases.
+    </p>
+  </section>
 
-        <h2>Problem Statement and Deliverables</h2>
-        <h3>Problem Statement</h3>
-        <p>
-            In fast-paced environments requiring hospitality such as airports and hotels, there is a decline in service workers in the U.S. 
-            For those with mobility impairments, moving luggage and heavy objects can be a daunting task. 
-            As the number of service workers decreases, we aim to provide a new solution to enhance the quality of life by facilitating easy and safe movement of objects. 
-            We seek to create a common platform that can be adaptable to these environments with the ability to help people with mobility impairments or to replace repetitive object delivery services.
-        </p>
-    </div>
+  <section id="problem">
+    <h2>Problem Statement</h2>
+    <p>
+      In fast-paced environments requiring hospitality such as airports and hotels, there is a decline in service workers in the U.S.
+      For those with mobility impairments, moving luggage and heavy objects can be a daunting task.
+      As the number of service workers decreases, we aim to provide a new solution to enhance the quality of life by facilitating easy and safe movement of objects.
+      We seek to create a common platform that can be adaptable to these environments with the ability to help people with mobility impairments or to replace repetitive object delivery services.
+    </p>
+  </section>
 
+  <section id="diagram">
     <h2>Interactive System Diagram</h2>
-    <iframe allowfullscreen frameborder="0" 
-        src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13">
-    </iframe>
-
-    <!-- Meet the Team Section -->
-    <div class="team-section">
-        <h2>Meet the Team</h2>
-        <p>We are a passionate group of engineers and developers dedicated to making autonomous mobility solutions more accessible and practical.</p>
-        <img src="images/group_photo.jpg" alt="Team Photo" class="team-photo">
+    <div class="iframe-container">
+      <iframe allowfullscreen src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13"></iframe>
     </div>
+  </section>
 
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/member1.jpg" alt="Member Name">
+        <h3>Member Name</h3>
+        <p>Lead Robotics Engineer</p>
+      </div>
+      <div class="team-member">
+        <img src="images/member2.jpg" alt="Member Name">
+        <h3>Member Name</h3>
+        <p>Software Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="images/group_photo.jpg" alt="Team Photo">
+        <h3>The Full Team</h3>
+        <p>A passionate group dedicated to accessible autonomous solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SmoothOperator. All rights reserved.
+  </footer>
 </body>
 </html>
