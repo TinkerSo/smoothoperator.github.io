@@ -9,7 +9,7 @@
 
 /* ── Offset Anchors Below Sticky Header ── */
 html {
-  scroll-padding-top: 80px; /* match header height */
+  scroll-padding-top: 80px;
 }
 section[id]::before {
   content: '';
@@ -38,13 +38,11 @@ body {
 header {
   position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  background: var(--primary) !important;  /* enforce blue bar */
+  background: var(--primary);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
 }
-
 nav {
   display: flex;
   align-items: center;
@@ -53,12 +51,10 @@ nav {
   margin: auto;
   padding: 0.75rem 2rem;
 }
-
 .logo a img {
   max-height: 40px;
   width: auto;
 }
-
 .nav-toggle {
   display: none;
   background: none;
@@ -67,16 +63,11 @@ nav {
   color: var(--secondary);
   cursor: pointer;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
-  background: var(--primary) !important;  /* keep the tabs container blue */
-  padding: 0.5rem;                        /* optional for spacing */
-  border-radius: 4px;
 }
-
 .nav-links a {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -86,7 +77,6 @@ nav {
   background: transparent;
   font-weight: 500;
 }
-
 .nav-links a:hover,
 .nav-links a:focus,
 .nav-links a.active {
@@ -165,7 +155,7 @@ section:nth-of-type(even) {
 .iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   margin-top: 1rem;
 }
 .iframe-container iframe {
@@ -244,20 +234,47 @@ footer {
     display: block;
   }
   .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--primary);
     flex-direction: column;
     align-items: center;
     padding: 0;
+    gap: 0;
   }
   .nav-links.open {
     display: flex;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
   }
   .hero {
     padding: 2rem 1rem;
   }
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
   }
   section {
     padding: 2rem 1rem;
+  }
+  .section-image, .ui-image {
+    margin: 1rem auto;
+    max-width: 90%;
+  }
+  .team-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .team-photo-banner img {
+    max-width: 90%;
   }
 }
