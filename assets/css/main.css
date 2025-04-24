@@ -1,4 +1,3 @@
-```css
 :root {
   --primary: #2c3e50;
   --secondary: #ecf0f1;
@@ -8,7 +7,7 @@
   --transition: 0.3s ease;
 }
 
-/* Global reset + smooth transitions */
+/* Global reset + transitions */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -28,21 +27,25 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--primary);      /* your brand color */
+  background: var(--primary);     /* solid blue bar */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 100;
 }
+
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2rem;            /* adjust your vertical padding as desired */
   max-width: 1200px;
   margin: auto;
+  padding: 0.75rem 2rem;
 }
+
 .logo a img {
   display: block;
+  height: 40px;
 }
+
 .nav-toggle {
   display: none;
   background: none;
@@ -51,20 +54,26 @@ nav {
   color: var(--secondary);
   cursor: pointer;
 }
+
 .nav-links {
   list-style: none;
   display: flex;
+  gap: 1rem;
 }
-.nav-links li {
-  margin-left: 2rem;
-}
+
 .nav-links a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   text-decoration: none;
   color: var(--secondary);
   font-weight: 500;
 }
-.nav-links a:hover {
-  color: var(--accent);
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 /* Hero Section */
@@ -84,18 +93,19 @@ nav {
   font-size: 1.1rem;
 }
 
-/* Generic Section Styling */
+/* Section Zebra Striping */
 section {
   padding: 3rem 2rem;
   max-width: 1000px;
   margin: auto;
 }
-section:nth-of-type(even) {
-  background: white;
-}
 section:nth-of-type(odd) {
   background: var(--secondary);
 }
+section:nth-of-type(even) {
+  background: var(--bg-light);
+}
+
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -111,13 +121,12 @@ p {
 .iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%; /* 16:9 */
   margin-top: 1rem;
 }
 .iframe-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
@@ -131,8 +140,7 @@ p {
   margin: 2rem 0;
 }
 .team-photo-banner img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -154,14 +162,14 @@ p {
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
   flex-direction: column;
-  align-items: center;    /* horizontally center image, h3, p */
+  align-items: center;
   text-align: center;
 }
 .team-member img {
   width: 100%;
   max-width: 150px;
-  height: auto;
   border-radius: 50%;
   margin-bottom: 1rem;
 }
@@ -184,14 +192,11 @@ footer {
   margin-top: 2rem;
 }
 
-/* Mobile & Small Tablet Styles */
+/* Mobile & Tablet */
 @media (max-width: 768px) {
-  /* Show hamburger toggle */
   .nav-toggle {
     display: block;
   }
-
-  /* Collapse nav-links */
   .nav-links {
     position: absolute;
     top: 100%;
@@ -201,15 +206,14 @@ footer {
     flex-direction: column;
     align-items: center;
     display: none;
+    gap: 0;
   }
   .nav-links li {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
   .nav-links.open {
     display: flex;
   }
-
-  /* Adjust hero & sections padding */
   .hero {
     padding: 2rem 1rem;
   }
@@ -220,4 +224,3 @@ footer {
     padding: 2rem 1rem;
   }
 }
-```
