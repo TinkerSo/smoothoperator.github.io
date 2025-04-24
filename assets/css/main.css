@@ -8,13 +8,16 @@
   --transition: 0.3s ease;
 }
 
-
-/* Ensure anchored sections scroll below the sticky header */
+/* Offset anchored sections below sticky header */
 html {
-  scroll-padding-top: 80px;   /* match your header height */
+  scroll-padding-top: 80px; /* match header height */
 }
-section {
-  scroll-margin-top: 80px;    /* same offset for individual headers */
+section[id]::before {
+  content: '';
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
 }
 
 /* Global reset + transitions */
@@ -41,7 +44,6 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 100;
 }
-
 nav {
   display: flex;
   align-items: center;
@@ -50,12 +52,10 @@ nav {
   margin: auto;
   padding: 0.75rem 2rem;
 }
-
 .logo a img {
-  display: block;
-  height: 40px;
+  max-height: 40px;
+  width: auto;
 }
-
 .nav-toggle {
   display: none;
   background: none;
@@ -64,13 +64,11 @@ nav {
   color: var(--secondary);
   cursor: pointer;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
-
 .nav-links a {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -79,7 +77,6 @@ nav {
   color: var(--secondary);
   font-weight: 500;
 }
-
 .nav-links a:hover,
 .nav-links a.active {
   background: var(--accent);
@@ -103,7 +100,7 @@ nav {
   font-size: 1.1rem;
 }
 
-/* Section Zebra Striping */
+/* Sections */
 section {
   padding: 3rem 2rem;
   max-width: 1000px;
@@ -115,7 +112,6 @@ section:nth-of-type(odd) {
 section:nth-of-type(even) {
   background: var(--bg-light);
 }
-
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -125,6 +121,31 @@ h2 {
 p {
   margin-bottom: 1rem;
   text-align: justify;
+}
+
+/* Figures & Images */
+.section-image,
+.ui-image {
+  margin: 1.5rem auto;
+  max-width: 800px;
+  text-align: center;
+}
+.section-image img,
+.ui-image img,
+.iframe-container iframe,
+.team-photo-banner img,
+.team-member img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.section-image figcaption,
+.ui-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
 }
 
 /* Responsive Iframe Container */
@@ -137,11 +158,6 @@ p {
 .iframe-container iframe {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Team Photo Banner */
@@ -149,18 +165,13 @@ p {
   text-align: center;
   margin: 2rem 0;
 }
-.team-photo-banner img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
 .team-photo-banner .caption {
   margin-top: 0.5rem;
   font-style: italic;
   color: #555;
 }
 
-/* Team Grid (flex for centered rows) */
+/* Team Grid */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
@@ -178,12 +189,6 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
-.team-member img {
-  width: 100%;
-  max-width: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
 }
 .team-member h3 {
   margin-bottom: 0.5rem;
@@ -252,4 +257,4 @@ footer {
     padding: 2rem 1rem;
   }
 }
-```
+
