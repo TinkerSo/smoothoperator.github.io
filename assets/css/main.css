@@ -241,3 +241,19 @@ footer {
   flex: 0 1 250px;          /* each card is 250px wide, but can shrink */
   max-width: 100%;
 }
+
+.team-member h3 a.linkedin {
+  color: inherit;            /* use your card’s text color */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.team-member h3 a.linkedin i {
+  color: #0A66C2;            /* LinkedIn blue */
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.team-member h3 a.linkedin:hover i {
+  color: #004182;
+}
