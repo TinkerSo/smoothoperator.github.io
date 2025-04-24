@@ -1,3 +1,6 @@
+Here’s the **full** updated `main.css` with your section striping and tab colors restored:
+
+```css
 :root {
   --primary: #2c3e50;
   --secondary: #ecf0f1;
@@ -39,7 +42,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--primary);
+  background: var(--primary);        /* blue bar */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 100;
 }
@@ -74,6 +77,7 @@ nav {
   border-radius: 4px;
   text-decoration: none;
   color: var(--secondary);
+  background: transparent;
   font-weight: 500;
 }
 .nav-links a:hover,
@@ -99,7 +103,7 @@ nav {
   font-size: 1.1rem;
 }
 
-/* Sections */
+/* Section Zebra Striping */
 section {
   padding: 3rem 2rem;
   max-width: 1000px;
@@ -111,6 +115,7 @@ section:nth-of-type(odd) {
 section:nth-of-type(even) {
   background: var(--bg-light);
 }
+
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -224,27 +229,6 @@ footer {
   margin-top: 2rem;
 }
 
-/* Section Zebra Striping */
-section:nth-of-type(odd) {
-  background: var(--secondary);
-}
-section:nth-of-type(even) {
-  background: var(--bg-light);
-}
-
-/* Restore Tab Backgrounds */
-header {
-  background: var(--primary);
-}
-.nav-links a {
-  background: transparent;
-}
-.nav-links a:hover,
-.nav-links a.active {
-  background: var(--accent);
-  color: #fff;
-}
-
 /* Mobile & Tablet */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -277,3 +261,4 @@ header {
     padding: 2rem 1rem;
   }
 }
+```
