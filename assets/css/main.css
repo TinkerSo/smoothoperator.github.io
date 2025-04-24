@@ -1,4 +1,3 @@
-```css
 :root {
   --primary: #2c3e50;
   --secondary: #ecf0f1;
@@ -16,7 +15,7 @@ section[id]::before {
   content: '';
   display: block;
   height: 80px;
-  margin-top: -80px;
+  margin-top: -40px;
   visibility: hidden;
 }
 
@@ -225,6 +224,27 @@ footer {
   margin-top: 2rem;
 }
 
+/* Section Zebra Striping */
+section:nth-of-type(odd) {
+  background: var(--secondary);
+}
+section:nth-of-type(even) {
+  background: var(--bg-light);
+}
+
+/* Restore Tab Backgrounds */
+header {
+  background: var(--primary);
+}
+.nav-links a {
+  background: transparent;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
 /* Mobile & Tablet */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -257,4 +277,3 @@ footer {
     padding: 2rem 1rem;
   }
 }
-
