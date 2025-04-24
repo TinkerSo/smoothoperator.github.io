@@ -258,10 +258,7 @@ footer {
   color: #004182;
 }
 
-html {
-  /* height of your header (adjust to match) */
-  scroll-padding-top: 800px;
-}
+
 
 section h2 {
   /* same offset as above */
