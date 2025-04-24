@@ -1,3 +1,4 @@
+```css
 :root {
   --primary: #2c3e50;
   --secondary: #ecf0f1;
@@ -5,6 +6,14 @@
   --text: #333;
   --bg-light: #f7f9fa;
   --transition: 0.3s ease;
+}
+
+/* Ensure anchored sections scroll below the sticky header */
+html {
+  scroll-padding-top: 80px;   /* match your header height */
+}
+section h2 {
+  scroll-margin-top: 80px;    /* same offset for individual headers */
 }
 
 /* Global reset + transitions */
@@ -27,7 +36,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--primary);     /* solid blue bar */
+  background: var(--primary);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 100;
 }
@@ -148,20 +157,18 @@ p {
   margin-top: 0.5rem;
   font-style: italic;
   color: #555;
-  text-align: center;
 }
 
-
-/* Team Grid (flex for row-level centering) */
-/* .team-grid {
+/* Team Grid (flex for centered rows) */
+.team-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-} */
+}
 .team-member {
-  flex: 0 1 250px; /* fixed basis, allow shrink/grow */
+  flex: 0 1 250px;
   background: white;
   border-radius: 8px;
   padding: 1.5rem;
@@ -184,7 +191,23 @@ p {
 .team-member p {
   font-size: 0.9rem;
   color: #555;
-  text-align: center;
+}
+
+/* LinkedIn Icon Styling */
+.team-member h3 a.linkedin {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.team-member h3 a.linkedin i {
+  color: #0A66C2;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+.team-member h3 a.linkedin:hover i {
+  color: #004182;
 }
 
 /* Footer */
@@ -195,7 +218,6 @@ footer {
   color: var(--secondary);
   margin-top: 2rem;
 }
-
 
 /* Mobile & Tablet */
 @media (max-width: 768px) {
@@ -229,40 +251,4 @@ footer {
     padding: 2rem 1rem;
   }
 }
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;          /* allow multiple rows */
-  justify-content: center;  /* center each row’s items */
-  gap: 2rem;                /* spacing between cards */
-  margin-top: 2rem;
-}
-
-.team-member {
-  flex: 0 1 250px;          /* each card is 250px wide, but can shrink */
-  max-width: 100%;
-}
-
-.team-member h3 a.linkedin {
-  color: inherit;            /* use your card’s text color */
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-.team-member h3 a.linkedin i {
-  color: #0A66C2;            /* LinkedIn blue */
-  font-size: 1.1rem;
-  transition: color 0.2s;
-}
-.team-member h3 a.linkedin:hover i {
-  color: #004182;
-}
-
-
-section::before {
-  content: '';
-  display: block;
-  height: 80px;        /* exactly your header’s height */
-  margin-top: -80px;   /* pull the real section back up */
-  visibility: hidden;
-}
+```
