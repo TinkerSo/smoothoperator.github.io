@@ -12,17 +12,17 @@
 <body>
   <header>
     <nav>
-      <div class="logo">SmoothOperator</div>
-      <a href="#hero">
-        <img src="assets/images/logo.png" alt="SmoothOperator Logo" height="40">
-      </a>
+      <div class="logo">
+        <a href="#hero">
+          <img src="assets/images/logo.png" alt="SmoothOperator Logo" height="40">
+        </a>
+      </div>
       <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#executive">Executive Summary</a></li>
-        <li><a href="#installation">Installation</a></li>
         <li><a href="#operation">Operation</a></li>
-        <li><a href="#technical">Technical Background</a></li>
+        <li><a href="#deep-dive">Technical Deep Dive</a></li>
         <li><a href="#standards">Standards</a></li>
         <li><a href="#cost">Cost</a></li>
         <li><a href="#diagram">Diagram</a></li>
@@ -38,48 +38,22 @@
 
   <!-- Executive Summary -->
   <section id="executive">
-    <h2>Staffing Shortage, Mobility Impaired Inaccessibility</h2>
-    <p>Post-COVID staffing shortages in the hospitality sector have increased mobility challenges, especially for the 61 million Americans living with disabilities. SmoothOperator is an interactive robotic assistant engineered to autonomously and safely transport luggage in environments such as airports and hotels. Our end-to-end system integrates custom hardware and software, including SLAM-based navigation, dynamic obstacle avoidance, and layered safety redundancies. Powered by a Jetson Nano & a dual‑battery system, and controlled via onboard touchscreen or a secure mobile app, it supports payloads up to 80 lbs and speeds up to 1.2 m/s.</p>
+    <h2>Staffing Shortage & Mobility Impaired Inaccessibility</h2>
+    <p>Post-COVID staffing shortages in the hospitality sector have increased mobility challenges, especially for the 61 million Americans living with disabilities. SmoothOperator is an interactive robotic assistant engineered to autonomously and safely transport luggage in environments such as airports and hotels. Our end-to-end system integrates custom hardware and software, including SLAM-based navigation, dynamic obstacle avoidance, and layered safety redundancies. Powered by a Jetson Nano & a dual-battery system, and controlled via onboard touchscreen or a secure mobile app, it supports payloads up to 80 lbs and speeds up to 1.2 m/s.</p>
     <p><em>Image needed:</em> Figure of the robot in action: <code>assets/images/robot_transporting_luggage.jpg</code></p>
-  </section>
-
-  <!-- Installation & System Overview -->
-  <section id="installation">
-    <h2>System Overview & Installation</h2>
-    <h3>Block Diagram</h3>
-    <p>Our architecture comprises five processors—Jetson Nano (navigation & UI), Arduino Mega (motor & safety), Arduino Uno (ultrasonic), plus auxiliary modules—networked via serial, USB, and Wi‑Fi.</p>
-    <p><em>Image needed:</em> Overall block diagram: <code>assets/images/block_diagram.png</code></p>
-
-    <h3>User Interfaces</h3>
-    <p><strong>Onboard Touchscreen:</strong> A 21.5" display showing a friendly face with eyes/mouth animations, menu navigation, QR scanning, and lift controls.</p>
-    <p><em>Images needed:</em></p>
-    <ul>
-      <li>Face UI: <code>assets/images/ui_face.png</code></li>
-      <li>Menu Screen: <code>assets/images/ui_menu.png</code></li>
-      <li>Load/Control Screens: <code>assets/images/ui_load.png</code>, <code>assets/images/ui_manual.png</code></li>
-      <li>QR Scan & Confirmation: <code>assets/images/ui_scan.png</code>, <code>assets/images/ui_confirm.png</code></li>
-    </ul>
-
-    <h3>Physical Setup</h3>
-    <p>Chassis: 24"×24"×57" 80/20 aluminum, pool‑noodle bumpers with limit switches, dual DC barrel power jacks, and a compound gear train (10:1 reduction).</p>
-    <p><em>Images needed:</em> As-built robot (<code>assets/images/robot_full.jpg</code>), lifting mechanism (<code>assets/images/lift_mechanism.jpg</code>), drivetrain (<code>assets/images/drivetrain.jpg</code>), bumper (<code>assets/images/bumper.jpg</code>), electronics suite (<code>assets/images/electronics.jpg</code>).</p>
-
-    <h3>Setup & Support</h3>
-    <p><strong>Hardware:</strong> Plug in dual 12 V batteries; ensure each shows ~12.6 V. Activate e‑stop for actuators. For charging, use the intelligent charger (<code>assets/images/battery_charger.jpg</code>).</p>
-    <p><strong>Software:</strong> Install ROS Melodic on Ubuntu (Jetson Nano), Python 2 for ROS nodes, Python 3.13.3 + Kivy for UI, Node.js 16 & Expo Go for mobile app.</p>
   </section>
 
   <!-- Operation -->
   <section id="operation">
     <h2>Operation</h2>
     <h3>Power On/Off</h3>
-    <p>Connect DC barrel jacks, verify indicator LEDs on Jetson & controllers, engage e‑stop remote. To shut down, use on‑screen shutdown, then unplug batteries.</p>
+    <p>Connect DC barrel jacks, verify indicator LEDs on Jetson & controllers, engage e-stop remote. To shut down, use on-screen shutdown, then unplug batteries.</p>
     <p><em>Image needed:</em> DC jack connection: <code>assets/images/dc_jack.png</code></p>
 
     <h3>Tele-Operation</h3>
     <ol>
-      <li>Open mobile app; enter 4‑digit passcode shown onboard.</li>
-      <li>Use on‑screen gamepad for speed, lift, and drive controls.</li>
+      <li>Open mobile app; enter 4-digit passcode shown onboard.</li>
+      <li>Use on-screen gamepad for speed, lift, and drive controls.</li>
     </ol>
     <p><em>Image needed:</em> App lock & control screens: <code>assets/images/app_lock.png</code>, <code>assets/images/app_control.png</code></p>
 
@@ -89,42 +63,47 @@
       <li>Align QR code; confirm success (green flash).</li>
       <li>Accept navigation; robot plans path & avoids obstacles.</li>
       <li>At destination, option to return home.</li>
-      <li>In emergencies, remote e‑stop halts all motion.</li>
+      <li>In emergencies, remote e-stop halts all motion.</li>
     </ol>
     <p><em>Images needed:</em> Boarding pass scan & confirm: <code>assets/images/scan_pass.png</code>, <code>assets/images/confirm_autonomous.png</code></p>
   </section>
 
-  <!-- Technical Background -->
-  <section id="technical">
-    <h2>Technical Background</h2>
+  <!-- Technical Deep Dive -->
+  <section id="deep-dive">
+    <h2>Technical Deep Dive</h2>
+
     <h3>Electronics & Power</h3>
-    <p>Dual 12 V 12 Ah batteries in parallel feed a fused distribution board. Subsystems are protected by dedicated fuses (logic 5 A, motors 10 A).</p>
-    <p><em>Images needed:</em> Power distribution diagram: <code>assets/images/power_distribution.png</code></p>
+    <p>Dual 12 V 12 Ah batteries in parallel feed a fused distribution board. Subsystems are protected by dedicated fuses (logic 5 A, motors 10 A).</p>
+    <p><em>Image needed:</em> Power distribution diagram: <code>assets/images/power_distribution.png</code></p>
 
     <h3>Motor & Locomotion</h3>
-    <p>Two DC motors with 10:1 gear reduction, controlled by RoboClaw 15 A via Arduino Mega. Encoders (8192 CPR) + MPU6050 IMU drive odometry.</p>
+    <p>Two DC motors with 10:1 gear reduction, controlled by RoboClaw 15 A via Arduino Mega. Encoders (8192 CPR) + MPU6050 IMU drive odometry.</p>
     <p><em>Image needed:</em> Gear train and encoder assembly: <code>assets/images/gear_train.jpg</code></p>
 
-    <h3>Sensor Suite</nobr>
-    <p>360° RPLiDAR A1 for SLAM, HC-SR04 ultrasonics for low‑height obstacles, limit switches under foam bumpers, Logitech C270 for QR scanning.</p>
-    <p><em>Images needed:</em> Sensor cluster: <code>assets/images/sensor_suite.jpg</code></p>
+    <h3>Sensor Suite</h3>
+    <p>360° RPLiDAR A1 for SLAM, HC-SR04 ultrasonics for low-height obstacles, limit switches under foam bumpers, Logitech C270 for QR scanning.</p>
+    <p><em>Image needed:</em> Sensor cluster: <code>assets/images/sensor_suite.jpg</code></p>
 
     <h3>Communication & Control</h3>
     <p>ROS nodes handle SLAM, AMCL localization, global/local planning (Dijkstra & DWA), recovery behaviors, and serial commands to microcontrollers. Frontend communicates via HTTP & WebSocket.</p>
-    <p><em>Image needed:</em> ROS & backend feedback loops: <code>assets/images/ros_architecture.png</code>, <code>assets/images/communication_diagram.png</code></p>
+    <p><em>Images needed:</em> ROS & backend feedback loops: <code>assets/images/ros_architecture.png</code>, <code>assets/images/communication_diagram.png</code></p>
 
     <h3>Visual & Safety Indicators</h3>
-    <p>RGB LED ring under chassis (green = motion, red = halted). Hardware e‑stop and bumper interrupts act as redundant safety layers.</p>
+    <p>RGB LED ring under chassis (green = motion, red = halted). Hardware e-stop and bumper interrupts act as redundant safety layers.</p>
     <p><em>Image needed:</em> LED indicator demo: <code>assets/images/led_ring.jpg</code></p>
+
+    <h3>Installation & Setup</h3>
+    <p><strong>Hardware:</strong> Plug in dual 12 V batteries; ensure each shows ~12.6 V. Activate e-stop for actuators. For charging, use the intelligent charger (<code>assets/images/battery_charger.jpg</code>).</p>
+    <p><strong>Software:</strong> Install ROS Melodic on Ubuntu (Jetson Nano), Python 2 for ROS nodes, Python 3.13.3 + Kivy for UI, Node.js 16 & Expo Go for mobile app.</p>
   </section>
 
   <!-- Standards -->
   <section id="standards">
     <h2>Engineering Standards</h2>
     <ul>
-      <li>IEEE 802.11/15: Wi‑Fi & Bluetooth networking</li>
+      <li>IEEE 802.11/15: Wi-Fi & Bluetooth networking</li>
       <li>NEC & NESC: Power distribution & grounding</li>
-      <li>ISO 12100: Machinery risk assessment & protective measures</li>
+      <li>ISO 12100: Machinery risk assessment & protective measures</li>
       <li>ADA: Accessible design in public spaces</li>
       <li>ISO/IEC Software & HTTP/JSON/WebSocket protocols</li>
     </ul>
@@ -145,49 +124,43 @@
     </div>
   </section>
 
+  <!-- Team -->
   <section id="team">
     <h2>Meet the Team</h2>
     <div class="team-grid">
-      
       <div class="team-member">
         <img src="assets/images/christian.jpg" alt="Christian So">
         <h3>Christian So</h3>
         <p>Project Manager & System Integrator</p>
       </div>
-      
       <div class="team-member">
         <img src="assets/images/celine.jpg" alt="Celine Chen">
         <h3>Celine Chen</h3>
         <p>Embedded Systems & UI Lead</p>
       </div>
-      
       <div class="team-member">
         <img src="assets/images/eric.jpg" alt="Eric Chen">
         <h3>Eric Chen</h3>
         <p>Firmware & Hardware Integration</p>
       </div>
-      
       <div class="team-member">
         <img src="assets/images/jacob.jpg" alt="Jacob Chin">
         <h3>Jacob Chin</h3>
         <p>Software Engineer & Biomed Specialist</p>
       </div>
-      
       <div class="team-member">
         <img src="assets/images/nicholas.jpg" alt="Nicholas Nguyen">
         <h3>Nicholas Nguyen</h3>
         <p>Mechanical Design & Manufacturing</p>
       </div>
-      
     </div>
   </section>
-  
 
   <footer>
     <img src="assets/images/logo_with_words.png" alt="" height="30">
     &copy; 2025 SmoothOperator. All rights reserved.
   </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
