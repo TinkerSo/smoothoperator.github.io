@@ -258,9 +258,7 @@ footer {
   color: #004182;
 }
 
-
-
-section h2 {
-  /* same offset as above */
-  scroll-margin-top: 800px;
+html {
+  /* Make all in-page jumps leave 80px of space at top */
+  scroll-padding-top: 80px;
 }
