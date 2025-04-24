@@ -257,3 +257,13 @@ footer {
 .team-member h3 a.linkedin:hover i {
   color: #004182;
 }
+
+html {
+  /* height of your header (adjust to match) */
+  scroll-padding-top: 80px;
+}
+
+section h2 {
+  /* same offset as above */
+  scroll-margin-top: 80px;
+}
