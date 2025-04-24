@@ -258,7 +258,11 @@ footer {
   color: #004182;
 }
 
-html {
-  /* Make all in-page jumps leave 80px of space at top */
-  scroll-padding-top: 800px;
+
+section::before {
+  content: '';
+  display: block;
+  height: 80px;        /* exactly your header’s height */
+  margin-top: -80px;   /* pull the real section back up */
+  visibility: hidden;
 }
