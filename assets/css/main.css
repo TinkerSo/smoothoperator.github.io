@@ -8,11 +8,12 @@
   --transition: 0.3s ease;
 }
 
+
 /* Ensure anchored sections scroll below the sticky header */
 html {
   scroll-padding-top: 80px;   /* match your header height */
 }
-section h2 {
+section {
   scroll-margin-top: 80px;    /* same offset for individual headers */
 }
 
