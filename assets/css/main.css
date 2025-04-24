@@ -158,6 +158,7 @@ p {
   gap: 2rem;
   margin-top: 2rem;
   justify-content: center;  /* <-- this will center the last row */
+  justify-items: center; 
 }
 .team-member {
   background: white;
