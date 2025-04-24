@@ -6,217 +6,150 @@
   <title>SmoothOperator</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2c3e50;
-      --secondary: #ecf0f1;
-      --accent: #3498db;
-      --text: #333;
-      --bg-light: #f7f9fa;
-      --transition: 0.3s ease;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; transition: var(--transition); }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
-      background-color: var(--bg-light);
-      line-height: 1.6;
-    }
-    header {
-      background: var(--primary);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .logo {
-      color: var(--secondary);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-    }
-    .nav-links li {
-      margin-left: 2rem;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--secondary);
-      font-weight: 500;
-    }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-    .hero {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: var(--secondary);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    .hero p {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section:nth-child(even) { background: white; }
-    section:nth-child(odd) { background: var(--secondary); }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      text-align: center;
-    }
-    p {
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      margin-top: 1rem;
-    }
-    .iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .team-member {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .team-member img {
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-      max-width: 150px;
-      margin-bottom: 1rem;
-    }
-    .team-member h3 {
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-    .team-member p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--primary);
-      color: var(--secondary);
-      margin-top: 2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">SmoothOperator</div>
       <ul class="nav-links">
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#need">Need</a></li>
-        <li><a href="#problem">Problem</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#executive">Executive Summary</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#operation">Operation</a></li>
+        <li><a href="#technical">Technical Background</a></li>
+        <li><a href="#standards">Standards</a></li>
+        <li><a href="#cost">Cost</a></li>
         <li><a href="#diagram">Diagram</a></li>
         <li><a href="#team">Team</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
+  <section id="hero" class="hero">
     <h1>SmoothOperator</h1>
-    <p>Your semi-autonomous luggage companion, engineered for accessibility and safety in hospitality environments.</p>
+    <p>Your semi-autonomous luggage assistant for enhanced accessibility in hospitality environments.</p>
   </section>
 
-  <section id="summary">
-    <h2>Project Summary</h2>
-    <p>
-      Since the supply of workers in the hospitality industry such as airports and hotels has significantly declined post-COVID, people with mobility impairments face more challenges in moving heavy objects such as their luggage to their desired destinations.
-      To improve their quality of life, SmoothOperator provides a general and elegant solution: a robotized dolly.
-      We will develop a network of sensors, actuators, algorithms, and communication protocols for SmoothOperator to semi-autonomously transport luggage through various consumer environments through pre-determined locations or by user commands.
-      In addition to the robotic platform, SmoothOperator system will have a user-friendly UI that allows users to connect and control a specific robot.
-      These controls will have a safety layer that avoids obstacles and puts human interaction at the forefront of its navigation planning.
-      SmoothOperator aims to revolutionize the hospitality industry, enhancing the quality of life for all, particularly individuals with mobility impairments.
-    </p>
+  <!-- Executive Summary -->
+  <section id="executive">
+    <h2>Executive Summary</h2>
+    <p>Post-COVID staffing shortages in the hospitality sector have increased mobility challenges, especially for the 61 million Americans living with disabilities. SmoothOperator is an interactive robotic assistant engineered to autonomously and safely transport luggage in environments such as airports and hotels. Our end-to-end system integrates custom hardware and software, including SLAM-based navigation, dynamic obstacle avoidance, and layered safety redundancies. Powered by a Jetson Nano & a dual‑battery system, and controlled via onboard touchscreen or a secure mobile app, it supports payloads up to 80 lbs and speeds up to 1.2 m/s.</p>
+    <p><em>Image needed:</em> Figure of the robot in action: <code>assets/images/robot_transporting_luggage.jpg</code></p>
   </section>
 
-  <section id="need">
-    <h2>Need for this Project</h2>
-    <p>
-      In fast-paced environments like airports and hotels, labor shortages are leading to a significant reduction in available service workers.
-      In response, 90% of airports and 36% of hotels have shifted to self-service solutions, according to a recent study by Deloitte.
-      However, these self-service options do not fully address the needs of individuals with mobility impairments, who find it particularly challenging to move heavy luggage or other objects without assistance.
-      As the number of available workers declines, the demand for solutions that cater to these individuals increases.
-    </p>
+  <!-- Installation & System Overview -->
+  <section id="installation">
+    <h2>System Overview & Installation</h2>
+    <h3>Block Diagram</h3>
+    <p>Our architecture comprises five processors—Jetson Nano (navigation & UI), Arduino Mega (motor & safety), Arduino Uno (ultrasonic), plus auxiliary modules—networked via serial, USB, and Wi‑Fi.</p>
+    <p><em>Image needed:</em> Overall block diagram: <code>assets/images/block_diagram.png</code></p>
+
+    <h3>User Interfaces</h3>
+    <p><strong>Onboard Touchscreen:</strong> A 21.5" display showing a friendly face with eyes/mouth animations, menu navigation, QR scanning, and lift controls.</p>
+    <p><em>Images needed:</em></p>
+    <ul>
+      <li>Face UI: <code>assets/images/ui_face.png</code></li>
+      <li>Menu Screen: <code>assets/images/ui_menu.png</code></li>
+      <li>Load/Control Screens: <code>assets/images/ui_load.png</code>, <code>assets/images/ui_manual.png</code></li>
+      <li>QR Scan & Confirmation: <code>assets/images/ui_scan.png</code>, <code>assets/images/ui_confirm.png</code></li>
+    </ul>
+
+    <h3>Physical Setup</h3>
+    <p>Chassis: 24"×24"×57" 80/20 aluminum, pool‑noodle bumpers with limit switches, dual DC barrel power jacks, and a compound gear train (10:1 reduction).</p>
+    <p><em>Images needed:</em> As-built robot (<code>assets/images/robot_full.jpg</code>), lifting mechanism (<code>assets/images/lift_mechanism.jpg</code>), drivetrain (<code>assets/images/drivetrain.jpg</code>), bumper (<code>assets/images/bumper.jpg</code>), electronics suite (<code>assets/images/electronics.jpg</code>).</p>
+
+    <h3>Setup & Support</h3>
+    <p><strong>Hardware:</strong> Plug in dual 12 V batteries; ensure each shows ~12.6 V. Activate e‑stop for actuators. For charging, use the intelligent charger (<code>assets/images/battery_charger.jpg</code>).</p>
+    <p><strong>Software:</strong> Install ROS Melodic on Ubuntu (Jetson Nano), Python 2 for ROS nodes, Python 3.13.3 + Kivy for UI, Node.js 16 & Expo Go for mobile app.</p>
   </section>
 
-  <section id="problem">
-    <h2>Problem Statement</h2>
-    <p>
-      In fast-paced environments requiring hospitality such as airports and hotels, there is a decline in service workers in the U.S.
-      For those with mobility impairments, moving luggage and heavy objects can be a daunting task.
-      As the number of service workers decreases, we aim to provide a new solution to enhance the quality of life by facilitating easy and safe movement of objects.
-      We seek to create a common platform that can be adaptable to these environments with the ability to help people with mobility impairments or to replace repetitive object delivery services.
-    </p>
+  <!-- Operation -->
+  <section id="operation">
+    <h2>Operation</h2>
+    <h3>Power On/Off</h3>
+    <p>Connect DC barrel jacks, verify indicator LEDs on Jetson & controllers, engage e‑stop remote. To shut down, use on‑screen shutdown, then unplug batteries.</p>
+    <p><em>Image needed:</em> DC jack connection: <code>assets/images/dc_jack.png</code></p>
+
+    <h3>Tele-Operation</h3>
+    <ol>
+      <li>Open mobile app; enter 4‑digit passcode shown onboard.</li>
+      <li>Use on‑screen gamepad for speed, lift, and drive controls.</li>
+    </ol>
+    <p><em>Image needed:</em> App lock & control screens: <code>assets/images/app_lock.png</code>, <code>assets/images/app_control.png</code></p>
+
+    <h3>Autonomous Mode</h3>
+    <ol>
+      <li>Press screen → Main Menu → Scan Boarding Pass.</li>
+      <li>Align QR code; confirm success (green flash).</li>
+      <li>Accept navigation; robot plans path & avoids obstacles.</li>
+      <li>At destination, option to return home.</li>
+      <li>In emergencies, remote e‑stop halts all motion.</li>
+    </ol>
+    <p><em>Images needed:</em> Boarding pass scan & confirm: <code>assets/images/scan_pass.png</code>, <code>assets/images/confirm_autonomous.png</code></p>
   </section>
 
+  <!-- Technical Background -->
+  <section id="technical">
+    <h2>Technical Background</h2>
+    <h3>Electronics & Power</h3>
+    <p>Dual 12 V 12 Ah batteries in parallel feed a fused distribution board. Subsystems are protected by dedicated fuses (logic 5 A, motors 10 A).</p>
+    <p><em>Images needed:</em> Power distribution diagram: <code>assets/images/power_distribution.png</code></p>
+
+    <h3>Motor & Locomotion</h3>
+    <p>Two DC motors with 10:1 gear reduction, controlled by RoboClaw 15 A via Arduino Mega. Encoders (8192 CPR) + MPU6050 IMU drive odometry.</p>
+    <p><em>Image needed:</em> Gear train and encoder assembly: <code>assets/images/gear_train.jpg</code></p>
+
+    <h3>Sensor Suite</nobr>
+    <p>360° RPLiDAR A1 for SLAM, HC-SR04 ultrasonics for low‑height obstacles, limit switches under foam bumpers, Logitech C270 for QR scanning.</p>
+    <p><em>Images needed:</em> Sensor cluster: <code>assets/images/sensor_suite.jpg</code></p>
+
+    <h3>Communication & Control</h3>
+    <p>ROS nodes handle SLAM, AMCL localization, global/local planning (Dijkstra & DWA), recovery behaviors, and serial commands to microcontrollers. Frontend communicates via HTTP & WebSocket.</p>
+    <p><em>Image needed:</em> ROS & backend feedback loops: <code>assets/images/ros_architecture.png</code>, <code>assets/images/communication_diagram.png</code></p>
+
+    <h3>Visual & Safety Indicators</h3>
+    <p>RGB LED ring under chassis (green = motion, red = halted). Hardware e‑stop and bumper interrupts act as redundant safety layers.</p>
+    <p><em>Image needed:</em> LED indicator demo: <code>assets/images/led_ring.jpg</code></p>
+  </section>
+
+  <!-- Standards -->
+  <section id="standards">
+    <h2>Engineering Standards</h2>
+    <ul>
+      <li>IEEE 802.11/15: Wi‑Fi & Bluetooth networking</li>
+      <li>NEC & NESC: Power distribution & grounding</li>
+      <li>ISO 12100: Machinery risk assessment & protective measures</li>
+      <li>ADA: Accessible design in public spaces</li>
+      <li>ISO/IEC Software & HTTP/JSON/WebSocket protocols</li>
+    </ul>
+  </section>
+
+  <!-- Cost Breakdown -->
+  <section id="cost">
+    <h2>Cost Breakdown</h2>
+    <p>Beta build cost: <strong>$1,918.75</strong>. Key contributors were 2D LiDAR, Jetson Nano, chassis hardware, and electronics provided by sponsors.</p>
+    <p>For full Bill of Materials, see <a href="assets/SmoothOperator_User_Manual.pdf" target="_blank">User Manual Appendix</a>.</p>
+  </section>
+
+  <!-- Interactive Diagram -->
   <section id="diagram">
-    <h2>Interactive System Diagram</h2>
+    <h2>System Diagram</h2>
     <div class="iframe-container">
       <iframe allowfullscreen src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13"></iframe>
     </div>
   </section>
 
+  <!-- Team -->
   <section id="team">
     <h2>Meet the Team</h2>
     <div class="team-grid">
       <div class="team-member">
-        <img src="images/member1.jpg" alt="Member Name">
-        <h3>Member Name</h3>
-        <p>Lead Robotics Engineer</p>
+        <img src="assets/images/christian.jpg" alt="Christian So">
+        <h3>Christian So</h3>
+        <p>Project Manager & System Integrator</p>
       </div>
-      <div class="team-member">
-        <img src="images/member2.jpg" alt="Member Name">
-        <h3>Member Name</h3>
-        <p>Software Developer</p>
-      </div>
-      <div class="team-member">
-        <img src="images/group_photo.jpg" alt="Team Photo">
-        <h3>The Full Team</h3>
-        <p>A passionate group dedicated to accessible autonomous solutions.</p>
-      </div>
+      <!-- Repeat for other members -->
     </div>
   </section>
 
