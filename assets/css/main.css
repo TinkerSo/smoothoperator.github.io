@@ -153,13 +153,13 @@ p {
 
 
 /* Team Grid (flex for row-level centering) */
-.team-grid {
+/* .team-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* center items in each row */
+  justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
-}
+} */
 .team-member {
   flex: 0 1 250px; /* fixed basis, allow shrink/grow */
   background: white;
