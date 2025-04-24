@@ -260,5 +260,5 @@ footer {
 
 html {
   /* Make all in-page jumps leave 80px of space at top */
-  scroll-padding-top: 80px;
+  scroll-padding-top: 800px;
 }
