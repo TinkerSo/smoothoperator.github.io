@@ -203,3 +203,19 @@
     padding: 2rem 1rem;
   }
 }
+
+.team-photo-banner {
+  text-align: center;
+  margin: 2rem 0;
+}
+.team-photo-banner img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.team-photo-banner .caption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+}
