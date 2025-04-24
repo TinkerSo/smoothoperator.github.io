@@ -1,6 +1,4 @@
-Here’s the **full** updated `main.css` with your section striping and tab colors restored:
 
-```css
 :root {
   --primary: #2c3e50;
   --secondary: #ecf0f1;
@@ -261,4 +259,3 @@ footer {
     padding: 2rem 1rem;
   }
 }
-```
