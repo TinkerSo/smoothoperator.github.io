@@ -233,27 +233,31 @@ footer {
   .nav-toggle {
     display: block;
   }
+  /* Dropdown menu under the header, compact width */
   .nav-links {
-    display: none;
     position: absolute;
-    top: 100%; left: 0; right: 0;
+    top: 100%;
+    right: 2rem;
     background: var(--primary);
     flex-direction: column;
-    align-items: center;
-    padding: 0;
-    gap: 0;
+    align-items: flex-start;
+    display: none;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
   .nav-links.open {
     display: flex;
   }
   .nav-links li {
-    width: 100%;
+    width: auto;
   }
   .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
+    width: auto;
+    white-space: nowrap;
   }
+  /* Adjust hero & sections for smaller screens */
   .hero {
     padding: 2rem 1rem;
   }
@@ -266,10 +270,12 @@ footer {
   section {
     padding: 2rem 1rem;
   }
+  /* Slightly smaller images */
   .section-image, .ui-image {
     margin: 1rem auto;
     max-width: 90%;
   }
+  /* Stack team grid vertically */
   .team-grid {
     flex-direction: column;
     gap: 1.5rem;
