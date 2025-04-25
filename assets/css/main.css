@@ -298,3 +298,19 @@ footer {
     max-width: 90%;
   }
 }
+
+/* Remove any link‐underline from the team‐member cards */
+a.team-member,
+a.team-member:link,
+a.team-member:visited,
+a.team-member:hover,
+a.team-member:active {
+  text-decoration: none;
+  color: inherit; /* keep your text color */
+}
+
+/* Also make sure none of the child headings or paragraphs re-inherit an underline */
+a.team-member h3,
+a.team-member p {
+  text-decoration: none;
+}
