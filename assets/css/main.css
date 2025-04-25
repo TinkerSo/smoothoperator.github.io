@@ -878,36 +878,30 @@ a.team-member p {
 
 .photo-carousel .slides {
   display: flex;
-  width: calc(100% * 3); /* if you have 3 slides */
+  width: calc(100% * 3); /* matches 3 slides */
   animation: slide-rotate 12s infinite;
 }
 
 .photo-carousel .slide {
-  position: relative;
   flex: 1 0 100%;
+  position: relative;
 }
 
 .photo-carousel .slide img {
-  display: block;
   width: 100%;
-  height: auto;
+  display: block;
 }
 
-/* caption styling */
 .photo-carousel .slide figcaption {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
   background: rgba(0,0,0,0.5);
   color: #fff;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  box-sizing: border-box;
+  padding: 0.75rem;
   text-align: center;
 }
 
-/* keyframes */
 @keyframes slide-rotate {
   0%   { transform: translateX(0%); }
   25%  { transform: translateX(0%); }
