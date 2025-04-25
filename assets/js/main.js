@@ -151,3 +151,69 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenus();
     }
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.dot');
+    const nextButton = document.querySelector('.gallery-button.next');
+    const prevButton = document.querySelector('.gallery-button.prev');
+    let currentIndex = 0;
+    let slideshowInterval;
+  
+    // Function to update the active slide
+    function updateSlidePosition() {
+      // Remove active class from all slides and dots
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      // Add active class to current slide and dot
+      slides[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+    }
+  
+    // Function to move to the next slide
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlidePosition();
+    }
+  
+    // Function to move to the previous slide
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlidePosition();
+    }
+  
+    // Event listeners for buttons
+    nextButton.addEventListener('click', function() {
+      nextSlide();
+      resetInterval();
+    });
+  
+    prevButton.addEventListener('click', function() {
+      prevSlide();
+      resetInterval();
+    });
+  
+    // Event listeners for dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        currentIndex = parseInt(this.getAttribute('data-index'));
+        updateSlidePosition();
+        resetInterval();
+      });
+    });
+  
+    // Start automatic slideshow
+    function startSlideshow() {
+      slideshowInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+  
+    // Reset interval on user interaction
+    function resetInterval() {
+      clearInterval(slideshowInterval);
+      startSlideshow();
+    }
+  
+    // Initialize slideshow
+    startSlideshow();
+  });

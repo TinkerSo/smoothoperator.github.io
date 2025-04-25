@@ -339,22 +339,32 @@
 </section>
 
 
-<!-- Photo Gallery-->
-<section id="gallery" class="photo-carousel">
-  <div class="slides">
-    <figure class="slide">
-      <img src="assets/images/gallery/hult_prize.jpg" alt="…">
-      <figcaption>University Wide Hultz Prize Pitching Competition - 3rd Place</figcaption>
-    </figure>
-    <figure class="slide">
-      <img src="assets/images/gallery/shark_tank_pitch.jpg" alt="…">
-      <figcaption>Pitching at BU ECE Shark Tank 2024</figcaption>
-    </figure>
-    <figure class="slide">
-      <img src="assets/images/gallery/video_production.gif" alt="…">
-      <figcaption>Setting up video production</figcaption>
-    </figure>
-    <!-- add more slides as needed -->
+<section id="gallery" class="photo-gallery">
+  <h2>Photo Gallery</h2>
+  <div class="gallery-container">
+    <button class="gallery-button prev">&lt;</button>
+    <div class="gallery-wrapper">
+      <div class="gallery-slide active">
+        <img src="assets/images/gallery/hult_prize.jpg" alt="Hult Prize Competition">
+        <div class="caption">University Wide Hultz Prize Pitching Competition - 3rd Place</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="assets/images/gallery/shark_tank_pitch.jpg" alt="Shark Tank Pitch">
+        <div class="caption">Pitching at BU ECE Shark Tank 2024</div>
+      </div>
+      <div class="gallery-slide">
+        <img src="assets/images/gallery/video_production.gif" alt="Video Production">
+        <div class="caption">Setting up video production</div>
+      </div>
+      <!-- Add more slides as needed -->
+    </div>
+    <button class="gallery-button next">&gt;</button>
+  </div>
+  <div class="gallery-dots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <!-- Add more dots to match the number of slides -->
   </div>
 </section>
 
