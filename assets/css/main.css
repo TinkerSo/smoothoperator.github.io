@@ -563,3 +563,26 @@ a.team-member p {
   margin-top: 0.75rem;
   text-align: center;
 }
+
+/* ── Hero Logo Float/Pop Animation ── */
+.hero-logo-wrapper {
+  display: inline-block;
+  margin-bottom: 1rem;
+  animation: float-logo 3s ease-in-out infinite;
+}
+
+.hero-logo {
+  max-width: 200px;
+  width: 50%;
+  height: auto;
+}
+
+/* gently bobs the logo up and down */
+@keyframes float-logo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
