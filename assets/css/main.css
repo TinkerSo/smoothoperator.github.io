@@ -882,14 +882,25 @@ a.team-member p {
   animation: slide-rotate 12s infinite;
 }
 
+/* make each “slide” a 16:9 box and hide overflow */
 .photo-carousel .slide {
-  flex: 1 0 100%;
   position: relative;
+  flex: 1 0 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
+/* have the <img> fill its container but never distort—
+   it will letterbox (contain) if the aspect doesn’t match exactly */
 .photo-carousel .slide img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
-  display: block;
+  height: 100%;
+  object-fit: contain;     /* use “cover” if you prefer a full-bleed crop instead */
+  object-position: center; /* center the photo in the box */
+  transform: translate(-50%, -50%);
 }
 
 .photo-carousel .slide figcaption {
