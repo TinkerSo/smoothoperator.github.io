@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // 4) Clicking any link collapses all menus,
-    //    but skip the "has-submenu" parents so their submenu can open
+    // 4) Clicking any link (except submenu‐toggler) collapses everything
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (link.classList.contains('has-submenu')) return;
@@ -60,9 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-    // 7) Close on scroll
-    document.addEventListener('scroll', () => {
-      if (links.classList.contains('open')) {
+    // 7) Close nav + dropdowns when you scroll (mobile only)
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 768 && links.classList.contains('open')) {
         links.classList.remove('open');
         dropdowns.forEach(dd => dd.classList.remove('open'));
       }
