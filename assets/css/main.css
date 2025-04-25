@@ -475,3 +475,36 @@ a.team-member p {
   margin: 0.5rem 0;
   font-size: 1.1rem;
 }
+
+.problem-visuals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.problem-visuals figure {
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+}
+
+.problem-visuals img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.problem-visuals img:hover {
+  transform: scale(1.03);
+}
+
+.problem-visuals figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+}
