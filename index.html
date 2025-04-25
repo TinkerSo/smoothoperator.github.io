@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
+  <header data-aos="fade-down">
     <nav>
       <div class="logo">
         <a href="#home">
@@ -33,17 +33,17 @@
   </header>
 
   <!-- Home -->
-  <section id="home" class="hero">
+  <section id="home" class="hero" data-aos="fade-up">
     <h1>SmoothOperator</h1>
     <p>Your semi-autonomous luggage assistant for accessible hospitality.</p>
-    <figure class="section-image">
+    <figure class="section-image" data-aos="zoom-in" data-aos-delay="200">
       <img src="assets/images/robot_transporting_luggage.jpg" alt="Robot transporting luggage" style="max-width:100%; height:auto;">
       <figcaption>Robot in action at an airport terminal.</figcaption>
     </figure>
   </section>
 
   <!-- Problem & Vision -->
-  <section id="problem" class="problem-vision">
+  <section id="problem" class="problem-vision" data-aos="fade-up" data-aos-delay="100">
     <h2>Problem & Vision</h2>
     <p class="intro">
       In the wake of COVID-19, airports and the hospitality sector have seen a significant drop in staffing —
@@ -68,61 +68,56 @@
       </div>
     </div>
   
-    <p class="summary">
+    <p class="summary" data-aos="fade-up" data-aos-delay="300">
       These compounding issues have left millions struggling to navigate airports independently. From long wait times for assistance
       to physical barriers in terminals, the lack of scalable solutions leaves many with mobility challenges behind.
     </p>
     <div class="problem-visuals">
-      <figure data-aos="fade-up">
+      <figure data-aos="fade-up" data-aos-delay="400">
         <img src="assets/images/airport_crowd.jpg" alt="Crowded airport with limited staff">
         <figcaption>Crowded terminals with limited staff highlight the growing service gap.</figcaption>
       </figure>
   
-      <figure data-aos="fade-up" data-aos-delay="100">
+      <figure data-aos="fade-up" data-aos-delay="500">
         <img src="assets/images/luggage_struggle.png" alt="Traveler struggling with heavy luggage">
         <figcaption>Mobility-impaired individuals face disproportionate travel burdens.</figcaption>
       </figure>
     </div>
   
-    
-      <!-- Our Vision -->
-      <div class="our-vision" data-aos="fade-up" data-aos-delay="300">
-        <h3>Our Vision</h3>
-        <p>
-          We envision a future where mobility challenges are no longer barriers to travel. <strong>SmoothOperator</strong> is our response —
-          a <strong>semi-autonomous robotic assistant</strong> designed to help travelers transport their luggage <em>safely, independently, and with dignity</em>.
-        </p>
-        <p>
-          Equipped with intelligent navigation, obstacle detection, and an easy-to-use interface, our robot transforms the travel experience for individuals with limited mobility, elderly passengers,
-          and anyone overwhelmed by today’s under-resourced airport environments.
-        </p>
-      </div>
-      <div class="video-wrapper" data-aos="fade-up" data-aos-delay="200">
-        <iframe
-          src="https://www.youtube.com/embed/ZL0n8kYwunc"
-          title="SmoothOperator in Action"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        <p class="caption">SmoothOperator supports independent navigation and lifting for all.</p>
-      </div>
+    <!-- Our Vision -->
+    <div class="our-vision" data-aos="fade-up" data-aos-delay="600">
+      <h3>Our Vision</h3>
+      <p>
+        We envision a future where mobility challenges are no longer barriers to travel. <strong>SmoothOperator</strong> is our response —
+        a <strong>semi-autonomous robotic assistant</strong> designed to help travelers transport their luggage <em>safely, independently, and with dignity</em>.
+      </p>
+      <p>
+        Equipped with intelligent navigation, obstacle detection, and an easy-to-use interface, our robot transforms the travel experience for individuals with limited mobility, elderly passengers,
+        and anyone overwhelmed by today’s under-resourced airport environments.
+      </p>
+    </div>
+    <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="700">
+      <iframe
+        src="https://www.youtube.com/embed/ZL0n8kYwunc"
+        title="SmoothOperator in Action"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <p class="caption">SmoothOperator supports independent navigation and lifting for all.</p>
+    </div>
   </section>
   
-
-
-  
-
   <!-- System Design -->
-  <section id="design">
+  <section id="design" data-aos="fade-up">
     <h2>System Design</h2>
     <h3>Architecture Overview</h3>
-    <figure class="section-image">
+    <figure class="section-image" data-aos="fade-up" data-aos-delay="100">
       <img src="assets/images/block_diagram.png" alt="System Block Diagram" style="max-width:100%;">
       <figcaption>End-to-end dataflow and hardware architecture.</figcaption>
     </figure>
-    <h3>Subsystems Overview</h3>
-    <ul>
+    <h3 data-aos="fade-up" data-aos-delay="200">Subsystems Overview</h3>
+    <ul data-aos="fade-up" data-aos-delay="300">
       <li><strong>Mechanical:</strong> Lift platform, chassis, 10:1 gear train.</li>
       <li><strong>Electrical:</strong> Dual 12 V batteries, motor drivers, safety fuses.</li>
       <li><strong>Software:</strong> ROS navigation stack, touchscreen UI, mobile app.</li>
@@ -130,7 +125,7 @@
   </section>
 
   <!-- Implementation & Results -->
-  <section id="results">
+  <section id="results" data-aos="fade-up">
     <h2>Implementation & Results</h2>
   
     <!-- V0 Prototype -->
@@ -152,7 +147,7 @@
   
     <!-- Final Prototype -->
     <div class="prototype-block reverse">
-      <div class="text-block" data-aos="fade-left">
+      <div class="text-block" data-aos="fade-left" data-aos-delay="100">
         <h3>Final Prototype: Fully Integrated Smart Assistant</h3>
         <p>The final SmoothOperator system integrated hardware and software subsystems, enabling semi-autonomous operation. The robot can scan boarding passes, plan routes, lift luggage, and navigate terminals while ensuring user safety.</p>
         <ul>
@@ -162,13 +157,13 @@
           <li>ROS-powered control and custom Android app</li>
         </ul>
       </div>
-      <div class="image-block" data-aos="fade-right">
+      <div class="image-block" data-aos="fade-right" data-aos-delay="200">
         <img src="assets/images/final_prototype.jpg" alt="Final prototype of SmoothOperator in action">
       </div>
     </div>
   
     <!-- Performance Results -->
-    <div class="results" data-aos="fade-up">
+    <div class="results" data-aos="fade-up" data-aos-delay="300">
       <h3>Performance Highlights</h3>
       <ul>
         <li><strong>Payload Capacity:</strong> 80 lbs tested across inclines</li>
@@ -179,36 +174,35 @@
     </div>
   </section>
   
-
   <!-- Team -->
-  <section id="team">
+  <section id="team" data-aos="fade-up">
     <h2>Meet the Team</h2>
-    <div class="team-photo-banner">
+    <div class="team-photo-banner" data-aos="fade-up" data-aos-delay="100">
       <img src="assets/images/group_photo_cropped.jpg" alt="Team celebration" style="max-width:100%; height:auto;">
       <p class="caption">Team 30 celebrating our Shark Tank win!</p>
     </div>
     <div class="team-grid">
-      <a href="https://www.linkedin.com/in/jacob-chin/" target="_blank" class="team-member">
+      <a href="https://www.linkedin.com/in/jacob-chin/" target="_blank" class="team-member" data-aos="zoom-in">
         <img src="assets/images/jacob_chin_pfp.jpeg" alt="Jacob Chin">
         <h3>Jacob Chin <i class="fab fa-linkedin"></i></h3>
         <p>Software Engineer &amp; Biomed Specialist</p>
       </a>
-      <a href="https://www.linkedin.com/in/christian-so/" target="_blank" class="team-member">
+      <a href="https://www.linkedin.com/in/christian-so/" target="_blank" class="team-member" data-aos="zoom-in" data-aos-delay="100">
         <img src="assets/images/christian_so_pfp.jpeg" alt="Christian So">
         <h3>Christian So <i class="fab fa-linkedin"></i></h3>
         <p>Project Manager &amp; System Integrator</p>
       </a>
-      <a href="https://www.linkedin.com/in/cceline/" target="_blank" class="team-member">
+      <a href="https://www.linkedin.com/in/cceline/" target="_blank" class="team-member" data-aos="zoom-in" data-aos-delay="200">
         <img src="assets/images/celine_chen_pfp.jpeg" alt="Celine Chen">
         <h3>Celine Chen <i class="fab fa-linkedin"></i></h3>
         <p>Embedded Systems &amp; UI Lead</p>
       </a>
-      <a href="https://www.linkedin.com/in/eric-chen96/" target="_blank" class="team-member">
+      <a href="https://www.linkedin.com/in/eric-chen96/" target="_blank" class="team-member" data-aos="zoom-in" data-aos-delay="300">
         <img src="assets/images/eric_chen_pfp.jpeg" alt="Eric Chen">
         <h3>Eric Chen <i class="fab fa-linkedin"></i></h3>
         <p>Firmware &amp; Hardware Integration</p>
       </a>
-      <a href="https://www.linkedin.com/in/nicholasnguyen" target="_blank" class="team-member">
+      <a href="https://www.linkedin.com/in/nicholasnguyen" target="_blank" class="team-member" data-aos="zoom-in" data-aos-delay="400">
         <img src="assets/images/nicholas_nguyen_pfp.jpeg" alt="Nicholas Nguyen">
         <h3>Nicholas Nguyen <i class="fab fa-linkedin"></i></h3>
         <p>Mechanical Design &amp; Manufacturing</p>
@@ -217,7 +211,7 @@
   </section>
 
   <!-- Resources -->
-  <section id="resources">
+  <section id="resources" data-aos="fade-up">
     <h2>Resources</h2>
     <ul>
       <li><a href="assets/SmoothOperator_User_Manual.pdf" target="_blank">User Manual (PDF)</a></li>
@@ -226,7 +220,7 @@
     </ul>
   </section>
 
-  <footer>
+  <footer data-aos="fade-up" data-aos-delay="100">
     <img src="assets/images/logo.png" alt="" height="30">
     &copy; 2025 SmoothOperator. All rights reserved.
   </footer>
@@ -234,8 +228,12 @@
   <script src="assets/js/main.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ once: true });
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-in-out',
+      offset: 100
+    });
   </script>
-
 </body>
 </html>
