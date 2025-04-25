@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toggle         = document.querySelector('.nav-toggle');
-    const links          = document.querySelector('.nav-links');
-    const navLinks       = document.querySelectorAll('.nav-links a');
-    const dropdowns      = document.querySelectorAll('.dropdown');
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const dropdowns = document.querySelectorAll('.dropdown');
     const submenuParents = document.querySelectorAll('.dropdown > .has-submenu');
   
     // 1) Hamburger button toggles the main menu
@@ -20,30 +20,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // 3) Mobile: tap on parent toggles its submenu only
-// 3) Mobile: tap on the parent link itself toggles its submenu,
-//    but let any links *inside* the submenu (<a href="#...">) work normally
-submenuParents.forEach(link => {
-    const submenu = link.nextElementSibling;
-    if (!submenu || !submenu.classList.contains('submenu')) return;
+    // 3) Mobile: tap on the parent link itself toggles its submenu,
+    //    but let any links *inside* the submenu (<a href="#...">) work normally
+    submenuParents.forEach(link => {
+      const submenu = link.nextElementSibling;
+      if (!submenu || !submenu.classList.contains('dropdown-menu')) return;
   
-    link.addEventListener('click', e => {
-      if (window.innerWidth <= 768) {
-        // only preventDefault when tapping *exactly* the parent link,
-        // not when tapping its child <a> inside the submenu
-        if (e.target === link) {
-          e.preventDefault();
-          // close any other open dropdowns
-          dropdowns.forEach(dd => dd !== link.parentElement && dd.classList.remove('open'));
-          // toggle this one
-          link.parentElement.classList.toggle('open');
+      link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+          // only preventDefault when tapping *exactly* the parent link,
+          // not when tapping its child <a> inside the submenu
+          if (e.target === link) {
+            e.preventDefault();
+            // close any other open dropdowns
+            dropdowns.forEach(dd => dd !== link.parentElement && dd.classList.remove('open'));
+            // toggle this one
+            link.parentElement.classList.toggle('open');
+          }
         }
-      }
+      });
     });
-  });
   
-  
-    // 4) Clicking any link (except submenu‐toggler) collapses everything
+    // 4) Clicking any link (except submenu-toggler) collapses everything
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (link.classList.contains('has-submenu')) return;
@@ -55,7 +53,7 @@ submenuParents.forEach(link => {
     // 5) Click outside nav closes any open menus (mobile only)
     document.addEventListener('click', e => {
       if (window.innerWidth <= 768) {
-        const insideNav   = !!e.target.closest('nav');
+        const insideNav = !!e.target.closest('nav');
         const isHamburger = !!e.target.closest('.nav-toggle');
         if (!insideNav && !isHamburger && links.classList.contains('open')) {
           links.classList.remove('open');
@@ -79,27 +77,77 @@ submenuParents.forEach(link => {
         dropdowns.forEach(dd => dd.classList.remove('open'));
       }
     });
+  
+    // ==== NEW ADDITION: SMOOTH SCROLLING FUNCTIONALITY ====
+    // Get all navigation links with href starting with #
+    const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.has-submenu)');
+    
+    // Add smooth scrolling to section links
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default jump behavior
+        
+        const targetId = this.getAttribute('href');
+        // Skip if it's just # or if it's a dropdown toggle
+        if (targetId === '#' || this.classList.contains('has-submenu')) return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          // Smooth scroll to the section
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL hash without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+  
+    // Add smooth scrolling for dropdown menu links too
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a[href^="#"]');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          // Smooth scroll to the section
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL hash without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
   });
   
-  // …your existing DOMContentLoaded handler…
-
-// helper to collapse everything
-function closeMenus() {
+  // Helper to collapse everything
+  function closeMenus() {
+    const links = document.querySelector('.nav-links');
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
     if (window.innerWidth <= 768 && links.classList.contains('open')) {
       links.classList.remove('open');
       dropdowns.forEach(dd => dd.classList.remove('open'));
     }
   }
   
-  // 5b) Collapse on any scroll/drag (mobile)
+  // Collapse on any scroll/drag (mobile)
   window.addEventListener('scroll', closeMenus);
   document.addEventListener('touchmove', closeMenus);
   document.addEventListener('wheel', closeMenus);
   
-  // 5c) Collapse if you tap outside the nav (also mobile)
+  // Collapse if you tap outside the nav (also mobile)
   document.addEventListener('touchstart', e => {
     if (window.innerWidth <= 768 && !e.target.closest('nav')) {
       closeMenus();
     }
   });
-  
