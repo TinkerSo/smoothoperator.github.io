@@ -706,3 +706,10 @@ a.team-member p {
   background: var(--accent);
   color: #fff;
 }
+
+.problem-visuals img {
+  transition: transform 0.3s ease;
+}
+.problem-visuals img:hover {
+  transform: scale(1.03);
+}
