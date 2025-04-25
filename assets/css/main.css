@@ -95,11 +95,13 @@ nav {
   font-size: 3rem;
   margin-bottom: 1rem;
   color: var(--primary);
+  text-align: center;
 }
 .hero p {
   max-width: 800px;
   margin: auto;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 /* ── Section Defaults ── */
