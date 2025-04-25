@@ -1027,3 +1027,45 @@ a.team-member p {
     bottom: 50px;
   }
 }
+
+/* Specifications Table */
+.specs-table {
+  margin: 1.5rem 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.specs-table table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background: white;
+}
+
+.specs-table th {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.8rem 1rem;
+}
+
+.specs-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.specs-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.specs-table tr:hover {
+  background-color: #f1f4f7;
+}
+
+@media (max-width: 768px) {
+  .specs-table th, .specs-table td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
