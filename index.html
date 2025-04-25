@@ -15,280 +15,114 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="#hero">
+        <a href="#home">
           <img src="assets/images/logo_with_words.png" alt="SmoothOperator Logo" style="max-height:40px; width:auto;">
         </a>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#executive">Executive Summary</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#operation">Operation</a></li>
-        <li><a href="#deep-dive">Technical Deep Dive</a></li>
-        <li><a href="#standards">Standards</a></li>
-        <li><a href="#cost">Cost</a></li>
-        <li><a href="#diagram">Diagram</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#problem">Problem & Vision</a></li>
+        <li><a href="#design">System Design</a></li>
+        <li><a href="#results">Implementation & Results</a></li>
         <li><a href="#team">Team</a></li>
+        <li><a href="#resources">Resources</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="hero" class="hero">
+  <!-- Home -->
+  <section id="home" class="hero">
     <h1>SmoothOperator</h1>
-    <p>Your semi-autonomous luggage assistant for enhanced accessibility in hospitality environments.</p>
+    <p>Your semi-autonomous luggage assistant for accessible hospitality.</p>
     <figure class="section-image">
-      <img src="assets/images/robot_transporting_luggage.jpg" alt="SmoothOperator transporting luggage autonomously" style="max-width:100%; height:auto;">
-      <figcaption>Robot transporting luggage in an airport terminal.</figcaption>
+      <img src="assets/images/robot_transporting_luggage.jpg" alt="Robot transporting luggage" style="max-width:100%; height:auto;">
+      <figcaption>Robot in action at an airport terminal.</figcaption>
     </figure>
   </section>
 
-  <!-- Executive Summary -->
-  <section id="executive">
-    <h2>Staffing Shortage & Mobility Impaired Inaccessibility</h2>
-    <p>Post-COVID staffing shortages in the hospitality sector have increased mobility challenges, especially for the 61 million Americans living with disabilities. SmoothOperator is an interactive robotic assistant engineered to autonomously and safely transport luggage in environments such as airports and hotels. Our end-to-end system integrates custom hardware and software, including SLAM-based navigation, dynamic obstacle avoidance, and layered safety redundancies. Powered by a Jetson Nano & a dual-battery system, and controlled via onboard touchscreen or a secure mobile app, it supports payloads up to 80 lbs and speeds up to 1.2 m/s.</p>
+  <!-- Problem & Vision -->
+  <section id="problem">
+    <h2>Problem & Vision</h2>
+    <p>Post-COVID staffing shortages and the inaccessibility faced by 61 million disabled Americans prompted our robotic luggage assistant for hotels and airports. Our goal is to reduce dependency on manual services while enhancing user independence.</p>
   </section>
 
-  <!-- Installation & System Overview -->
-  <section id="installation">
-    <h2>System Overview & Installation</h2>
-    <h3>Block Diagram</h3>
+  <!-- System Design -->
+  <section id="design">
+    <h2>System Design</h2>
+    <h3>Architecture Overview</h3>
     <figure class="section-image">
-      <img src="assets/images/block_diagram.png" alt="Overall system block diagram" style="max-width:100%; height:auto;">
+      <img src="assets/images/block_diagram.png" alt="System Block Diagram" style="max-width:100%;">
       <figcaption>End-to-end dataflow and hardware architecture.</figcaption>
     </figure>
-
-    <h3>User Interfaces</h3>
-    <p><strong>Onboard Touchscreen:</strong> A 21.5" display showing a friendly face with eyes/mouth animations, menu navigation, QR scanning, and lift controls.</p>
-    <div class="ui-gallery">
-      <figure class="ui-image">
-        <img src="assets/images/ui_face.png" alt="Onboard face UI" style="max-width:100%; height:auto;">
-        <figcaption>Friendly facial UI.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/ui_menu.png" alt="Onboard menu screen" style="max-width:100%; height:auto;">
-        <figcaption>Main menu interface.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/ui_load.png" alt="Load luggage screen" style="max-width:100%; height:auto;">
-        <figcaption>Luggage load controls.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/ui_manual.png" alt="Manual control screen" style="max-width:100%; height:auto;">
-        <figcaption>Tele-operation controls.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/ui_scan.png" alt="Boarding pass scan screen" style="max-width:100%; height:auto;">
-        <figcaption>QR code boarding pass scanner.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/ui_confirm.png" alt="Confirmation screen" style="max-width:100%; height:auto;">
-        <figcaption>Autonomous navigation confirmation.</figcaption>
-      </figure>
-    </div>
-
-    <h3>Physical Setup</h3>
-    <p>Chassis: 24"×24"×57" 80/20 aluminum with foam bumpers, dual DC barrel jacks, and a compound gear train.</p>
-    <div class="section-image">
-      <figure class="ui-image">
-        <img src="assets/images/robot_full.jpg" alt="Fully assembled robot" style="max-width:100%; height:auto;">
-        <figcaption>As-built robot with luggage platform.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/lift_mechanism.jpg" alt="Lifting mechanism" style="max-width:100%; height:auto;">
-        <figcaption>Linear actuator and fork lift mechanism.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/drivetrain.jpg" alt="Drivetrain design" style="max-width:100%; height:auto;">
-        <figcaption>10:1 compound gear train and belt drive.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/bumper.jpg" alt="Foam bumper with limit switches" style="max-width:100%; height:auto;">
-        <figcaption>Safety bumper and limit switches.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/electronics.jpg" alt="Electronics suite" style="max-width:100%; height:auto;">
-        <figcaption>Jetson Nano, Arduino Mega, and power distribution.</figcaption>
-      </figure>
-    </div>
-
-    <h3>Setup & Support</h3>
-    <div class="ui-gallery">
-      <figure class="ui-image">
-        <img src="assets/images/battery_charger.jpg" alt="Intelligent battery charger" style="max-width:100%; height:auto;">
-        <figcaption>12V/24V intelligent battery charger.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Operation -->
-  <section id="operation">
-    <h2>Operation</h2>
-    <h3>Power On/Off</h3>
-    <p>Connect DC barrel jacks, verify LEDs on Jetson & controllers, engage e-stop remote. To shut down, use on-screen shutdown then unplug batteries.</p>
-    <figure class="section-image">
-      <img src="assets/images/dc_jack.png" alt="DC barrel jack connection" style="max-width:100%; height:auto;">
-      <figcaption>DC barrel jack power connection.</figcaption>
-    </figure>
-
-    <h3>Tele-Operation</h3>
-    <ol>
-      <li>Open mobile app; enter 4-digit passcode shown onboard.</li>
-      <li>Use on-screen gamepad for speed, lift, and drive controls.</li>
-    </ol>
-    <div class="ui-gallery">
-      <figure class="ui-image">
-        <img src="assets/images/app_lock.png" alt="App lock screen" style="max-width:100%; height:auto;">
-        <figcaption>Mobile app passcode entry.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/app_control.png" alt="App control screen" style="max-width:100%; height:auto;">
-        <figcaption>Remote control interface.</figcaption>
-      </figure>
-    </div>
-
-    <h3>Autonomous Mode</h3>
-    <ol>
-      <li>Press screen → Main Menu → Scan Boarding Pass.</li>
-      <li>Align QR code; confirm success (green flash).</li>
-      <li>Accept navigation; robot plans path & avoids obstacles.</li>
-      <li>At destination, option to return home.</li>
-      <li>In emergencies, remote e-stop halts all motion.</li>
-    </ol>
-    <div class="ui-gallery">
-      <figure class="ui-image">
-        <img src="assets/images/scan_pass.png" alt="Scan boarding pass" style="max-width:100%; height:auto;">
-        <figcaption>Boarding pass scanning screen.</figcaption>
-      </figure>
-      <figure class="ui-image">
-        <img src="assets/images/confirm_autonomous.png" alt="Autonomous confirm" style="max-width:100%; height:auto;">
-        <figcaption>Confirmation screen for autonomous mode.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Technical Deep Dive -->
-  <section id="deep-dive">
-    <h2>Technical Deep Dive</h2>
-
-    <h3>Electronics & Power</h3>
-    <p>Dual 12V 12Ah batteries in parallel feed a fused distribution board. Subsystems are protected by dedicated fuses.</p>
-    <figure class="section-image">
-      <img src="assets/images/power_distribution.png" alt="Power distribution diagram" style="max-width:100%; height:auto;">
-      <figcaption>Fused power distribution board layout.</figcaption>
-    </figure>
-
-    <h3>Motor & Locomotion</h3>
-    <p>Two DC motors with 10:1 gear reduction, controlled via RoboClaw 15A. Encoders & MPU6050 IMU drive odometry.</p>
-    <figure class="section-image">
-      <img src="assets/images/gear_train.jpg" alt="Gear train assembly" style="max-width:100%; height:auto;">
-      <figcaption>Compound gear reduction system.</figcaption>
-    </figure>
-
-    <h3>Sensor Suite</h3>
-    <p>360° RPLiDAR A1 for SLAM, HC-SR04 ultrasonic sensors, and limit-switch bumpers. Logitech C270 camera for QR scanning.</p>
-    <figure class="section-image">
-      <img src="assets/images/sensor_suite.jpg" alt="Sensor cluster" style="max-width:100%; height:auto;">
-      <figcaption>Lidar, ultrasonics, and camera assembly.</figcaption>
-    </figure>
-
-    <h3>Communication & Control</h3>
-    <p>ROS navigation stack with SLAM, AMCL, Dijkstra's global planner & DWA local planner. HTTP & WebSocket bridge to frontends.</p>
-    <figure class="section-image">
-      <img src="assets/images/ros_architecture.png" alt="ROS node architecture" style="max-width:100%; height:auto;">
-      <figcaption>ROS node interactions and TF tree.</figcaption>
-    </figure>
-    <figure class="section-image">
-      <img src="assets/images/communication_diagram.png" alt="Backend communication diagram" style="max-width:100%; height:auto;">
-      <figcaption>HTTP, WebSocket, and serial feedback loops.</figcaption>
-    </figure>
-
-    <h3>Visual & Safety Indicators</h3>
-    <p>RGB LED ring indicates motion state. Hardware e-stop and bumpers provide redundant safety stops.</p>
-    <figure class="section-image">
-      <img src="assets/images/led_ring.jpg" alt="LED indicator ring" style="max-width:100%; height:auto;">
-      <figcaption>Programmable LED safety indicators.</figcaption>
-    </figure>
-
-    <h3>Installation & Setup</h3>
-    <p><strong>Hardware:</strong> Plug in dual batteries; verify voltage; engage e-stop. For charging, use the intelligent charger.</p>
-    <figure class="section-image">
-      <img src="assets/images/battery_charger.jpg" alt="Intelligent battery charger" style="max-width:100%; height:auto;">
-      <figcaption>12V/24V charger with car/battery mode.</figaption>
-    </figure>
-    <p><strong>Software:</strong> ROS Melodic on Ubuntu, Python 3.13.3 + Kivy, Node.js 16 & Expo Go for mobile.</p>
-  </section>
-
-  <!-- Standards -->
-  <section id="standards">
-    <h2>Engineering Standards</h2>
+    <h3>Subsystems Overview</h3>
     <ul>
-      <li>IEEE 802.11/15: Wireless networking protocols</li>
-      <li>NEC & NESC: Electrical safety and grounding</li>
-      <li>ISO 12100: Machinery risk assessment and protective measures</li>
-      <li>ADA: Accessibility guidelines for public spaces</li>
-      <li>ISO/IEC Software & HTTP/JSON/WebSocket for reliable interfacing</li>
+      <li><strong>Mechanical:</strong> Lift platform, chassis, 10:1 gear train.</li>
+      <li><strong>Electrical:</strong> Dual 12 V batteries, motor drivers, safety fuses.</li>
+      <li><strong>Software:</strong> ROS navigation stack, touchscreen UI, mobile app.</li>
     </ul>
   </section>
 
-  <!-- Cost Breakdown -->
-  <section id="cost">
-    <h2>Cost Breakdown</h2>
-    <p>Beta build cost: <strong>$1,918.75</strong>. Key components provided by sponsors included the LiDAR, Jetson Nano, and 8020 extrusions.</p>
-    <p>See full details in the <a href="assets/SmoothOperator_User_Manual.pdf" target="_blank">User Manual Appendix</a>.</p>
-  </section>
-
-  <!-- Interactive Diagram -->
-  <section id="diagram">
-    <h2>System Diagram</h2>
-    <div class="iframe-container">
-      <iframe allowfullscreen src="https://lucid.app/documents/embedded/25d4638f-ee40-4c43-b2c7-f2eaf08b1c13" style="width:100%; height:600px; border:none; border-radius:8px;"></iframe>
-    </div>
+  <!-- Implementation & Results -->
+  <section id="results">
+    <h2>Implementation & Results</h2>
+    <p>We achieved reliable SLAM navigation, dynamic obstacle avoidance, and a secure mobile control interface. The system transports up to 80 lbs at 1.2 m/s with multiple safety redundancies.</p>
+    <h3>Key Demonstrations</h3>
+    <figure class="section-image">
+      <img src="assets/images/ros_architecture.png" alt="ROS Architecture" style="max-width:100%;">
+      <figcaption>ROS node interactions & TF tree.</figcaption>
+    </figure>
+    <figure class="section-image">
+      <img src="assets/images/lift_mechanism.jpg" alt="Lift Mechanism" style="max-width:100%;">
+      <figcaption>Forklift-style lifting mechanism.</figcaption>
+    </figure>
   </section>
 
   <!-- Team -->
-<section id="team">
-  <h2>Meet the Team</h2>
-  <div class="team-photo-banner">
-    <img src="assets/images/group_photo_cropped.jpg"
-         alt="Team 30 Shark Tank win trophies"
-         style="max-width:100%; height:auto;">
-    <p class="caption">Team 30 celebrating our Shark Tank Win!</p>
-  </div>
-  <div class="team-grid">
-    <a href="https://www.linkedin.com/in/jacob-chin/" target="_blank" class="team-member">
-      <img src="assets/images/jacob_chin_pfp.jpeg"
-           alt="Jacob Chin">
-      <h3>Jacob Chin <i class="fab fa-linkedin"></i></h3>
-      <p>Software Engineer &amp; Biomed Specialist</p>
-    </a>
-    <a href="https://www.linkedin.com/in/christian-so/" target="_blank" class="team-member">
-      <img src="assets/images/christian_so_pfp.jpeg"
-           alt="Christian So">
-      <h3>Christian So <i class="fab fa-linkedin"></i></h3>
-      <p>Project Manager &amp; System Integrator</p>
-    </a>
-    <a href="https://www.linkedin.com/in/cceline/" target="_blank" class="team-member">
-      <img src="assets/images/celine_chen_pfp.jpeg"
-           alt="Celine Chen">
-      <h3>Celine Chen <i class="fab fa-linkedin"></i></h3>
-      <p>Embedded Systems &amp; UI Lead</p>
-    </a>
-    <a href="https://www.linkedin.com/in/eric-chen96/" target="_blank" class="team-member">
-      <img src="assets/images/eric_chen_pfp.jpeg"
-           alt="Eric Chen">
-      <h3>Eric Chen <i class="fab fa-linkedin"></i></h3>
-      <p>Firmware &amp; Hardware Integration</p>
-    </a>
-    <a href="https://www.linkedin.com/in/nicholasnguyen" target="_blank" class="team-member">
-      <img src="assets/images/nicholas_nguyen_pfp.jpeg"
-           alt="Nicholas Nguyen">
-      <h3>Nicholas Nguyen <i class="fab fa-linkedin"></i></h3>
-      <p>Mechanical Design &amp; Manufacturing</p>
-    </a>
-  </div>
-</section>
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div class="team-photo-banner">
+      <img src="assets/images/group_photo_cropped.jpg" alt="Team celebration" style="max-width:100%; height:auto;">
+      <p class="caption">Team 30 celebrating our Shark Tank win!</p>
+    </div>
+    <div class="team-grid">
+      <a href="https://www.linkedin.com/in/jacob-chin/" target="_blank" class="team-member">
+        <img src="assets/images/jacob_chin_pfp.jpeg" alt="Jacob Chin">
+        <h3>Jacob Chin <i class="fab fa-linkedin"></i></h3>
+        <p>Software Engineer &amp; Biomed Specialist</p>
+      </a>
+      <a href="https://www.linkedin.com/in/christian-so/" target="_blank" class="team-member">
+        <img src="assets/images/christian_so_pfp.jpeg" alt="Christian So">
+        <h3>Christian So <i class="fab fa-linkedin"></i></h3>
+        <p>Project Manager &amp; System Integrator</p>
+      </a>
+      <a href="https://www.linkedin.com/in/cceline/" target="_blank" class="team-member">
+        <img src="assets/images/celine_chen_pfp.jpeg" alt="Celine Chen">
+        <h3>Celine Chen <i class="fab fa-linkedin"></i></h3>
+        <p>Embedded Systems &amp; UI Lead</p>
+      </a>
+      <a href="https://www.linkedin.com/in/eric-chen96/" target="_blank" class="team-member">
+        <img src="assets/images/eric_chen_pfp.jpeg" alt="Eric Chen">
+        <h3>Eric Chen <i class="fab fa-linkedin"></i></h3>
+        <p>Firmware &amp; Hardware Integration</p>
+      </a>
+      <a href="https://www.linkedin.com/in/nicholasnguyen" target="_blank" class="team-member">
+        <img src="assets/images/nicholas_nguyen_pfp.jpeg" alt="Nicholas Nguyen">
+        <h3>Nicholas Nguyen <i class="fab fa-linkedin"></i></h3>
+        <p>Mechanical Design &amp; Manufacturing</p>
+      </a>
+    </div>
+  </section>
 
+  <!-- Resources -->
+  <section id="resources">
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="assets/SmoothOperator_User_Manual.pdf" target="_blank">User Manual (PDF)</a></li>
+      <li><a href="https://github.com/your-repo" target="_blank">GitHub Repository</a></li>
+      <li><a href="assets/cost_breakdown.pdf" target="_blank">Bill of Materials</a></li>
+    </ul>
+  </section>
 
   <footer>
     <img src="assets/images/logo.png" alt="" height="30">
