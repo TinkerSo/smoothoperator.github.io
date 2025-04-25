@@ -934,17 +934,25 @@ a.team-member p {
   0%, 24% {
     transform: translateX(0);
   }
-  33%, 57% {
+  25%, 29% { /* Quick transition period */
     transform: translateX(-25%);
   }
-  66%, 90% {
+  30%, 54% {
+    transform: translateX(-25%);
+  }
+  55%, 59% { /* Quick transition period */
     transform: translateX(-50%);
   }
-  99.99%, 100% {
+  60%, 84% {
+    transform: translateX(-50%);
+  }
+  85%, 89% { /* Quick transition period */
+    transform: translateX(-75%);
+  }
+  90%, 100% {
     transform: translateX(-75%);
   }
 }
-
 /* Pause animation on hover */
 .photo-slider:hover .slider-track {
   animation-play-state: paused;
