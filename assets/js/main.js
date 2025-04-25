@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const toggle       = document.querySelector('.nav-toggle');
-    const links        = document.querySelector('.nav-links');
-    const navLinks     = document.querySelectorAll('.nav-links a');
-    const dropdowns    = document.querySelectorAll('.dropdown');
+    const toggle         = document.querySelector('.nav-toggle');
+    const links          = document.querySelector('.nav-links');
+    const navLinks       = document.querySelectorAll('.nav-links a');
+    const dropdowns      = document.querySelectorAll('.dropdown');
     const submenuParents = document.querySelectorAll('.dropdown > .has-submenu');
-    const submenuLinks = document.querySelectorAll('.dropdown .submenu a');
   
     // 1) Hamburger button toggles the main menu
     toggle.addEventListener('click', () => {
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // 2) Desktop: hover shows dropdown, mobile: tap toggles
     dropdowns.forEach(dd => {
-      // Desktop hover:
       dd.addEventListener('mouseenter', () => {
         if (window.innerWidth > 768) dd.classList.add('open');
       });
@@ -26,15 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
     submenuParents.forEach(link => {
       link.addEventListener('click', e => {
         if (window.innerWidth <= 768) {
-          e.preventDefault();                // prevent jump to #…
+          e.preventDefault();
           link.parentElement.classList.toggle('open');
         }
       });
     });
   
-    // 4) Clicking any link (top‐level or submenu) collapses all menus
+    // 4) Clicking any link collapses all menus,
+    //    but skip the "has-submenu" parents so their submenu can open
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
+        if ( link.classList.contains('has-submenu') ) return;
         links.classList.remove('open');
         dropdowns.forEach(dd => dd.classList.remove('open'));
       });
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   
-    // 6) Also recalc behavior on resize (optional)
+    // 6) Reset on resize
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         links.classList.remove('open');
