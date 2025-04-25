@@ -81,3 +81,25 @@ submenuParents.forEach(link => {
     });
   });
   
+  // …your existing DOMContentLoaded handler…
+
+// helper to collapse everything
+function closeMenus() {
+    if (window.innerWidth <= 768 && links.classList.contains('open')) {
+      links.classList.remove('open');
+      dropdowns.forEach(dd => dd.classList.remove('open'));
+    }
+  }
+  
+  // 5b) Collapse on any scroll/drag (mobile)
+  window.addEventListener('scroll', closeMenus);
+  document.addEventListener('touchmove', closeMenus);
+  document.addEventListener('wheel', closeMenus);
+  
+  // 5c) Collapse if you tap outside the nav (also mobile)
+  document.addEventListener('touchstart', e => {
+    if (window.innerWidth <= 768 && !e.target.closest('nav')) {
+      closeMenus();
+    }
+  });
+  
