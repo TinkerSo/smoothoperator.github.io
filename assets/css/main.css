@@ -364,37 +364,51 @@ a.team-member p {
 
 .stat-card {
   background: white;
-  padding: 1.5rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  width: 250px;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  flex: 1 1 280px;
+  max-width: 320px;
   transition: transform 0.3s ease;
 }
+
 .stat-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px);
 }
+
 .stat-card h3 {
   font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-.stat-card p {
-  font-size: 0.95rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.stat-card p {
+  font-size: 1rem;
   color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: center; /* ensures clean center alignment */
+  word-spacing: normal; /* prevents excessive spaces */
 }
+
 .stat-card a {
-  display: inline-block;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.85rem;
-  background-color: var(--accent);
-  color: white;
-  border-radius: 6px;
+  background: #3498db;
+  color: #fff;
   text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
 }
+
 .stat-card a:hover {
-  background-color: #2a75c3;
+  background: #2c80b4;
 }
+
 
 .problem-vision .summary {
   font-size: 1.05rem;
