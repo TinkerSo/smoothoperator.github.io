@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //    but skip the "has-submenu" parents so their submenu can open
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if ( link.classList.contains('has-submenu') ) return;
+        if (link.classList.contains('has-submenu')) return;
         links.classList.remove('open');
         dropdowns.forEach(dd => dd.classList.remove('open'));
       });
@@ -59,13 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
         dropdowns.forEach(dd => dd.classList.remove('open'));
       }
     });
-  });
-
   
     // 7) Close on scroll
     document.addEventListener('scroll', () => {
-        if (linksContainer.classList.contains('open')) {
-          linksContainer.classList.remove('open');
-          dropdownItems.forEach(d => d.classList.remove('open'));
-        }
-      });
+      if (links.classList.contains('open')) {
+        links.classList.remove('open');
+        dropdowns.forEach(dd => dd.classList.remove('open'));
+      }
+    });
+  });
+  
