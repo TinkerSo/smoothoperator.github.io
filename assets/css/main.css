@@ -196,6 +196,14 @@ section:nth-of-type(even) {
   text-decoration: none;
 }
 
+.team-member img {
+  width: 100%;
+  max-width: 150px;  /* whatever size you want */
+  height: 150px;     /* make height = width */
+  object-fit: cover; /* crops to fill the box without distortion */
+  border-radius: 50%;
+}
+
 .team-member:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
