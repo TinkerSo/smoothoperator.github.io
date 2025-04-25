@@ -164,6 +164,199 @@
   
     <!-- Detailed Subsections -->
     <div class="subsections-grid">
+      <!-- Mechanical Construction -->
+      <div class="subsection" id="mechanical" data-aos="fade-up" data-aos-delay="100">
+        <h3>Mechanical Construction</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/mechanical_thumb.jpg" alt="Mechanical construction" class="preview-image">
+          <p>
+            Lightweight 80/20 T-slot aluminum frame with 10:1 gear train, high-torque DC motors, and 
+            impact-absorbing bumpers with limit switches for collision protection.
+          </p>
+          <button class="learn-more-btn" data-target="mechanical-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="mechanical-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/mechanical_exploded.jpg" alt="Exploded view of chassis">
+              <p class="image-caption">Exploded view of chassis and drive system</p>
+            </div>
+            <div class="details-content">
+              <h4>Technical Specifications</h4>
+              <ul>
+                <li><strong>Frame:</strong> 80/20 T-slot aluminum (1" profile)</li>
+                <li><strong>Drive:</strong> 10:1 gear reduction with 6" rubber wheels</li>
+                <li><strong>Motors:</strong> 12V DC with 285 RPM, 125 oz-in torque</li>
+                <li><strong>Lift System:</strong> Linear actuator with 80lb capacity</li>
+                <li><strong>Safety:</strong> Force-sensitive bumpers with limit switches</li>
+              </ul>
+              <p>The chassis design prioritizes stability during movement and lifting operations while maintaining a compact footprint for navigating narrow spaces in airport terminals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Sensor Suite -->
+      <div class="subsection" id="sensor" data-aos="fade-up" data-aos-delay="200">
+        <h3>Sensor Suite</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/sensor_thumb.jpg" alt="Sensor suite" class="preview-image">
+          <p>
+            360° RPLiDAR A1, ultrasonic sensors for low obstacles, high-precision wheel encoders, 
+            IMU for odometry, and camera for QR code scanning.
+          </p>
+          <button class="learn-more-btn" data-target="sensor-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="sensor-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/sensor_layout.jpg" alt="Sensor layout diagram">
+              <p class="image-caption">Sensor positioning and coverage zones</p>
+            </div>
+            <div class="details-content">
+              <h4>Sensor Specifications</h4>
+              <ul>
+                <li><strong>LiDAR:</strong> RPLiDAR A1 (360°, 12m range, 8000 samples/sec)</li>
+                <li><strong>Ultrasonic:</strong> 6× HC-SR04 sensors (2-400cm range)</li>
+                <li><strong>Encoders:</strong> Quadrature encoders with 8192 CPR resolution</li>
+                <li><strong>IMU:</strong> MPU6050 6-axis accelerometer and gyroscope</li>
+                <li><strong>Camera:</strong> Logitech C270 HD (720p) with custom QR code algorithm</li>
+              </ul>
+              <p>Our sensor fusion approach combines data from all sensors to create reliable environmental mapping and obstacle detection, with redundant systems for safety-critical functions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Navigation System -->
+      <div class="subsection" id="navigation" data-aos="fade-up" data-aos-delay="300">
+        <h3>Navigation System</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/navigation_thumb.jpg" alt="Navigation system" class="preview-image">
+          <p>
+            ROS-powered navigation with AMCL localization, Dijkstra global planning, and 
+            DWA local planning for real-time path following and obstacle avoidance.
+          </p>
+          <button class="learn-more-btn" data-target="navigation-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="navigation-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/navigation_map.jpg" alt="Navigation system visualization">
+              <p class="image-caption">ROS navigation stack with real-time path planning</p>
+            </div>
+            <div class="details-content">
+              <h4>Navigation Architecture</h4>
+              <ul>
+                <li><strong>Localization:</strong> Adaptive Monte Carlo Localization (AMCL)</li>
+                <li><strong>Global Planner:</strong> Dijkstra algorithm with cost maps</li>
+                <li><strong>Local Planner:</strong> Dynamic Window Approach (DWA)</li>
+                <li><strong>Recovery:</strong> Custom behaviors for handling edge cases</li>
+                <li><strong>Command Interface:</strong> Serial communication to motor controllers</li>
+              </ul>
+              <p>The navigation system pre-loads terminal maps and can dynamically update them based on detected obstacles, allowing for efficient path planning even in crowded environments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- User Interface -->
+      <div class="subsection" id="ui" data-aos="fade-up" data-aos-delay="400">
+        <h3>User Interface</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/ui_thumb.jpg" alt="User interface" class="preview-image">
+          <p>
+            21.5" touchscreen with Kivy-based UI featuring facial animations and boarding pass scanning, 
+            plus a React Native mobile app for remote control.
+          </p>
+          <button class="learn-more-btn" data-target="ui-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="ui-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/ui_screens.jpg" alt="UI screenshots">
+              <p class="image-caption">Touchscreen and mobile app interfaces</p>
+            </div>
+            <div class="details-content">
+              <h4>Interface Features</h4>
+              <ul>
+                <li><strong>Display:</strong> 21.5" 1080p touchscreen with anti-glare coating</li>
+                <li><strong>Onboard UI:</strong> Python/Kivy framework with animated assistant</li>
+                <li><strong>Mobile App:</strong> React Native with Bluetooth Low Energy pairing</li>
+                <li><strong>Boarding Pass:</strong> QR code scanner with airline API integration</li>
+                <li><strong>Accessibility:</strong> High-contrast mode, voice commands, multilingual support</li>
+              </ul>
+              <p>Our dual-interface approach allows users to interact directly with the robot or remotely via smartphone, with a 4-digit pairing code ensuring secure connections and privacy protection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Electronics Architecture -->
+      <div class="subsection" id="electronics" data-aos="fade-up" data-aos-delay="500">
+        <h3>Electronics Architecture</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/electronics_thumb.jpg" alt="Electronics architecture" class="preview-image">
+          <p>
+            Dual 12V batteries, Jetson Nano for high-level processing, Arduino controllers for 
+            sensors and motors, all networked via USB/UART and Wi-Fi.
+          </p>
+          <button class="learn-more-btn" data-target="electronics-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="electronics-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/electronics_diagram.jpg" alt="Electronics diagram">
+              <p class="image-caption">System architecture and power distribution</p>
+            </div>
+            <div class="details-content">
+              <h4>Electronics Specifications</h4>
+              <ul>
+                <li><strong>Power:</strong> 2× 12V 12Ah lead-acid batteries with integrated BMS</li>
+                <li><strong>Main Computer:</strong> Nvidia Jetson Nano (4GB RAM, 128GB SSD)</li>
+                <li><strong>Microcontrollers:</strong> Arduino Mega 2560 for motors, Nano for sensors</li>
+                <li><strong>Motor Drivers:</strong> Dual BTS7960 43A H-Bridge controllers</li>
+                <li><strong>Networking:</strong> Integrated Wi-Fi 5 and Bluetooth 5.0 connectivity</li>
+              </ul>
+              <p>The dual-battery system can hot-swap without interruption, providing extended runtime and redundancy. The segregated computing architecture isolates critical safety systems from higher-level functions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Safety Protocols -->
+      <div class="subsection" id="safety" data-aos="fade-up" data-aos-delay="600">
+        <h3>Safety Protocols</h3>
+        <div class="subsection-preview">
+          <img src="assets/images/safety_thumb.jpg" alt="Safety systems" class="preview-image">
+          <p>
+            Multiple safeguards including hardware bumpers, ultrasonic detection, radio e-stop,
+            and watchdog processes for fail-safe operation.
+          </p>
+          <button class="learn-more-btn" data-target="safety-details">Learn More</button>
+        </div>
+        <div class="subsection-details" id="safety-details">
+          <div class="details-grid">
+            <div class="details-image">
+              <img src="assets/images/safety_systems.jpg" alt="Safety systems diagram">
+              <p class="image-caption">Layered safety architecture and emergency systems</p>
+            </div>
+            <div class="details-content">
+              <h4>Safety Features</h4>
+              <ul>
+                <li><strong>Physical:</strong> 360° soft bumpers with limit switch triggers</li>
+                <li><strong>Sensing:</strong> Redundant ultrasonic blind-spot detection</li>
+                <li><strong>Remote:</strong> 433MHz wireless emergency stop with 50m range</li>
+                <li><strong>Software:</strong> Multi-level watchdog timers and self-diagnostics</li>
+                <li><strong>Compliance:</strong> Meets ISO 13482:2014 personal care robot standards</li>
+              </ul>
+              <p>Our safety-first design philosophy implements multiple independent systems that trigger motor cutoff when obstacles are detected. The robot automatically enters a safe state upon any component failure, protecting users and bystanders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="subsections-grid">
       <div class="subsection" id="mechanical-construction" data-aos="fade-up" data-aos-delay="100">
         <h3>Mechanical Construction</h3>
         <p>
@@ -218,7 +411,7 @@
           to halt operations on critical faults.
         </p>
       </div>
-    </div>
+    </div> -->
   
     <!-- V0 Prototype -->
     <div class="prototype-block">
