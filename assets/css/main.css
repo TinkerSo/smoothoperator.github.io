@@ -866,3 +866,59 @@ a.team-member p {
 }
 
 
+.photo-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.photo-carousel .slides {
+  display: flex;
+  width: calc(100% * 3); /* if you have 3 slides */
+  animation: slide-rotate 12s infinite;
+}
+
+.photo-carousel .slide {
+  position: relative;
+  flex: 1 0 100%;
+}
+
+.photo-carousel .slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* caption styling */
+.photo-carousel .slide figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* keyframes */
+@keyframes slide-rotate {
+  0%   { transform: translateX(0%); }
+  25%  { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  58%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  91%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+/* pause on hover */
+.photo-carousel:hover .slides {
+  animation-play-state: paused;
+}
