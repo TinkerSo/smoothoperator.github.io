@@ -217,3 +217,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize slideshow
     startSlideshow();
   });
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if there's a hash in the URL when the page loads
+    if (window.location.hash) {
+      // Get the target element
+      const targetId = window.location.hash;
+      const targetElement = document.querySelector(targetId);
+      
+      // If the target element exists, scroll to it with a slight delay
+      if (targetElement) {
+        // Use setTimeout to ensure this happens after the page has fully loaded
+        setTimeout(function() {
+          // Scroll to the element with smooth behavior
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Alternatively, you can use window.scrollTo for more control
+          // const headerOffset = 80; // match your header height
+          // const elementPosition = targetElement.getBoundingClientRect().top;
+          // const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          // window.scrollTo({
+          //   top: offsetPosition,
+          //   behavior: "smooth"
+          // });
+        }, 100);
+      }
+    }
+  });
