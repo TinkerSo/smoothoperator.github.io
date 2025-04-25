@@ -733,41 +733,59 @@ a.team-member p {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-/* desktop: show on hover */
+/* 1) Hide submenu by default (all screen sizes) */
+.nav-links .dropdown-menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2) Desktop: show on hover */
 @media (min-width: 769px) {
-  .dropdown:hover > .dropdown-menu {
+  .nav-links .dropdown:hover > .dropdown-menu {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--primary);
+    min-width: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
-  .dropdown-menu li a {
+  .nav-links .dropdown-menu li a {
     color: #fff;
     padding: 0.5rem 1rem;
     display: block;
     text-decoration: none;
   }
-  .dropdown-menu li a:hover {
+  .nav-links .dropdown-menu li a:hover {
     background: var(--accent);
   }
 }
 
-/* mobile: submenu is static, and will be shown by adding .open */
+/* 3) Mobile: submenu only when .open is present */
 @media (max-width: 768px) {
-  .dropdown-menu {
-    position: static;
+  .nav-links .dropdown-menu {
+    position: static; /* so it just pushes the rest down */
     background: var(--primary);
-    width: 100%;
-    box-shadow: none;
   }
-  .dropdown.open > .dropdown-menu {
+  /* this is the magic selector */
+  .nav-links .dropdown.open > .dropdown-menu {
     display: flex;
+    flex-direction: column;
   }
-  .dropdown-menu li a {
+  .nav-links .dropdown-menu li a {
     color: var(--secondary);
     padding: 0.75rem 1rem;
     display: block;
     text-decoration: none;
   }
-  .dropdown-menu li a:hover {
+  .nav-links .dropdown-menu li a:hover {
     background: var(--accent);
     color: #fff;
   }
 }
+
