@@ -113,17 +113,53 @@
   <!-- Implementation & Results -->
   <section id="results">
     <h2>Implementation & Results</h2>
-    <p>We achieved reliable SLAM navigation, dynamic obstacle avoidance, and a secure mobile control interface. The system transports up to 80 lbs at 1.2 m/s with multiple safety redundancies.</p>
-    <h3>Key Demonstrations</h3>
-    <figure class="section-image">
-      <img src="assets/images/ros_architecture.png" alt="ROS Architecture" style="max-width:100%;">
-      <figcaption>ROS node interactions & TF tree.</figcaption>
-    </figure>
-    <figure class="section-image">
-      <img src="assets/images/lift_mechanism.jpg" alt="Lift Mechanism" style="max-width:100%;">
-      <figcaption>Forklift-style lifting mechanism.</figcaption>
-    </figure>
+  
+    <!-- V0 Prototype -->
+    <div class="prototype-block">
+      <div class="text-block" data-aos="fade-right">
+        <h3>Version 0: Initial Proof-of-Concept</h3>
+        <p>Our first prototype focused on basic locomotion, remote control, and structural integrity. Built using a simple chassis and manual control system, V0 served as a functional feasibility test of motor capabilities, wheelbase stability, and weight-bearing performance.</p>
+        <ul>
+          <li>Custom-cut 80/20 aluminum frame</li>
+          <li>Basic dual-motor drivetrain</li>
+          <li>Manual lift operation</li>
+          <li>Arduino-controlled with joystick input</li>
+        </ul>
+      </div>
+      <div class="image-block" data-aos="fade-left">
+        <img src="assets/images/v0_prototype.jpg" alt="V0 prototype of SmoothOperator">
+      </div>
+    </div>
+  
+    <!-- Final Prototype -->
+    <div class="prototype-block reverse">
+      <div class="text-block" data-aos="fade-left">
+        <h3>Final Prototype: Fully Integrated Smart Assistant</h3>
+        <p>The final SmoothOperator system integrated hardware and software subsystems, enabling semi-autonomous operation. The robot can scan boarding passes, plan routes, lift luggage, and navigate terminals while ensuring user safety.</p>
+        <ul>
+          <li>SLAM-based localization and navigation</li>
+          <li>Touchscreen-based interface and passcode pairing</li>
+          <li>Linear actuator with safe overload lift design</li>
+          <li>ROS-powered control and custom Android app</li>
+        </ul>
+      </div>
+      <div class="image-block" data-aos="fade-right">
+        <img src="assets/images/final_prototype.jpg" alt="Final prototype of SmoothOperator in action">
+      </div>
+    </div>
+  
+    <!-- Performance Results -->
+    <div class="results" data-aos="fade-up">
+      <h3>Performance Highlights</h3>
+      <ul>
+        <li><strong>Payload Capacity:</strong> 80 lbs tested across inclines</li>
+        <li><strong>Speed:</strong> Max 1.2 m/s with safe braking</li>
+        <li><strong>Battery Runtime:</strong> 3+ hours continuous use</li>
+        <li><strong>User Testing:</strong> 92% success rate in navigation trials</li>
+      </ul>
+    </div>
   </section>
+  
 
   <!-- Team -->
   <section id="team">

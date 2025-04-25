@@ -427,3 +427,37 @@ a.team-member p {
   color: #555;
   font-style: italic;
 }
+
+.prototype-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.prototype-block.reverse {
+  flex-direction: row-reverse;
+}
+.text-block {
+  flex: 1 1 45%;
+}
+.image-block {
+  flex: 1 1 45%;
+}
+.image-block img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.results {
+  margin-top: 3rem;
+  text-align: center;
+}
+.results ul {
+  list-style: none;
+  padding: 0;
+}
+.results li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
