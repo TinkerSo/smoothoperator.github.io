@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="icon" href="favicon_new.ico" type="image/x-icon">
   <meta charset="UTF-8">
@@ -8,8 +9,9 @@
   <title>SmoothOperator</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Your Main CSS -->
   <link rel="stylesheet" href="assets/css/main.css">
-  <!-- Font Awesome for LinkedIn icons -->
+  <!-- Font Awesome (for LinkedIn icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -34,18 +36,21 @@
 
   <!-- Home -->
   <section id="home" class="hero" data-aos="fade-up">
--   <h1 data-aos="fade-up" data-aos-delay="200">SmoothOperator</h1>
-+   <div class="hero-logo-wrapper" data-aos="zoom-in" data-aos-delay="200">
-+     <img
-+       src="assets/images/logo_with_words.png"
-+       alt="SmoothOperator Logo"
-+       class="hero-logo"
-+     >
-+   </div>
-    <p data-aos="fade-up" data-aos-delay="300">
-      Your semi-autonomous luggage assistant for accessible hospitality. (UPDATE LOGO)
+    <div class="hero-logo-wrapper" data-aos="zoom-in" data-aos-delay="200">
+      <img
+        src="assets/images/logo_with_words.png"
+        alt="SmoothOperator Logo"
+        class="hero-logo"
+      >
+    </div>
+    <p
+      class="hero-subtitle"
+      data-aos="fade-up"
+      data-aos-delay="300"
+      style="font-size:1.5rem; font-weight:bold;"
+    >
+      Your semi-autonomous luggage assistant for accessible hospitality.
     </p>
- 
   </section>
 
   <!-- Problem & Vision -->
@@ -60,17 +65,23 @@
       <div class="stat-card" data-aos="fade-up">
         <h3>61M+</h3>
         <p>Americans live with a disability</p>
-        <a href="https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html" target="_blank">CDC, 2020 ↗</a>
+        <a href="https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html" target="_blank">
+          CDC, 2020 ↗
+        </a>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
         <h3>31%</h3>
         <p>Drop in hospitality workforce post-COVID</p>
-        <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">BLS, 2022 ↗</a>
+        <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">
+          BLS, 2022 ↗
+        </a>
       </div>
       <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
         <h3>Airport Service Gaps</h3>
         <p>Wheelchair users left stranded due to labor shortages</p>
-        <a href="https://www.cbc.ca/news/canada/toronto/pearson-wheelchairs-service-labour-1.3774494" target="_blank">CBC, 2016 ↗</a>
+        <a href="https://www.cbc.ca/news/canada/toronto/pearson-wheelchairs-service-labour-1.3774494" target="_blank">
+          CBC, 2016 ↗
+        </a>
       </div>
     </div>
   
@@ -78,6 +89,7 @@
       These compounding issues have left millions struggling to navigate airports independently. From long wait times for assistance
       to physical barriers in terminals, the lack of scalable solutions leaves many with mobility challenges behind.
     </p>
+  
     <div class="problem-visuals">
       <figure data-aos="fade-up" data-aos-delay="400">
         <img src="assets/images/airport_crowd.jpg" alt="Crowded airport with limited staff">
@@ -95,13 +107,16 @@
       <h3>Our Vision</h3>
       <p>
         We envision a future where mobility challenges are no longer barriers to travel. <strong>SmoothOperator</strong> is our response —
-        a <strong>semi-autonomous robotic assistant</strong> designed to help travelers transport their luggage <em>safely, independently, and with dignity</em>.
+        a <strong>semi-autonomous robotic assistant</strong> designed to help travelers transport their luggage 
+        <em>safely, independently, and with dignity</em>.
       </p>
       <p>
-        Equipped with intelligent navigation, obstacle detection, and an easy-to-use interface, our robot transforms the travel experience for individuals with limited mobility, elderly passengers,
-        and anyone overwhelmed by today’s under-resourced airport environments.
+        Equipped with intelligent navigation, obstacle detection, and an easy-to-use interface, our robot transforms the travel 
+        experience for individuals with limited mobility, elderly passengers, and anyone overwhelmed by today’s 
+        under-resourced airport environments.
       </p>
     </div>
+  
     <div class="video-wrapper" data-aos="zoom-in" data-aos-delay="700">
       <iframe
         src="https://www.youtube.com/embed/ZL0n8kYwunc"
@@ -119,7 +134,7 @@
     <h2>System Design</h2>
     <h3>Architecture Overview</h3>
     <figure class="section-image" data-aos="fade-up" data-aos-delay="100">
-      <img src="assets/images/block_diagram.png" alt="System Block Diagram" style="max-width:100%;">
+      <img src="assets/images/block_diagram.png" alt="System Block Diagram">
       <figcaption>End-to-end dataflow and hardware architecture.</figcaption>
     </figure>
     <h3 data-aos="fade-up" data-aos-delay="200">Subsystems Overview</h3>
@@ -138,7 +153,11 @@
     <div class="prototype-block">
       <div class="text-block" data-aos="fade-right">
         <h3>Version 0: Initial Proof-of-Concept</h3>
-        <p>Our first prototype focused on basic locomotion, remote control, and structural integrity. Built using a simple chassis and manual control system, V0 served as a functional feasibility test of motor capabilities, wheelbase stability, and weight-bearing performance.</p>
+        <p>
+          Our first prototype focused on basic locomotion, remote control, and structural integrity. Built 
+          using a simple chassis and manual control system, V0 served as a functional feasibility test 
+          of motor capabilities, wheelbase stability, and weight-bearing performance.
+        </p>
         <ul>
           <li>Custom-cut 80/20 aluminum frame</li>
           <li>Basic dual-motor drivetrain</li>
@@ -155,7 +174,11 @@
     <div class="prototype-block reverse">
       <div class="text-block" data-aos="fade-left" data-aos-delay="100">
         <h3>Final Prototype: Fully Integrated Smart Assistant</h3>
-        <p>The final SmoothOperator system integrated hardware and software subsystems, enabling semi-autonomous operation. The robot can scan boarding passes, plan routes, lift luggage, and navigate terminals while ensuring user safety.</p>
+        <p>
+          The final SmoothOperator system integrated hardware and software subsystems, enabling semi-autonomous 
+          operation. The robot can scan boarding passes, plan routes, lift luggage, and navigate terminals while 
+          ensuring user safety.
+        </p>
         <ul>
           <li>SLAM-based localization and navigation</li>
           <li>Touchscreen-based interface and passcode pairing</li>
@@ -184,7 +207,7 @@
   <section id="team" data-aos="fade-up">
     <h2>Meet the Team</h2>
     <div class="team-photo-banner" data-aos="fade-up" data-aos-delay="100">
-      <img src="assets/images/group_photo_cropped.jpg" alt="Team celebration" style="max-width:100%; height:auto;">
+      <img src="assets/images/group_photo_cropped.jpg" alt="Team celebration">
       <p class="caption">Team 30 celebrating our Shark Tank win!</p>
     </div>
     <div class="team-grid">
@@ -217,23 +240,46 @@
   </section>
 
   <!-- Resources -->
-<section id="resources">
-  <h2>Resources</h2>
-  <div class="resources-grid">
-    <a href="assets/SmoothOperator_User_Manual.pdf" target="_blank" class="resource-card">
-      <img src="assets/images/pdf-icon.png" alt="PDF icon">
-      <span>User Manual (PDF)</span>
-    </a>
-    <a href="https://github.com/your-repo" target="_blank" class="resource-card">
-      <img src="assets/images/github-icon.png" alt="GitHub icon">
-      <span>GitHub Repository</span>
-    </a>
-    <a href="assets/cost_breakdown.pdf" target="_blank" class="resource-card">
-      <img src="assets/images/bom-icon.png" alt="Bill of Materials icon">
-      <span>Bill of Materials</span>
-    </a>
-  </div>
-</section>
+  <section id="resources" data-aos="fade-up">
+    <h2>Resources</h2>
+    <ul>
+      <li>
+        <a href="assets/SmoothOperator_User_Manual.pdf" target="_blank">
+          <img src="assets/images/pdf_icon.png" alt="PDF icon" style="height:24px; vertical-align:middle;">
+          User Manual (PDF)
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/your-repo" target="_blank">
+          <img src="assets/images/github_icon.png" alt="GitHub icon" style="height:24px; vertical-align:middle;">
+          GitHub Repository
+        </a>
+      </li>
+      <li>
+        <a href="assets/cost_breakdown.pdf" target="_blank">
+          <img src="assets/images/bom_icon.png" alt="Bill of Materials icon" style="height:24px; vertical-align:middle;">
+          Bill of Materials
+        </a>
+      </li>
+    </ul>
+  </section>
 
+  <footer data-aos="fade-up" data-aos-delay="100">
+    <img src="assets/images/logo.png" alt="" height="30">
+    &copy; 2025 SmoothOperator. All rights reserved.
+  </footer>
+
+  <!-- Your main JS -->
+  <script src="assets/js/main.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-in-out',
+      offset: 100
+    });
+  </script>
 </body>
 </html>
