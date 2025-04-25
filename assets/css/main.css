@@ -798,52 +798,71 @@ a.team-member p {
 }
 
 /* 2. Desktop (hover to open) */
+/* ── Desktop: show nav-links & dropdown on hover ── */
 @media (min-width: 769px) {
-  .nav-links .dropdown {
-    position: relative;      /* needed so submenu can be absolute */
-  }
-  .nav-links .dropdown:hover > .dropdown-menu {
+  /* Always display the main nav on desktop */
+  .nav-links {
     display: flex;
-    flex-direction: column;
+  }
+
+  /* Position each dropdown parent relative */
+  .nav-links .dropdown {
+    position: relative;
+  }
+
+  /* Hide the submenu by default and absolutely position it */
+  .nav-links .dropdown .submenu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background: var(--primary);
+    list-style: none;
+    padding: 0.5rem 0;
     border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    z-index: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
-  .nav-links .dropdown-menu li a {
+
+  /* On hover, reveal the submenu */
+  .nav-links .dropdown:hover .submenu {
+    display: block;
+  }
+
+  /* Style submenu links */
+  .nav-links .dropdown .submenu li {
+    margin: 0;
+  }
+  .nav-links .dropdown .submenu li a {
     display: block;
     padding: 0.5rem 1rem;
-    color: #fff;
-    text-decoration: none;
+    color: var(--secondary);
+    white-space: nowrap;
   }
-  .nav-links .dropdown-menu li a:hover {
+  .nav-links .dropdown .submenu li a:hover {
     background: var(--accent);
+    color: #fff;
   }
 }
 
-/* 3. Mobile (only show when .open class is toggled) */
+/* ── Mobile: hide nav-links by default, show when “.open” ── */
 @media (max-width: 768px) {
-  .nav-links .dropdown-menu {
-    position: static;  /* so it pushes content down */
-    background: var(--primary);
-  }
-  .nav-links .dropdown.open > .dropdown-menu {
-    display: flex;
+  .nav-links {
+    display: none;
     flex-direction: column;
   }
-  .nav-links .dropdown-menu li a {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: var(--secondary);
-    text-decoration: none;
+  .nav-links.open {
+    display: flex;
   }
-  .nav-links .dropdown-menu li a:hover {
-    background: var(--accent);
-    color: #fff;
+
+  /* Collapse all submenus by default */
+  .nav-links .submenu {
+    display: none;
+    flex-direction: column;
+  }
+  /* Only show when its parent has .open */
+  .nav-links .dropdown.open .submenu {
+    display: flex;
   }
 }
+
 
