@@ -63,12 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   
-  // Optional: also close on scroll
-  document.addEventListener('scroll', () => {
-    if (linksContainer.classList.contains('open')) {
-      linksContainer.classList.remove('open');
-      dropdownItems.forEach(dd => dd.classList.remove('open'));
-    }
-  });
+
   
   
