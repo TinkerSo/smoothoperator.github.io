@@ -888,30 +888,29 @@ a.team-member p {
   flex: 1 0 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* have the <img> fill its container but never distort—
-   it will letterbox (contain) if the aspect doesn’t match exactly */
 .photo-carousel .slide img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 100%;
   height: 100%;
-  object-fit: contain;     /* use “cover” if you prefer a full-bleed crop instead */
-  object-position: center; /* center the photo in the box */
-  transform: translate(-50%, -50%);
+  object-fit: contain;  /* Keeps image fully visible */
+  object-position: center;
 }
 
-
-.photo-carousel .slide figcaption {
+.photo-carousel figcaption {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   color: #fff;
-  padding: 0.75rem;
+  font-size: 1rem;
+  padding: 0.5rem;
   text-align: center;
+  z-index: 10;
+  font-style: italic;
 }
 
 @keyframes slide-rotate {
