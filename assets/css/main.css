@@ -403,3 +403,27 @@ a.team-member p {
   color: var(--text);
 }
 
+.problem-visuals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.problem-visuals figure {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.problem-visuals img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+.problem-visuals figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+}
