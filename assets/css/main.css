@@ -898,7 +898,7 @@ a.team-member p {
   display: flex;
   width: 400%; /* For 4 slides (including duplicates) */
   height: 100%;
-  animation: rotate-slides 18s infinite linear;
+  animation: rotate-slides 8s infinite linear;
 }
 
 .slider-slide {
