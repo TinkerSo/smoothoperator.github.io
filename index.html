@@ -29,7 +29,7 @@
         <!-- the dropdown item -->
         <li class="dropdown">
           <a href="#results" class="has-submenu">Implementation & Results ▾</a>
-          <ul class="submenu">
+          <ul class="dropdown-menu">
             <li><a href="#mechanical">Mechanical Construction</a></li>
             <li><a href="#sensor">Sensor Suite</a></li>
             <li><a href="#navigation">Navigation System</a></li>
@@ -349,70 +349,12 @@
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle         = document.querySelector('.nav-toggle');
-      const linksContainer = document.querySelector('.nav-links');
-      const dropdownItems  = document.querySelectorAll('.dropdown');
-      const dropdownToggles= document.querySelectorAll('.has-submenu');
-      const allNavLinks    = document.querySelectorAll('.nav-links a');
-    
-      // 1) Hamburger toggles the mobile menu
-      toggle.addEventListener('click', () => {
-        linksContainer.classList.toggle('open');
-      });
-    
-      // 2) Desktop hover for dropdowns
-      dropdownItems.forEach(dd => {
-        dd.addEventListener('mouseenter', () => {
-          if (window.innerWidth > 768) dd.classList.add('open');
-        });
-        dd.addEventListener('mouseleave', () => {
-          if (window.innerWidth > 768) dd.classList.remove('open');
-        });
-      });
-    
-      // 3) Mobile: tapping the parent link toggles its submenu only
-      dropdownToggles.forEach(trigger => {
-        trigger.addEventListener('click', e => {
-          if (window.innerWidth <= 768) {
-            e.preventDefault(); // don’t navigate away
-            trigger.parentElement.classList.toggle('open');
-          }
-        });
-      });
-    
-      // 4) Clicking any link _other than_ a dropdown trigger closes everything
-      allNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          // if this was a dropdown toggle, bail and let step (3) handle it
-          if (link.classList.contains('has-submenu')) return;
-          // otherwise collapse menu + any open dropdowns
-          linksContainer.classList.remove('open');
-          dropdownItems.forEach(dd => dd.classList.remove('open'));
-        });
-      });
-    
-      // 5) Click outside on mobile closes the menu
-      document.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
-          const clickedInsideNav = !!e.target.closest('nav');
-          const clickedHamburger = !!e.target.closest('.nav-toggle');
-          if (!clickedInsideNav && !clickedHamburger && linksContainer.classList.contains('open')) {
-            linksContainer.classList.remove('open');
-            dropdownItems.forEach(dd => dd.classList.remove('open'));
-          }
-        }
-      });
-    
-      // 6) On resize → reset states
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-          linksContainer.classList.remove('open');
-          dropdownItems.forEach(dd => dd.classList.remove('open'));
-        }
-      });
+    AOS.init({
+      once: true,
+      duration: 700,
+      easing: 'ease-in-out',
+      offset: 100
     });
-    </script>
-    
+  </script>
 </body>
 </html>
