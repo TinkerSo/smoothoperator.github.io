@@ -508,3 +508,28 @@ a.team-member p {
   color: #555;
   font-style: italic;
 }
+
+.our-vision {
+  background-color: #f0f4f8;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.our-vision h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.our-vision p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
