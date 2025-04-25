@@ -149,6 +149,64 @@
   <section id="results" data-aos="fade-up">
     <h2>Implementation & Results</h2>
   
+    <!-- Detailed Subsections -->
+    <div class="subsections-grid">
+      <div class="subsection" id="mechanical-construction" data-aos="fade-up" data-aos-delay="100">
+        <h3>Mechanical Construction</h3>
+        <p>
+          The chassis is built from 80/20 T-slot aluminum extrusions, providing a lightweight yet
+          robust frame. A 10:1 compound gear train and high-torque DC motors deliver the torque
+          needed to transport up to 80 lbs, while pool-noodle bumpers with limit switches add
+          passive collision protection.
+        </p>
+      </div>
+  
+      <div class="subsection" id="sensor-suite" data-aos="fade-up" data-aos-delay="200">
+        <h3>Sensor Suite</h3>
+        <p>
+          We integrate a 360° RPLiDAR A1 for SLAM, HC-SR04 ultrasonic sensors under the chassis for
+          low-lying obstacle detection, wheel encoders (8192 CPR) and an MPU6050 IMU for odometry,
+          plus a Logitech C270 camera for QR boarding-pass scanning.
+        </p>
+      </div>
+  
+      <div class="subsection" id="navigation-system" data-aos="fade-up" data-aos-delay="300">
+        <h3>Navigation System</h3>
+        <p>
+          The ROS navigation stack combines AMCL-based localization, Dijkstra’s global planner and
+          DWA local planner, and custom recovery behaviors. Velocity commands are sent over
+          serial to an Arduino Mega, ensuring real-time path following and obstacle avoidance.
+        </p>
+      </div>
+  
+      <div class="subsection" id="user-interface" data-aos="fade-up" data-aos-delay="400">
+        <h3>User Interface</h3>
+        <p>
+          Onboard, a 21.5" touch screen runs a Kivy-based UI with friendly facial animations and
+          boarding-pass scanning. Remotely, a React Native mobile app (paired via a 4-digit code)
+          provides tele-operation gamepad controls and lift commands.
+        </p>
+      </div>
+  
+      <div class="subsection" id="electronics-architecture" data-aos="fade-up" data-aos-delay="500">
+        <h3>Electronics Architecture</h3>
+        <p>
+          Dual 12 V 12 Ah lead-acid batteries in parallel feed a fused distribution board. A Jetson Nano
+          handles high-level processing, while two Arduinos manage sensors and motor controllers,
+          all networked via USB/UART and Wi-Fi.
+        </p>
+      </div>
+  
+      <div class="subsection" id="safety-protocols" data-aos="fade-up" data-aos-delay="600">
+        <h3>Safety Protocols</h3>
+        <p>
+          Layered safety features include hardware bumpers with kill-switch limit triggers, ultrasonic
+          blind-spot detection, a radio-frequency e-stop, and software watchdogs in the ROS stack
+          to halt operations on critical faults.
+        </p>
+      </div>
+    </div>
+  
     <!-- V0 Prototype -->
     <div class="prototype-block">
       <div class="text-block" data-aos="fade-right">
@@ -192,7 +250,7 @@
     </div>
   
     <!-- Performance Results -->
-    <div class="results" data-aos="fade-up" data-aos-delay="300">
+    <div class="results" data-aos="fade-up" data-aos-delay="700">
       <h3>Performance Highlights</h3>
       <ul>
         <li><strong>Payload Capacity:</strong> 80 lbs tested across inclines</li>
@@ -202,6 +260,7 @@
       </ul>
     </div>
   </section>
+  
   
   <!-- Team -->
   <section id="team" data-aos="fade-up">
