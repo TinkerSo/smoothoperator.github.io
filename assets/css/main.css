@@ -1052,11 +1052,11 @@ a.team-member p {
   color: #555;
 }
 
-.specs-container {
+.specs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
+  grid-template-rows: repeat(3, auto); /* Force 3 rows */
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 .specs-card {
@@ -1101,19 +1101,20 @@ a.team-member p {
   color: #333;
 }
 
-.user-testing-banner {
-  display: flex;
-  align-items: center;
+/* Special styling for the testing card */
+.user-testing {
   background: var(--primary);
-  padding: 1.5rem;
-  border-radius: 8px;
   color: white;
-  justify-content: center;
 }
 
-.test-icon {
-  font-size: 2rem;
-  margin-right: 1.5rem;
+.user-testing .specs-detail h4,
+.user-testing .specs-detail p {
+  color: white;
+}
+
+.success-icon {
+  background: white;
+  color: var(--accent);
   animation: pulse 2s infinite;
 }
 
@@ -1132,22 +1133,17 @@ a.team-member p {
   }
 }
 
-.test-detail h4 {
-  margin: 0 0 0.3rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .specs-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    grid-template-rows: auto;
+  }
 }
 
-.test-detail p {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .specs-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+@media (max-width: 576px) {
+  .specs-grid {
+    grid-template-columns: 1fr; /* 1 column on small screens */
   }
   
   .specs-card {
@@ -1158,14 +1154,5 @@ a.team-member p {
     width: 40px;
     height: 40px;
     font-size: 1rem;
-  }
-  
-  .user-testing-banner {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .test-icon {
-    margin: 0 0 1rem;
   }
 }
