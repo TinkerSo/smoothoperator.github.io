@@ -884,20 +884,20 @@ a.team-member p {
 
 /* make each “slide” a 16:9 box and hide overflow */
 .photo-carousel .slide {
-position: relative;
-flex: 1 0 100%;
-aspect-ratio: 9 / 16;  /* This forces a specific aspect ratio */
-overflow: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
+  position: relative;
+  flex: 1 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Add some padding */
 }
 
 .photo-carousel .slide img {
-width: 100%;
-height: 100%;
-object-fit: contain;  /* This is trying to fit the image within the container */
-object-position: center;
+  max-width: 100%;
+  max-height: 400px; /* Set a maximum height instead of forcing dimensions */
+  width: auto;
+  height: auto;
+  object-fit: scale-down; /* Use scale-down instead of contain */
 }
 
 .photo-carousel figcaption {
@@ -912,7 +912,6 @@ object-position: center;
   z-index: 10;
   font-style: italic;
 }
-
 @keyframes slide-rotate {
   0%   { transform: translateX(0%); }
   25%  { transform: translateX(0%); }
