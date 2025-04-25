@@ -42,6 +42,7 @@ header {
   background: var(--primary);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
+  
 }
 nav {
   display: flex;
@@ -321,4 +322,21 @@ a.team-member:active {
 a.team-member h3,
 a.team-member p {
   text-decoration: none;
+}
+
+.stat-banner {
+  background: #3498db;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+.vision-callout {
+  background: #fdfdfd;
+  border-left: 5px solid var(--accent);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }

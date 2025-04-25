@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="icon" href="favicon_new.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,45 +43,44 @@
   </section>
 
   <!-- Problem & Vision -->
-  <section id="problem">
-    <h2>Problem & Vision</h2>
+  <section id="problem" class="problem-vision">
+    <h2 data-aos="fade-up">Problem & Vision</h2>
   
-    <!-- Visual: Airport crowd -->
-    <figure class="section-image">
-      <img src="assets/images/airport_crowd.jpg" alt="Crowded airport with limited staff">
-      <figcaption>Crowded terminals with limited staff highlight the growing service gap.</figcaption>
-    </figure>
-  
-    <!-- Highlighted Stats -->
-    <div style="text-align: center; font-size: 1.5rem; font-weight: 600; margin: 2rem 0;">
-      <p>👩‍🦽 <strong>61 million Americans</strong> live with a disability</p>
-      <p>🧳 <strong>Post-COVID staffing shortages</strong> have left service gaps in airports & hotels</p>
-      <p>📉 <a href="https://www.cbc.ca/news/canada/toronto/pearson-wheelchairs-service-labour-1.3774494" target="_blank" style="text-decoration: underline; color: #2c3e50;"><strong>Wheelchair services at Pearson Airport</strong> fail to meet demand</a></p>
+    <div class="stat-banner" data-aos="zoom-in">
+      <strong>61 million Americans</strong> live with disabilities, many facing mobility challenges in airports. 
+      <a href="https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html" target="_blank">[CDC, 2020]</a>
     </div>
   
-    <p>
-      Across the hospitality and travel sectors, understaffing and manual processes disproportionately affect mobility-impaired individuals. From waiting for wheelchairs at crowded terminals to navigating luggage across long concourses, the current system is failing a vulnerable population.
+    <figure class="section-image" data-aos="fade-up">
+      <img src="assets/images/airport_crowd.jpg" alt="Crowded airport with limited staff">
+      <figcaption>Staff shortages and rising demand have left passengers underserved in major hubs like Toronto Pearson.
+        <a href="https://www.cbc.ca/news/canada/toronto/pearson-wheelchairs-service-labour-1.3774494" target="_blank">[CBC, 2016]</a>
+      </figcaption>
+    </figure>
+  
+    <p data-aos="fade-up">
+      The <strong>post-pandemic travel boom</strong> and a <strong>31% drop in hospitality labor force</strong> 
+      <a href="https://www.bls.gov/news.release/pdf/empsit.pdf" target="_blank">[BLS, 2022]</a> have created a service bottleneck, especially for passengers needing assistance.
     </p>
   
-    <!-- Visual: Traveler struggling -->
-    <figure class="section-image">
+    <figure class="section-image" data-aos="fade-up">
       <img src="assets/images/luggage_struggle.png" alt="Traveler struggling with heavy luggage">
-      <figcaption>Mobility-impaired individuals face disproportionate challenges.</figcaption>
+      <figcaption>Mobility-impaired individuals often rely on overwhelmed airport staff or family.</figcaption>
     </figure>
   
-    <p>
-      Our vision is to <strong>empower all travelers with independence and dignity</strong>. Through SmoothOperator, we aim to eliminate the dependency on manual services by providing a 
-      <strong>semi-autonomous robotic assistant</strong> that safely and reliably handles luggage.
-    </p>
+    <div class="vision-callout" data-aos="zoom-in">
+      <h3>Our Vision</h3>
+      <p>To restore independence and dignity to every traveler through intelligent, autonomous support.</p>
+    </div>
   
-    <!-- Visual: SmoothOperator in action -->
-    <figure class="section-image">
+    <figure class="section-image" data-aos="fade-up">
       <img src="assets/images/robot_transporting_luggage.gif" alt="SmoothOperator assisting a user">
-      <figcaption>SmoothOperator enables hands-free navigation and lifting for travelers.</figcaption>
+      <figcaption>Meet SmoothOperator—your semi-autonomous luggage companion.</figcaption>
     </figure>
   
-    <p>
-      This solution bridges the gap between <strong>technology and accessibility</strong>, ensuring that anyone—regardless of ability—can navigate busy spaces with confidence.
+    <p data-aos="fade-up">
+      By blending cutting-edge robotics with inclusive design, SmoothOperator makes airports 
+      <strong>more accessible, efficient, and human-centered</strong>.
     </p>
   </section>
   
@@ -172,5 +172,10 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+  </script>
+
 </body>
 </html>
