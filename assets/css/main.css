@@ -193,6 +193,7 @@ section:nth-of-type(even) {
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
 }
 
 .team-member:hover {
@@ -202,6 +203,7 @@ section:nth-of-type(even) {
 .team-member h3 {
   margin-bottom: 0.5rem;
   color: var(--primary);
+  text-decoration: none;
 }
 .team-member p {
   font-size: 0.9rem;
