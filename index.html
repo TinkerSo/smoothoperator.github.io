@@ -344,7 +344,6 @@
   <div class="photo-slider">
     <div class="slider-container">
       <div class="slider-track">
-        <!-- Duplicate first slide at the end for seamless looping -->
         <div class="slider-slide">
           <img src="assets/images/gallery/hult_prize.jpg" alt="Hult Prize Competition">
           <div class="slide-caption">University Wide Hultz Prize Pitching Competition - 3rd Place</div>
@@ -357,13 +356,19 @@
           <img src="assets/images/gallery/video_production.gif" alt="Video Production">
           <div class="slide-caption">Setting up video production</div>
         </div>
-        <!-- Duplicate first slide again for seamless looping -->
-        <div class="slider-slide">
-          <img src="assets/images/gallery/hult_prize.jpg" alt="Hult Prize Competition">
-          <div class="slide-caption">University Wide Hultz Prize Pitching Competition - 3rd Place</div>
-        </div>
       </div>
     </div>
+    <!-- Navigation controls -->
+    <div class="slider-controls">
+      <button class="slider-prev" aria-label="Previous slide">&lt;</button>
+      <button class="slider-next" aria-label="Next slide">&gt;</button>
+      <button class="slider-pause" aria-label="Pause/Play slideshow">
+        <span class="pause-icon">❚❚</span>
+        <span class="play-icon" style="display: none;">▶</span>
+      </button>
+    </div>
+    <!-- Dots indicators -->
+    <div class="slider-dots"></div>
   </div>
 </section>
 

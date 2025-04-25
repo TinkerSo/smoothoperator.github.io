@@ -259,3 +259,118 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenus();
     }
   });
+
+  // Gallery functionality
+function initGallery() {
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slider-slide');
+    
+    if (!sliderTrack || !slides.length) return;
+    
+    // Create dots for each slide
+    const dotsContainer = document.querySelector('.slider-dots');
+    if (dotsContainer) {
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('data-index', index);
+        dotsContainer.appendChild(dot);
+      });
+    }
+    
+    // Get all controls
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const pauseBtn = document.querySelector('.slider-pause');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    // Variables to track current slide and animation state
+    let currentSlide = 0;
+    let isPaused = false;
+    const slideWidth = 100 / slides.length;
+    
+    // Function to update the current slide
+    function goToSlide(index) {
+      // Update current slide index
+      currentSlide = index;
+      
+      // Calculate the transform position
+      const position = -slideWidth * currentSlide;
+      sliderTrack.style.transform = `translateX(${position}%)`;
+      
+      // Update active dot
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+    
+    // Function to go to the next slide
+    function nextSlide() {
+      let next = currentSlide + 1;
+      if (next >= slides.length) {
+        // Loop back to the first slide
+        next = 0;
+      }
+      goToSlide(next);
+    }
+    
+    // Function to go to the previous slide
+    function prevSlide() {
+      let prev = currentSlide - 1;
+      if (prev < 0) {
+        // Loop to the last slide
+        prev = slides.length - 1;
+      }
+      goToSlide(prev);
+    }
+    
+    // Function to toggle pause state
+    function togglePause() {
+      isPaused = !isPaused;
+      
+      // Toggle animation state
+      sliderTrack.classList.toggle('paused', isPaused);
+      
+      // Toggle button icons
+      if (pauseBtn) {
+        const pauseIcon = pauseBtn.querySelector('.pause-icon');
+        const playIcon = pauseBtn.querySelector('.play-icon');
+        
+        if (pauseIcon && playIcon) {
+          pauseIcon.style.display = isPaused ? 'none' : 'inline';
+          playIcon.style.display = isPaused ? 'inline' : 'none';
+        }
+      }
+    }
+    
+    // Add event listeners to controls
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+      prevSlide();
+      if (!isPaused) togglePause(); // Auto-pause when manually navigating
+    });
+    
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+      nextSlide();
+      if (!isPaused) togglePause(); // Auto-pause when manually navigating
+    });
+    
+    if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
+    
+    // Add event listeners to dots
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'), 10);
+        goToSlide(index);
+        if (!isPaused) togglePause(); // Auto-pause when manually navigating
+      });
+    });
+  }
+  
+  // Call initGallery() inside your DOMContentLoaded event
+  document.addEventListener('DOMContentLoaded', () => {
+    // Your existing initialization code here...
+    
+    // Initialize the gallery
+    initGallery();
+  });
