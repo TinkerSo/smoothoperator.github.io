@@ -21,14 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // 3) Mobile: tap on parent toggles its submenu only
-    submenuParents.forEach(link => {
-      link.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
+// 3) Mobile: tap on the parent link itself toggles its submenu,
+//    but let any links *inside* the submenu (<a href="#...">) work normally
+submenuParents.forEach(link => {
+    const submenu = link.nextElementSibling;
+    if (!submenu || !submenu.classList.contains('submenu')) return;
+  
+    link.addEventListener('click', e => {
+      if (window.innerWidth <= 768) {
+        // only preventDefault when tapping *exactly* the parent link,
+        // not when tapping its child <a> inside the submenu
+        if (e.target === link) {
           e.preventDefault();
+          // close any other open dropdowns
+          dropdowns.forEach(dd => dd !== link.parentElement && dd.classList.remove('open'));
+          // toggle this one
           link.parentElement.classList.toggle('open');
         }
-      });
+      }
     });
+  });
+  
   
     // 4) Clicking any link (except submenu‐toggler) collapses everything
     navLinks.forEach(link => {
