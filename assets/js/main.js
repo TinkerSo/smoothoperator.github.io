@@ -1,27 +1,20 @@
-// assets/js/main.js
-
+// ensure this runs after DOM load
 document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks  = document.querySelector('.nav-links');
-  
-    // Toggle mobile navigation menu
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+    // toggle hamburger
+    const toggle = document.querySelector('.nav-toggle');
+    const links  = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
     });
   
-    // Close mobile menu when a navigation link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
+    // tap “Implementation & Results” on mobile to open submenu
+    document.querySelectorAll('.dropdown > .has-submenu').forEach(link => {
+      link.addEventListener('click', e => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();              // don’t immediately jump to #results
+          link.parentElement.classList.toggle('open');
         }
       });
     });
   });
   
-  document.querySelectorAll('.has-dropdown > a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      link.parentElement.classList.toggle('open');
-    });
-  });
