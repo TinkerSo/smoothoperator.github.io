@@ -789,3 +789,61 @@ a.team-member p {
   }
 }
 
+/* 1. Hide all submenus by default */
+.nav-links .dropdown-menu {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Desktop (hover to open) */
+@media (min-width: 769px) {
+  .nav-links .dropdown {
+    position: relative;      /* needed so submenu can be absolute */
+  }
+  .nav-links .dropdown:hover > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--primary);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 500;
+  }
+  .nav-links .dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  .nav-links .dropdown-menu li a:hover {
+    background: var(--accent);
+  }
+}
+
+/* 3. Mobile (only show when .open class is toggled) */
+@media (max-width: 768px) {
+  .nav-links .dropdown-menu {
+    position: static;  /* so it pushes content down */
+    background: var(--primary);
+  }
+  .nav-links .dropdown.open > .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-links .dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  .nav-links .dropdown-menu li a:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+
