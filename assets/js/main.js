@@ -19,3 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+  document.querySelectorAll('.has-dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      link.parentElement.classList.toggle('open');
+    });
+  });

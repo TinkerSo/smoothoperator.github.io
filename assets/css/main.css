@@ -665,3 +665,32 @@ a.team-member p {
   line-height: 1.6;
   color: var(--text);
 }
+
+.has-dropdown {
+  position: relative;
+}
+.has-dropdown .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--primary);
+  list-style: none;
+  padding: 0.5rem 0;
+  display: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.has-dropdown:hover .dropdown,
+.has-dropdown.open .dropdown {
+  display: block;
+}
+.dropdown li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+.dropdown li a:hover {
+  background: var(--accent);
+  color: #fff;
+}
