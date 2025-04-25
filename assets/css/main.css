@@ -100,7 +100,8 @@ nav {
 .hero p {
   max-width: 800px;
   margin: auto;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  font-weight: 600;       /* make it bold */
   text-align: center;
 }
 
