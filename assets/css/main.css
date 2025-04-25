@@ -539,7 +539,7 @@ a.team-member p {
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
-  max-width: 960px;
+  max-width: 1120px;
   margin: 2rem auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
