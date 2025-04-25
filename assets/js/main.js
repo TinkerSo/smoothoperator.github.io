@@ -61,16 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7) Close nav if clicking or touching anywhere outside nav when open
-document.addEventListener('click', (e) => {
-    const nav = document.querySelector('nav');
-    const isInsideNav = nav.contains(e.target);
-    const isHamburger = e.target.closest('.nav-toggle');
-    if (!isInsideNav && !isHamburger && linksContainer.classList.contains('open')) {
-      linksContainer.classList.remove('open');
-      dropdownItems.forEach(dd => dd.classList.remove('open'));
-    }
-  });
+
   
   // Optional: also close on scroll
   document.addEventListener('scroll', () => {
