@@ -1388,3 +1388,31 @@ a.team-member p {
     max-height: 150px;
   }
 }
+
+/* Pause on hover, resume when not hovering */
+.photo-slider:hover .slider-track {
+  animation-play-state: paused;
+}
+
+/* Hide pause button */
+.slider-pause {
+  display: none !important;
+}
+
+/* Make preview images larger for desktop */
+.preview-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* Keep the mobile setting as is */
+@media (max-width: 768px) {
+  .preview-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+}

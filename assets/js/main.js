@@ -261,15 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Gallery functionality
+// Simplified gallery controls that work properly
 function initGallery() {
+    // Get all gallery elements
     const sliderTrack = document.querySelector('.slider-track');
     const slides = document.querySelectorAll('.slider-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const pauseBtn = document.querySelector('.slider-pause');
     
+    // Only proceed if we have the required elements
     if (!sliderTrack || !slides.length) return;
     
-    // Create dots for each slide
-    const dotsContainer = document.querySelector('.slider-dots');
-    if (dotsContainer) {
+    // Create dots if they don't exist
+    if (dotsContainer && dotsContainer.children.length === 0) {
       slides.forEach((_, index) => {
         const dot = document.createElement('span');
         dot.classList.add('slider-dot');
@@ -279,18 +285,14 @@ function initGallery() {
       });
     }
     
-    // Get all controls
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    const pauseBtn = document.querySelector('.slider-pause');
+    // Get dots after they've been created
     const dots = document.querySelectorAll('.slider-dot');
     
-    // Variables to track current slide and animation state
+    // Current slide index and slide width calculation
     let currentSlide = 0;
-    let isPaused = false;
     const slideWidth = 100 / slides.length;
     
-    // Function to update the current slide
+    // Function to update slide position
     function goToSlide(index) {
       // Update current slide index
       currentSlide = index;
@@ -305,67 +307,84 @@ function initGallery() {
       });
     }
     
-    // Function to go to the next slide
-    function nextSlide() {
-      let next = currentSlide + 1;
-      if (next >= slides.length) {
-        // Loop back to the first slide
-        next = 0;
+    // Next slide function
+    function goToNextSlide() {
+      let nextIndex = currentSlide + 1;
+      if (nextIndex >= slides.length) {
+        nextIndex = 0;
       }
-      goToSlide(next);
+      goToSlide(nextIndex);
     }
     
-    // Function to go to the previous slide
-    function prevSlide() {
-      let prev = currentSlide - 1;
-      if (prev < 0) {
-        // Loop to the last slide
-        prev = slides.length - 1;
+    // Previous slide function
+    function goToPrevSlide() {
+      let prevIndex = currentSlide - 1;
+      if (prevIndex < 0) {
+        prevIndex = slides.length - 1;
       }
-      goToSlide(prev);
+      goToSlide(prevIndex);
     }
     
-    // Function to toggle pause state
-    function togglePause() {
-      isPaused = !isPaused;
-      
-      // Toggle animation state
-      sliderTrack.classList.toggle('paused', isPaused);
-      
-      // Toggle button icons
-      if (pauseBtn) {
-        const pauseIcon = pauseBtn.querySelector('.pause-icon');
-        const playIcon = pauseBtn.querySelector('.play-icon');
-        
-        if (pauseIcon && playIcon) {
-          pauseIcon.style.display = isPaused ? 'none' : 'inline';
-          playIcon.style.display = isPaused ? 'inline' : 'none';
-        }
-      }
+    // Add event listeners to buttons
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToPrevSlide();
+      });
     }
     
-    // Add event listeners to controls
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      prevSlide();
-      if (!isPaused) togglePause(); // Auto-pause when manually navigating
-    });
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToNextSlide();
+      });
+    }
     
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      nextSlide();
-      if (!isPaused) togglePause(); // Auto-pause when manually navigating
-    });
+    // Hide pause button as requested
+    if (pauseBtn) {
+      pauseBtn.style.display = 'none';
+    }
     
-    if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
-    
-    // Add event listeners to dots
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const index = parseInt(dot.getAttribute('data-index'), 10);
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
         goToSlide(index);
-        if (!isPaused) togglePause(); // Auto-pause when manually navigating
       });
     });
   }
+  
+  // Call the function when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the gallery
+    initGallery();
+    
+    // Add your Learn More button functionality
+    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    learnMoreButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('data-target');
+        const detailsSection = document.getElementById(targetId);
+        const parentSubsection = this.closest('.subsection');
+        
+        if (detailsSection && parentSubsection) {
+          const isActive = detailsSection.classList.contains('active');
+          this.textContent = isActive ? 'Learn More' : 'Show Less';
+          detailsSection.classList.toggle('active');
+          
+          if (!isActive) {
+            setTimeout(() => {
+              detailsSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+              });
+            }, 100);
+          }
+        }
+      });
+    });
+  });
   
   // Call initGallery() inside your DOMContentLoaded event
   document.addEventListener('DOMContentLoaded', () => {
