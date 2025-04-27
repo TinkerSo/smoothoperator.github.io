@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Navigation menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // === NAVIGATION FUNCTIONALITY ===
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const submenuParents = document.querySelectorAll('.dropdown > .has-submenu');
     
     // 1) Hamburger button toggles the main menu
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-    });
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        links.classList.toggle('open');
+      });
+    }
     
     // 2) Desktop: hover shows dropdown, mobile: tap toggles
     dropdowns.forEach(dd => {
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     
-    // 3) Mobile: tap on the parent link itself toggles its submenu
+    // 3) Mobile: tap on the parent link toggles its submenu
     submenuParents.forEach(link => {
       const submenu = link.nextElementSibling;
       if (!submenu || !submenu.classList.contains('dropdown-menu')) return;
@@ -74,29 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    // ==== SMOOTH SCROLLING FUNCTIONALITY ====
+    // === SMOOTH SCROLLING FUNCTIONALITY ===
     // Get all navigation links with href starting with #
     const sectionLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.has-submenu)');
     
     // Add smooth scrolling to section links
     sectionLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default jump behavior
         
         const targetId = this.getAttribute('href');
+        // Skip if it's just # or if it's a dropdown toggle
         if (targetId === '#' || this.classList.contains('has-submenu')) return;
         
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
+          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
+          
+          // Calculate position with offset
           const elementPosition = targetSection.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
+          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
           
+          // Update URL hash without jumping
           history.pushState(null, null, targetId);
         }
       });
@@ -113,15 +121,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
+          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
+          
+          // Calculate position with offset
           const elementPosition = targetSection.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
+          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
           
+          // Update URL hash without jumping
           history.pushState(null, null, targetId);
         }
       });
@@ -129,24 +142,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check if there's a hash in the URL when the page loads
     if (window.location.hash) {
+      // Get the target element
       const targetId = window.location.hash;
       const targetElement = document.querySelector(targetId);
       
+      // If the target element exists, scroll to it with a slight delay
       if (targetElement) {
+        // Use setTimeout to ensure this happens after the page has fully loaded
         setTimeout(function() {
+          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
+          
+          // Calculate position with offset
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
+          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
-        }, 300);
+        }, 300); // Increased delay to ensure page is fully loaded
       }
     }
     
-    // ==== PHOTO GALLERY FUNCTIONALITY ====
+    // === GALLERY FUNCTIONALITY ===
     function setupGallery() {
       // Core elements
       const sliderTrack = document.querySelector('.slider-track');
@@ -154,20 +174,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const dotsContainer = document.querySelector('.slider-dots');
       const prevBtn = document.querySelector('.slider-prev');
       const nextBtn = document.querySelector('.slider-next');
-      const pauseBtn = document.querySelector('.slider-pause');
       
       if (!sliderTrack || !slides.length) return;
       
-      // Disable the automatic animation completely
-      sliderTrack.style.animation = 'none';
-      sliderTrack.style.width = (slides.length * 100) + '%';
+      // Calculate slide width and set track width
+      const slideCount = slides.length;
+      const slideWidth = 100 / slideCount;
       
-      // Set up each slide
-      slides.forEach((slide) => {
-        slide.style.width = (100 / slides.length) + '%';
+      // Set slider track width based on number of slides
+      sliderTrack.style.width = `${slideCount * 100}%`;
+      
+      // Set each slide width
+      slides.forEach(slide => {
+        slide.style.width = `${slideWidth}%`;
       });
       
-      // Clear existing dots and create new ones
+      // Create dots if they don't exist
       if (dotsContainer) {
         dotsContainer.innerHTML = '';
         slides.forEach((_, index) => {
@@ -179,38 +201,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       
-      // Get dots after they've been created
-      const dots = document.querySelectorAll('.slider-dot');
-      
-      // Current slide tracker
+      // Current slide tracking
       let currentSlide = 0;
       
-      // Function to update slide position
+      // Function to go to a specific slide
       function goToSlide(index) {
+        // Ensure index is within bounds
+        if (index < 0) index = slideCount - 1;
+        if (index >= slideCount) index = 0;
+        
         currentSlide = index;
         
-        // Update transform to show current slide
-        sliderTrack.style.transform = `translateX(-${currentSlide * (100 / slides.length)}%)`;
+        // Update transform to show the current slide
+        sliderTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
         
         // Update dots
-        dots.forEach((dot, i) => {
+        document.querySelectorAll('.slider-dot').forEach((dot, i) => {
           dot.classList.toggle('active', i === currentSlide);
         });
       }
       
-      // Next slide function
+      // Navigate to next slide
       function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        goToSlide(currentSlide);
+        goToSlide(currentSlide + 1);
       }
       
-      // Previous slide function
+      // Navigate to previous slide
       function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        goToSlide(currentSlide);
+        goToSlide(currentSlide - 1);
       }
       
-      // Add click event listeners
+      // Add event listeners
       if (prevBtn) {
         prevBtn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -225,14 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
       
-      // Hide pause button
-      if (pauseBtn) {
-        pauseBtn.style.display = 'none';
-      }
-      
       // Add click events to dots
-      dots.forEach((dot, index) => {
+      const dots = document.querySelectorAll('.slider-dot');
+      dots.forEach(dot => {
         dot.addEventListener('click', function() {
+          const index = parseInt(this.getAttribute('data-index'), 10);
           goToSlide(index);
         });
       });
@@ -241,10 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
       goToSlide(0);
     }
     
-    // Run gallery setup
+    // Initialize gallery
     setupGallery();
     
-    // ==== LEARN MORE BUTTON FUNCTIONALITY ====
+    // === LEARN MORE BUTTON FUNCTIONALITY ===
     const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
     
     learnMoreButtons.forEach(button => {
@@ -272,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // Helper to collapse menus
+  // Helper to collapse everything
   function closeMenus() {
     const links = document.querySelector('.nav-links');
     const dropdowns = document.querySelectorAll('.dropdown');
