@@ -1371,3 +1371,20 @@ a.team-member p {
     margin-bottom: 1rem;
   }
 }
+/* Update the preview image size for desktop */
+.preview-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* Keep the mobile setting as is, just adjust for desktop */
+@media (max-width: 768px) {
+  .preview-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+}
