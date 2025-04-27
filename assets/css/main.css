@@ -1481,18 +1481,23 @@ a.team-member p {
 }
 
 /* Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  /* Further adjustments for mobile */
+  /* Mobile adjustments - keeping navigation visible */
   .slider-dots {
-    margin-top: 40px; /* Even more space on mobile */
+    margin-top: 15px; /* Less space on mobile */
   }
   
   .slider-prev,
   .slider-next {
-    transform: translateY(30px); /* Move down more on mobile */
+    transform: translateY(0); /* Keep at vertical center on mobile */
+    top: 45%; /* Move up slightly from center */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    padding: 8px; /* Larger touch target */
+    border-radius: 50%; /* Circular background */
   }
   
   .photo-slider {
-    padding-bottom: 50px; /* More padding on mobile */
+    padding-bottom: 30px; /* Reasonable padding on mobile */
   }
 }
