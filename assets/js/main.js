@@ -374,3 +374,31 @@ function initGallery() {
     // Initialize the gallery
     initGallery();
   });
+
+  // Add this code to your main.js file or within a <script> tag at the bottom of your HTML
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all "Learn More" buttons
+    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    
+    // Add click event listener to each button
+    learnMoreButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the target details section ID
+        const targetId = this.getAttribute('data-target');
+        const detailsSection = document.getElementById(targetId);
+        
+        // Toggle the 'active' class to show/hide the details
+        if (detailsSection) {
+          detailsSection.classList.toggle('active');
+          
+          // Change button text based on state
+          if (detailsSection.classList.contains('active')) {
+            this.textContent = 'Show Less';
+          } else {
+            this.textContent = 'Learn More';
+          }
+        }
+      });
+    });
+  });
