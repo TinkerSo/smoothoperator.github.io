@@ -167,128 +167,132 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // === GALLERY FUNCTIONALITY ===
-    function setupGallery() {
-      // Core elements
-      const sliderTrack = document.querySelector('.slider-track');
-      const slides = document.querySelectorAll('.slider-slide');
-      const dotsContainer = document.querySelector('.slider-dots');
-      const prevBtn = document.querySelector('.slider-prev');
-      const nextBtn = document.querySelector('.slider-next');
-      
-      if (!sliderTrack || !slides.length) return;
-      
-      // Calculate slide width and set track width
-      const slideCount = slides.length;
-      const slideWidth = 100 / slideCount;
-      
-      // Set slider track width based on number of slides
-      sliderTrack.style.width = `${slideCount * 100}%`;
-      
-      // Set each slide width
-      slides.forEach(slide => {
-        slide.style.width = `${slideWidth}%`;
+    // === GALLERY FUNCTIONALITY ===
+function setupGallery() {
+    // Core elements
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slider-slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    
+    if (!sliderTrack || !slides.length) return;
+    
+    // Calculate slide width and set track width
+    const slideCount = slides.length;
+    const slideWidth = 100 / slideCount;
+    
+    // Set slider track width based on number of slides
+    sliderTrack.style.width = `${slideCount * 100}%`;
+    
+    // Set each slide width
+    slides.forEach(slide => {
+      slide.style.width = `${slideWidth}%`;
+    });
+    
+    // Create dots if they don't exist
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('data-index', index);
+        dotsContainer.appendChild(dot);
       });
-      
-      // Create dots if they don't exist
-      if (dotsContainer) {
-        dotsContainer.innerHTML = '';
-        slides.forEach((_, index) => {
-          const dot = document.createElement('span');
-          dot.classList.add('slider-dot');
-          if (index === 0) dot.classList.add('active');
-          dot.setAttribute('data-index', index);
-          dotsContainer.appendChild(dot);
-        });
-      }
-      
-      // Current slide tracking
-      let currentSlide = 0;
-      
-      // Function to go to a specific slide
-      function goToSlide(index) {
-        // Ensure index is within bounds
-        if (index < 0) index = slideCount - 1;
-        if (index >= slideCount) index = 0;
-        
-        currentSlide = index;
-        
-        // Update transform to show the current slide
-        sliderTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
-        
-        // Update dots
-        document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-      }
-      
-      // Navigate to next slide
-      function nextSlide() {
-        goToSlide(currentSlide + 1);
-      }
-      
-      // Navigate to previous slide
-      function prevSlide() {
-        goToSlide(currentSlide - 1);
-      }
-      
-      // Add event listeners
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          prevSlide();
-        });
-      }
-      
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          nextSlide();
-        });
-      }
-      
-      // Add click events to dots
-      const dots = document.querySelectorAll('.slider-dot');
-      dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-          const index = parseInt(this.getAttribute('data-index'), 10);
-          goToSlide(index);
-        });
-      });
-      
-      // Initialize to first slide
-      goToSlide(0);
     }
     
-    // Initialize gallery
-    setupGallery();
+    // Current slide tracking
+    let currentSlide = 0;
+    let autoScrollInterval = null;
+    let isPaused = false;
     
-    // === LEARN MORE BUTTON FUNCTIONALITY ===
-    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    // Function to go to a specific slide
+    function goToSlide(index) {
+      // Ensure index is within bounds
+      if (index < 0) index = slideCount - 1;
+      if (index >= slideCount) index = 0;
+      
+      currentSlide = index;
+      
+      // Update transform to show the current slide
+      sliderTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+      
+      // Update dots
+      document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
     
-    learnMoreButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('data-target');
-        const detailsSection = document.getElementById(targetId);
-        
-        if (detailsSection) {
-          const isActive = detailsSection.classList.contains('active');
-          detailsSection.classList.toggle('active');
-          this.textContent = isActive ? 'Learn More' : 'Show Less';
-          
-          if (!isActive) {
-            setTimeout(() => {
-              detailsSection.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest' 
-              });
-            }, 100);
-          }
+    // Navigate to next slide
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+    
+    // Navigate to previous slide
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+    
+    // Start automatic scrolling
+    function startAutoScroll() {
+      if (autoScrollInterval) clearInterval(autoScrollInterval);
+      autoScrollInterval = setInterval(() => {
+        if (!isPaused) {
+          nextSlide();
         }
+      }, 5000); // Change slide every 5 seconds
+    }
+    
+    // Add event listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        prevSlide();
+        // Pause briefly after manual interaction
+        isPaused = true;
+        setTimeout(() => { isPaused = false; }, 10000);
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        nextSlide();
+        // Pause briefly after manual interaction
+        isPaused = true;
+        setTimeout(() => { isPaused = false; }, 10000);
+      });
+    }
+    
+    // Add click events to dots
+    const dots = document.querySelectorAll('.slider-dot');
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'), 10);
+        goToSlide(index);
+        // Pause briefly after manual interaction
+        isPaused = true;
+        setTimeout(() => { isPaused = false; }, 10000);
       });
     });
-  });
+    
+    // Pause on hover
+    const photoSlider = document.querySelector('.photo-slider');
+    if (photoSlider) {
+      photoSlider.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+      
+      photoSlider.addEventListener('mouseleave', () => {
+        isPaused = false;
+      });
+    }
+    
+    // Initialize to first slide and start auto-scrolling
+    goToSlide(0);
+    startAutoScroll();
+  }
   
   // Helper to collapse everything
   function closeMenus() {
