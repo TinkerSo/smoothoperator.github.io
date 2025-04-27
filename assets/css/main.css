@@ -1290,3 +1290,16 @@ a.team-member p {
     max-height: 150px;
   }
 }
+.subsection-details {
+  display: none;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.subsection-details.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}

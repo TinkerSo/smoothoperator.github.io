@@ -377,26 +377,41 @@ function initGallery() {
 
   // Add this code to your main.js file or within a <script> tag at the bottom of your HTML
 
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     // Get all "Learn More" buttons
     const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
     
     // Add click event listener to each button
     learnMoreButtons.forEach(button => {
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent any default behavior
+        
         // Get the target details section ID
         const targetId = this.getAttribute('data-target');
         const detailsSection = document.getElementById(targetId);
         
-        // Toggle the 'active' class to show/hide the details
-        if (detailsSection) {
+        // Find the parent subsection
+        const parentSubsection = this.closest('.subsection');
+        
+        if (detailsSection && parentSubsection) {
+          // Check if this section is already active
+          const isActive = detailsSection.classList.contains('active');
+          
+          // Update button text
+          this.textContent = isActive ? 'Learn More' : 'Show Less';
+          
+          // Toggle the active class on the details section
           detailsSection.classList.toggle('active');
           
-          // Change button text based on state
-          if (detailsSection.classList.contains('active')) {
-            this.textContent = 'Show Less';
-          } else {
-            this.textContent = 'Learn More';
+          // If opening, scroll to the expanded content smoothly
+          if (!isActive) {
+            // Allow a moment for the DOM to update before scrolling
+            setTimeout(() => {
+              detailsSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'nearest' 
+              });
+            }, 100);
           }
         }
       });
