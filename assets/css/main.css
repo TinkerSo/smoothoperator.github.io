@@ -1305,6 +1305,7 @@ a.team-member p {
 }
 
 /* Responsive adjustments for prototype sections */
+/* Responsive adjustments for prototype sections */
 @media (max-width: 768px) {
   /* Make prototype blocks stack vertically on mobile */
   .prototype-block, 
