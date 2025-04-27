@@ -1427,3 +1427,19 @@ a.team-member p {
 .slider-pause {
   display: none !important;
 }
+
+/* Essential slider styles */
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease !important;
+  animation: none !important;
+}
+
+.slider-slide {
+  flex-shrink: 0;
+}
+
+/* Hide pause button */
+.slider-pause {
+  display: none !important;
+}

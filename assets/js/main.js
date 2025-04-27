@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation menu functionality
     const toggle = document.querySelector('.nav-toggle');
     const links = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -20,21 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     
-    // 3) Mobile: tap on the parent link itself toggles its submenu,
-    //    but let any links *inside* the submenu (<a href="#...">) work normally
+    // 3) Mobile: tap on the parent link itself toggles its submenu
     submenuParents.forEach(link => {
       const submenu = link.nextElementSibling;
       if (!submenu || !submenu.classList.contains('dropdown-menu')) return;
       
       link.addEventListener('click', e => {
         if (window.innerWidth <= 768) {
-          // only preventDefault when tapping *exactly* the parent link,
-          // not when tapping its child <a> inside the submenu
           if (e.target === link) {
             e.preventDefault();
-            // close any other open dropdowns
             dropdowns.forEach(dd => dd !== link.parentElement && dd.classList.remove('open'));
-            // toggle this one
             link.parentElement.classList.toggle('open');
           }
         }
@@ -85,28 +81,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add smooth scrolling to section links
     sectionLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent default jump behavior
+        e.preventDefault();
         
         const targetId = this.getAttribute('href');
-        // Skip if it's just # or if it's a dropdown toggle
         if (targetId === '#' || this.classList.contains('has-submenu')) return;
         
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
-          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
-          
-          // Calculate position with offset
           const elementPosition = targetSection.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
-          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
           
-          // Update URL hash without jumping
           history.pushState(null, null, targetId);
         }
       });
@@ -123,20 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
-          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
-          
-          // Calculate position with offset
           const elementPosition = targetSection.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
-          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
           
-          // Update URL hash without jumping
           history.pushState(null, null, targetId);
         }
       });
@@ -144,218 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check if there's a hash in the URL when the page loads
     if (window.location.hash) {
-      // Get the target element
       const targetId = window.location.hash;
       const targetElement = document.querySelector(targetId);
       
-      // If the target element exists, scroll to it with a slight delay
       if (targetElement) {
-        // Use setTimeout to ensure this happens after the page has fully loaded
         setTimeout(function() {
-          // Get header height for offset
           const headerHeight = document.querySelector('header').offsetHeight;
-          
-          // Calculate position with offset
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
           
-          // Smooth scroll with offset
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
           });
-        }, 300); // Increased delay to ensure page is fully loaded
+        }, 300);
       }
     }
     
-    // Slideshow functionality (only initialize if elements exist)
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.dot');
-    const nextButton = document.querySelector('.gallery-button.next');
-    const prevButton = document.querySelector('.gallery-button.prev');
-    
-    if (slides.length && dots.length && nextButton && prevButton) {
-      let currentIndex = 0;
-      let slideshowInterval;
-      
-      // Function to update the active slide
-      function updateSlidePosition() {
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        slides[currentIndex].classList.add('active');
-        dots[currentIndex].classList.add('active');
-      }
-      
-      // Function to move to the next slide
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlidePosition();
-      }
-      
-      // Function to move to the previous slide
-      function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlidePosition();
-      }
-      
-      // Event listeners for buttons
-      nextButton.addEventListener('click', function() {
-        nextSlide();
-        resetInterval();
-      });
-      
-      prevButton.addEventListener('click', function() {
-        prevSlide();
-        resetInterval();
-      });
-      
-      // Event listeners for dots
-      dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-          currentIndex = parseInt(this.getAttribute('data-index'));
-          updateSlidePosition();
-          resetInterval();
-        });
-      });
-      
-      // Start automatic slideshow
-      function startSlideshow() {
-        slideshowInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-      }
-      
-      // Reset interval on user interaction
-      function resetInterval() {
-        clearInterval(slideshowInterval);
-        startSlideshow();
-      }
-      
-      // Initialize slideshow
-      startSlideshow();
-    }
-  });
-  
-  // Helper to collapse everything
-  function closeMenus() {
-    const links = document.querySelector('.nav-links');
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    if (window.innerWidth <= 768 && links && links.classList.contains('open')) {
-      links.classList.remove('open');
-      dropdowns.forEach(dd => dd.classList.remove('open'));
-    }
-  }
-  
-  // Collapse on any scroll/drag (mobile)
-  window.addEventListener('scroll', closeMenus);
-  document.addEventListener('touchmove', closeMenus);
-  document.addEventListener('wheel', closeMenus);
-  
-  // Collapse if you tap outside the nav (also mobile)
-  document.addEventListener('touchstart', e => {
-    if (window.innerWidth <= 768 && !e.target.closest('nav')) {
-      closeMenus();
-    }
-  });
-
-  // Gallery functionality
-// Simplified gallery controls that work properly
-function initGallery() {
-    // Get all gallery elements
-    const sliderTrack = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slider-slide');
-    const dotsContainer = document.querySelector('.slider-dots');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    const pauseBtn = document.querySelector('.slider-pause');
-    
-    // Only proceed if we have the required elements
-    if (!sliderTrack || !slides.length) return;
-    
-    // Create dots if they don't exist
-    if (dotsContainer && dotsContainer.children.length === 0) {
-      slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('slider-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.setAttribute('data-index', index);
-        dotsContainer.appendChild(dot);
-      });
-    }
-    
-    // Get dots after they've been created
-    const dots = document.querySelectorAll('.slider-dot');
-    
-    // Current slide index and slide width calculation
-    let currentSlide = 0;
-    const slideWidth = 100 / slides.length;
-    
-    // Function to update slide position
-    function goToSlide(index) {
-      // Update current slide index
-      currentSlide = index;
-      
-      // Calculate the transform position
-      const position = -slideWidth * currentSlide;
-      sliderTrack.style.transform = `translateX(${position}%)`;
-      
-      // Update active dot
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-    
-    // Next slide function
-    function goToNextSlide() {
-      let nextIndex = currentSlide + 1;
-      if (nextIndex >= slides.length) {
-        nextIndex = 0;
-      }
-      goToSlide(nextIndex);
-    }
-    
-    // Previous slide function
-    function goToPrevSlide() {
-      let prevIndex = currentSlide - 1;
-      if (prevIndex < 0) {
-        prevIndex = slides.length - 1;
-      }
-      goToSlide(prevIndex);
-    }
-    
-    // Add event listeners to buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToPrevSlide();
-      });
-    }
-    
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToNextSlide();
-      });
-    }
-    
-    // Hide pause button as requested
-    if (pauseBtn) {
-      pauseBtn.style.display = 'none';
-    }
-    
-    // Add click events to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', function() {
-        goToSlide(index);
-      });
-    });
-  }
-  
-  // Call the function when DOM is loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    // Gallery functionality - complete rewrite
+    // ==== PHOTO GALLERY FUNCTIONALITY ====
     function setupGallery() {
       // Core elements
       const sliderTrack = document.querySelector('.slider-track');
@@ -363,64 +154,63 @@ function initGallery() {
       const dotsContainer = document.querySelector('.slider-dots');
       const prevBtn = document.querySelector('.slider-prev');
       const nextBtn = document.querySelector('.slider-next');
+      const pauseBtn = document.querySelector('.slider-pause');
       
       if (!sliderTrack || !slides.length) return;
       
       // Disable the automatic animation completely
       sliderTrack.style.animation = 'none';
+      sliderTrack.style.width = (slides.length * 100) + '%';
       
-      // Current slide index
-      let currentSlide = 0;
+      // Set up each slide
+      slides.forEach((slide) => {
+        slide.style.width = (100 / slides.length) + '%';
+      });
       
-      // Calculate slide width based on number of slides
-      const slideWidth = 100 / slides.length;
-      
-      // Function to update slide position
-      function updateSlidePosition() {
-        // Calculate position and update transform
-        const position = -slideWidth * currentSlide;
-        sliderTrack.style.transform = `translateX(${position}%)`;
-        
-        // Update active dots
-        const dots = document.querySelectorAll('.slider-dot');
-        dots.forEach((dot, index) => {
-          if (index === currentSlide) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
+      // Clear existing dots and create new ones
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, index) => {
+          const dot = document.createElement('span');
+          dot.classList.add('slider-dot');
+          if (index === 0) dot.classList.add('active');
+          dot.setAttribute('data-index', index);
+          dotsContainer.appendChild(dot);
         });
       }
       
-      // Generate dots if they don't exist
-      if (dotsContainer && dotsContainer.children.length === 0) {
-        for (let i = 0; i < slides.length; i++) {
-          const dot = document.createElement('span');
-          dot.classList.add('slider-dot');
-          dot.setAttribute('data-index', i);
-          dotsContainer.appendChild(dot);
-        }
+      // Get dots after they've been created
+      const dots = document.querySelectorAll('.slider-dot');
+      
+      // Current slide tracker
+      let currentSlide = 0;
+      
+      // Function to update slide position
+      function goToSlide(index) {
+        currentSlide = index;
         
-        // Set first dot as active
-        const firstDot = dotsContainer.querySelector('.slider-dot');
-        if (firstDot) firstDot.classList.add('active');
+        // Update transform to show current slide
+        sliderTrack.style.transform = `translateX(-${currentSlide * (100 / slides.length)}%)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
       }
       
       // Next slide function
       function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= slides.length) currentSlide = 0;
-        updateSlidePosition();
+        currentSlide = (currentSlide + 1) % slides.length;
+        goToSlide(currentSlide);
       }
       
       // Previous slide function
       function prevSlide() {
-        currentSlide--;
-        if (currentSlide < 0) currentSlide = slides.length - 1;
-        updateSlidePosition();
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        goToSlide(currentSlide);
       }
       
-      // Add click event to previous button
+      // Add click event listeners
       if (prevBtn) {
         prevBtn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -428,7 +218,6 @@ function initGallery() {
         });
       }
       
-      // Add click event to next button
       if (nextBtn) {
         nextBtn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -436,27 +225,26 @@ function initGallery() {
         });
       }
       
+      // Hide pause button
+      if (pauseBtn) {
+        pauseBtn.style.display = 'none';
+      }
+      
       // Add click events to dots
-      const dots = document.querySelectorAll('.slider-dot');
-      dots.forEach(dot => {
+      dots.forEach((dot, index) => {
         dot.addEventListener('click', function() {
-          currentSlide = parseInt(this.getAttribute('data-index'));
-          updateSlidePosition();
+          goToSlide(index);
         });
       });
       
-      // Hide pause button
-      const pauseBtn = document.querySelector('.slider-pause');
-      if (pauseBtn) pauseBtn.style.display = 'none';
-      
-      // Initialize position
-      updateSlidePosition();
+      // Initialize to first slide
+      goToSlide(0);
     }
     
     // Run gallery setup
     setupGallery();
     
-    // Also initialize learn more buttons
+    // ==== LEARN MORE BUTTON FUNCTIONALITY ====
     const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
     
     learnMoreButtons.forEach(button => {
@@ -484,143 +272,25 @@ function initGallery() {
     });
   });
   
-  // Call initGallery() inside your DOMContentLoaded event
-  document.addEventListener('DOMContentLoaded', () => {
-    // Your existing initialization code here...
+  // Helper to collapse menus
+  function closeMenus() {
+    const links = document.querySelector('.nav-links');
+    const dropdowns = document.querySelectorAll('.dropdown');
     
-    // Initialize the gallery
-    initGallery();
-  });
-
-  // Add this code to your main.js file or within a <script> tag at the bottom of your HTML
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get all "Learn More" buttons
-    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
-    
-    // Add click event listener to each button
-    learnMoreButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent any default behavior
-        
-        // Get the target details section ID
-        const targetId = this.getAttribute('data-target');
-        const detailsSection = document.getElementById(targetId);
-        
-        // Find the parent subsection
-        const parentSubsection = this.closest('.subsection');
-        
-        if (detailsSection && parentSubsection) {
-          // Check if this section is already active
-          const isActive = detailsSection.classList.contains('active');
-          
-          // Update button text
-          this.textContent = isActive ? 'Learn More' : 'Show Less';
-          
-          // Toggle the active class on the details section
-          detailsSection.classList.toggle('active');
-          
-          // If opening, scroll to the expanded content smoothly
-          if (!isActive) {
-            // Allow a moment for the DOM to update before scrolling
-            setTimeout(() => {
-              detailsSection.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest' 
-              });
-            }, 100);
-          }
-        }
-      });
-    });
-  });
-
-  // Add this function to your existing JavaScript
-
-function fixGalleryControls() {
-    // Get all gallery elements
-    const sliderTrack = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slider-slide');
-    const dots = document.querySelectorAll('.slider-dot');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    const pauseBtn = document.querySelector('.slider-pause');
-  
-    if (!sliderTrack || !slides.length) return;
-  
-    // Current slide index
-    let currentSlide = 0;
-    
-    // Calculate slide width based on number of slides
-    const slideWidth = 100 / slides.length;
-  
-    // Function to update slide position
-    function updateSlidePosition(index) {
-      // Update current slide index
-      currentSlide = index;
-      
-      // Calculate position and update transform
-      const position = -slideWidth * currentSlide;
-      sliderTrack.style.transform = `translateX(${position}%)`;
-      
-      // Update active dot
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
+    if (window.innerWidth <= 768 && links && links.classList.contains('open')) {
+      links.classList.remove('open');
+      dropdowns.forEach(dd => dd.classList.remove('open'));
     }
-  
-    // Next slide function
-    function goToNextSlide() {
-      let nextIndex = currentSlide + 1;
-      if (nextIndex >= slides.length) {
-        nextIndex = 0;
-      }
-      updateSlidePosition(nextIndex);
-    }
-  
-    // Previous slide function
-    function goToPrevSlide() {
-      let prevIndex = currentSlide - 1;
-      if (prevIndex < 0) {
-        prevIndex = slides.length - 1;
-      }
-      updateSlidePosition(prevIndex);
-    }
-  
-    // Add event listeners to navigation buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToPrevSlide();
-      });
-    }
-  
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToNextSlide();
-      });
-    }
-  
-    // Disable the pause functionality as requested
-    if (pauseBtn) {
-      pauseBtn.style.display = 'none';
-    }
-  
-    // Add click events to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', function() {
-        updateSlidePosition(index);
-      });
-    });
   }
   
-  // Call the function when DOM is loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    // Your existing code...
-    
-    // Fix gallery controls
-    fixGalleryControls();
-  });
-
+  // Collapse on any scroll/drag (mobile)
+  window.addEventListener('scroll', closeMenus);
+  document.addEventListener('touchmove', closeMenus);
+  document.addEventListener('wheel', closeMenus);
   
+  // Collapse if you tap outside the nav (also mobile)
+  document.addEventListener('touchstart', e => {
+    if (window.innerWidth <= 768 && !e.target.closest('nav')) {
+      closeMenus();
+    }
+  });
