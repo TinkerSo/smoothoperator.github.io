@@ -1416,3 +1416,14 @@ a.team-member p {
     max-height: 150px;
   }
 }
+
+/* Add this to your CSS - Override any automatic animations */
+.slider-track {
+  animation: none !important;
+  transition: transform 0.4s ease !important;
+}
+
+/* Hide pause button permanently */
+.slider-pause {
+  display: none !important;
+}

@@ -355,23 +355,121 @@ function initGallery() {
   
   // Call the function when DOM is loaded
   document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the gallery
-    initGallery();
+    // Gallery functionality - complete rewrite
+    function setupGallery() {
+      // Core elements
+      const sliderTrack = document.querySelector('.slider-track');
+      const slides = document.querySelectorAll('.slider-slide');
+      const dotsContainer = document.querySelector('.slider-dots');
+      const prevBtn = document.querySelector('.slider-prev');
+      const nextBtn = document.querySelector('.slider-next');
+      
+      if (!sliderTrack || !slides.length) return;
+      
+      // Disable the automatic animation completely
+      sliderTrack.style.animation = 'none';
+      
+      // Current slide index
+      let currentSlide = 0;
+      
+      // Calculate slide width based on number of slides
+      const slideWidth = 100 / slides.length;
+      
+      // Function to update slide position
+      function updateSlidePosition() {
+        // Calculate position and update transform
+        const position = -slideWidth * currentSlide;
+        sliderTrack.style.transform = `translateX(${position}%)`;
+        
+        // Update active dots
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+      
+      // Generate dots if they don't exist
+      if (dotsContainer && dotsContainer.children.length === 0) {
+        for (let i = 0; i < slides.length; i++) {
+          const dot = document.createElement('span');
+          dot.classList.add('slider-dot');
+          dot.setAttribute('data-index', i);
+          dotsContainer.appendChild(dot);
+        }
+        
+        // Set first dot as active
+        const firstDot = dotsContainer.querySelector('.slider-dot');
+        if (firstDot) firstDot.classList.add('active');
+      }
+      
+      // Next slide function
+      function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= slides.length) currentSlide = 0;
+        updateSlidePosition();
+      }
+      
+      // Previous slide function
+      function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        updateSlidePosition();
+      }
+      
+      // Add click event to previous button
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          prevSlide();
+        });
+      }
+      
+      // Add click event to next button
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          nextSlide();
+        });
+      }
+      
+      // Add click events to dots
+      const dots = document.querySelectorAll('.slider-dot');
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          currentSlide = parseInt(this.getAttribute('data-index'));
+          updateSlidePosition();
+        });
+      });
+      
+      // Hide pause button
+      const pauseBtn = document.querySelector('.slider-pause');
+      if (pauseBtn) pauseBtn.style.display = 'none';
+      
+      // Initialize position
+      updateSlidePosition();
+    }
     
-    // Add your Learn More button functionality
+    // Run gallery setup
+    setupGallery();
+    
+    // Also initialize learn more buttons
     const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    
     learnMoreButtons.forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
         
         const targetId = this.getAttribute('data-target');
         const detailsSection = document.getElementById(targetId);
-        const parentSubsection = this.closest('.subsection');
         
-        if (detailsSection && parentSubsection) {
+        if (detailsSection) {
           const isActive = detailsSection.classList.contains('active');
-          this.textContent = isActive ? 'Learn More' : 'Show Less';
           detailsSection.classList.toggle('active');
+          this.textContent = isActive ? 'Learn More' : 'Show Less';
           
           if (!isActive) {
             setTimeout(() => {
