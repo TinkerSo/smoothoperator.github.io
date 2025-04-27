@@ -417,3 +417,93 @@ function initGallery() {
       });
     });
   });
+
+  // Add this function to your existing JavaScript
+
+function fixGalleryControls() {
+    // Get all gallery elements
+    const sliderTrack = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slider-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const pauseBtn = document.querySelector('.slider-pause');
+  
+    if (!sliderTrack || !slides.length) return;
+  
+    // Current slide index
+    let currentSlide = 0;
+    
+    // Calculate slide width based on number of slides
+    const slideWidth = 100 / slides.length;
+  
+    // Function to update slide position
+    function updateSlidePosition(index) {
+      // Update current slide index
+      currentSlide = index;
+      
+      // Calculate position and update transform
+      const position = -slideWidth * currentSlide;
+      sliderTrack.style.transform = `translateX(${position}%)`;
+      
+      // Update active dot
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+  
+    // Next slide function
+    function goToNextSlide() {
+      let nextIndex = currentSlide + 1;
+      if (nextIndex >= slides.length) {
+        nextIndex = 0;
+      }
+      updateSlidePosition(nextIndex);
+    }
+  
+    // Previous slide function
+    function goToPrevSlide() {
+      let prevIndex = currentSlide - 1;
+      if (prevIndex < 0) {
+        prevIndex = slides.length - 1;
+      }
+      updateSlidePosition(prevIndex);
+    }
+  
+    // Add event listeners to navigation buttons
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToPrevSlide();
+      });
+    }
+  
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToNextSlide();
+      });
+    }
+  
+    // Disable the pause functionality as requested
+    if (pauseBtn) {
+      pauseBtn.style.display = 'none';
+    }
+  
+    // Add click events to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
+        updateSlidePosition(index);
+      });
+    });
+  }
+  
+  // Call the function when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Your existing code...
+    
+    // Fix gallery controls
+    fixGalleryControls();
+  });
+
+  
