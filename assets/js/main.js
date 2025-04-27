@@ -175,7 +175,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const prevBtn = document.querySelector('.slider-prev');
       const nextBtn = document.querySelector('.slider-next');
       
-      if (!sliderTrack || !slides.length) return;
+      // Check if gallery elements exist before proceeding
+      if (!sliderTrack || slides.length === 0) {
+        console.log('Gallery elements not found, skipping gallery setup');
+        return;
+      }
       
       // Calculate slide width and set track width
       const slideCount = slides.length;
@@ -236,11 +240,20 @@ document.addEventListener('DOMContentLoaded', function() {
       // Start automatic scrolling
       function startAutoScroll() {
         if (autoScrollInterval) clearInterval(autoScrollInterval);
+        
         autoScrollInterval = setInterval(() => {
           if (!isPaused) {
             nextSlide();
           }
         }, 5000); // Change slide every 5 seconds
+      }
+      
+      // Stop automatic scrolling
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = null;
+        }
       }
       
       // Add event listeners
@@ -276,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
       
-      // Pause on hover
+      // Pause on hover for all devices, not just mobile
       const photoSlider = document.querySelector('.photo-slider');
       if (photoSlider) {
         photoSlider.addEventListener('mouseenter', () => {
@@ -286,11 +299,45 @@ document.addEventListener('DOMContentLoaded', function() {
         photoSlider.addEventListener('mouseleave', () => {
           isPaused = false;
         });
+        
+        // Touch events for mobile
+        photoSlider.addEventListener('touchstart', () => {
+          isPaused = true;
+        });
+        
+        photoSlider.addEventListener('touchend', () => {
+          // Resume after a short delay
+          setTimeout(() => {
+            isPaused = false;
+          }, 1000);
+        });
       }
+      
+      // Add keyboard navigation for all devices
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          isPaused = true;
+          setTimeout(() => { isPaused = false; }, 10000);
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          isPaused = true;
+          setTimeout(() => { isPaused = false; }, 10000);
+        }
+      });
       
       // Initialize to first slide and start auto-scrolling
       goToSlide(0);
+      
+      // Restart auto-scroll when window is resized
+      window.addEventListener('resize', () => {
+        stopAutoScroll();
+        startAutoScroll();
+      });
+      
+      // Start auto-scrolling for all devices
       startAutoScroll();
+      console.log('Gallery initialized with auto-scrolling');
     }
     
     // Actually call the gallery setup function
@@ -309,8 +356,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (detailsSection) {
           const isActive = detailsSection.classList.contains('active');
           detailsSection.classList.toggle('active');
+          
+          // Update button text based on state
           this.textContent = isActive ? 'Learn More' : 'Show Less';
           
+          // For all devices, scroll the section into view when expanding
           if (!isActive) {
             setTimeout(() => {
               detailsSection.scrollIntoView({ 
