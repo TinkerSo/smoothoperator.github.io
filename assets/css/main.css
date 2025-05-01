@@ -1576,3 +1576,34 @@ a.team-member p {
     margin-bottom: 40px;
   }
 }
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: #f0f4f7;
+}
+
+.hero-logo-and-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo {
+  width: 100px;            /* adjust as you like */
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #222;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;      /* slightly smaller */
+  font-weight: normal;
+  color: #666;             /* lighter gray */
+  margin-top: 0.5rem;
+}
