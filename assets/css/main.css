@@ -1608,16 +1608,10 @@ a.team-member p {
   margin-top: 0.5rem;
 }
 @keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  from { transform: translateY(-10px); }
+  to   { transform: translateY(10px); }
 }
 
 .hero-logo-wrapper {
-  animation: float 3s ease-in-out infinite;
-}
-
-.hero-logo {
-  width: 100px;
-  margin-bottom: 1rem;
+  animation: float 3s linear infinite alternate;
 }
