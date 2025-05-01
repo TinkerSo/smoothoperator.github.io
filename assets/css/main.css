@@ -1615,7 +1615,7 @@ a.team-member p {
 }
 
 .hero-logo-wrapper {
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s linear infinite;
 }
 
 .hero-logo {
