@@ -1607,26 +1607,17 @@ a.team-member p {
   color: #666;             /* lighter gray */
   margin-top: 0.5rem;
 }
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-/* keep your existing AOS attributes, then: */
 .hero-logo-wrapper {
-  /* applies the bounce after the zoom-in happens */
-  animation: bounce 2s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
 }
 
 .hero-logo {
   width: 100px;
   margin-bottom: 1rem;
-  /* no animation here—it's on the wrapper */
 }
