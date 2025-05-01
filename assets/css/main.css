@@ -1617,8 +1617,3 @@ a.team-member p {
 .hero-logo-wrapper {
   animation: float 3s linear infinite;
 }
-
-.hero-logo {
-  width: 100px;
-  margin-bottom: 1rem;
-}
