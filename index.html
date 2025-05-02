@@ -20,7 +20,9 @@
       <div class="logo">
         <a href="#home"><img src="assets/images/logo_with_words.png" alt="SmoothOperator Logo"></a>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰ <span class="menu-label">Menu</span>
+      </button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#problem">Problem & Vision</a></li>
@@ -357,7 +359,7 @@
               <h4>Electronics Specifications</h4>
               <ul>
                 <ul>
-                  <li><strong>Power:</strong> 2× 12V 12Ah lead-acid batteries with integrated BMS</li>
+                  <li><strong>Power:</strong> 2× 12V 12Ah rechargeable lead-acid batteries with integrated BMS</li>
                   <li><strong>Redundancy:</strong> Separate microcontrollers isolate safety-critical tasks and capable of overiding core navigation logic</li>
                   <li><strong>Main Computer:</strong> Nvidia Jetson Nano (4GB RAM, 128GB SSD)</li>
                   <li><strong>Microcontrollers:</strong> Arduino Mega 2560 for motor control and hardware safety overrides, Arduino Uno for proximity sensing</li>
@@ -396,12 +398,25 @@
             <div class="details-content">
               <h4>Safety Features</h4>
               <ul>
-                <li><strong>Physical:</strong> 360° soft bumpers with limit switch triggers</li>
-                <li><strong>Sensing:</strong> Redundant ultrasonic blind-spot detection</li>
-                <li><strong>Remote:</strong> 433MHz wireless emergency stop with 50m range</li>
-                <li><strong>Software:</strong> Multi-level watchdog timers and self-diagnostics</li>
-                <li><strong>Compliance:</strong> Meets ISO 13482:2014 personal care robot standards</li>
+                <li><strong>Control Logic:</strong> Multi-level watchdog timers, cross-validation, and processor-level redundancy</li>
+                <li><strong>Physical:</strong> 360° soft bumpers with integrated limit switches and floating mounts</li>
+                <div class="details-image">
+                  <img src="assets/images/bumper_close.jpg" alt="bumprt">
+                  <p class="image-caption">Limit switch with pool noodle for robust cheap bumper detection</p>
+                </div>
+                <li><strong>Sensing:</strong> Ultrasonic array to cover sensor blind spots and enhance proximity awareness</li>
+                <li><strong>Remote:</strong> 433 MHz wireless emergency stop with 5m range for immediate actuator cutoff</li>
+                <li><strong>Electrical:</strong> Fused power distribution and overcurrent protection to prevent system damage</li>
+                <li><strong>Mechanical:</strong> Custom 3D-printed motor shrouds prevent debris intrusion into drivetrain components</li>
+                <li><strong>Connectivity:</strong> Automatic network reconnection protocols and safe manual restart fallback</li>
+                <li><strong>UI Security:</strong> Single-user passcode system with on-screen obscuring after validation</li>
+                <li><strong>Compliance:</strong> Safety architecture aligns with ISO 13482:2014 standards for personal care robots</li>
               </ul>
+              
+              <p>
+                SmoothOperator’s layered safety framework integrates hardware and software mitigations to address risks ranging from actuator faults to network instability. Real-time sensor fusion, limit-switch bumpers, and redundant controllers ensure rapid system recovery and fail-safe behavior. Upon detecting faults or obstacles, the robot transitions to a protected state, preserving safety for both users and bystanders.
+              </p>
+              
               <p>Our safety-first design philosophy implements multiple independent systems that trigger motor cutoff when obstacles are detected. The robot automatically enters a safe state upon any component failure, protecting users and bystanders.</p>
             </div>
           </div>
