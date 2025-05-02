@@ -1612,10 +1612,15 @@ a.team-member p {
   margin-top: 0.5rem;
 }
 
-@keyframes float {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-out;
+  }
 }
 
 .hero-logo-wrapper {
