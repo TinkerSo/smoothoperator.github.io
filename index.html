@@ -262,19 +262,21 @@
         <div class="subsection-details" id="navigation-details">
           <div class="details-grid">
             <div class="details-image">
-              <img src="assets/images/navigation_map.jpg" alt="Navigation system visualization">
-              <p class="image-caption">ROS navigation stack with real-time path planning</p>
+              <img src="assets/images/ros_architecture.png" alt="Navigation system visualization">
+              <p class="image-caption">ROS navigation stack with real-time path planning and dynamic obstacle avoidance</p>
             </div>
             <div class="details-content">
               <h4>Navigation Architecture</h4>
               <ul>
-                <li><strong>Localization:</strong> Adaptive Monte Carlo Localization (AMCL)</li>
-                <li><strong>Global Planner:</strong> Dijkstra algorithm with cost maps</li>
-                <li><strong>Local Planner:</strong> Dynamic Window Approach (DWA)</li>
-                <li><strong>Recovery:</strong> Custom behaviors for handling edge cases</li>
-                <li><strong>Command Interface:</strong> Serial communication to motor controllers</li>
+                <li><strong>Mapping:</strong> SLAM-based environment mapping using LiDAR and odometry, performed prior to navigation.</li>
+                <li><strong>Localization:</strong> Adaptive Monte Carlo Localization (AMCL).</li>
+                <li><strong>Global Planner:</strong> Dijkstra algorithm with cost maps.</li>
+                <li><strong>Local Planner:</strong> Dynamic Window Approach (DWA).</li>
+                <li><strong>Recovery:</strong> Custom behaviors for handling edge cases and deadlocks.</li>
+                <li><strong>Control Interface:</strong> Serial communication to motor controllers at 115200 baud.</li>
               </ul>
-              <p>The navigation system pre-loads terminal maps and can dynamically update them based on detected obstacles, allowing for efficient path planning even in crowded environments.</p>
+              <p>The navigation system pre-loads terminal maps and creates global and local costmaps based on map data. The local costmap can dynamically update as obstacles are detected, allowing for efficient and safe path planning even in crowded environments.
+              </p>
             </div>
           </div>
         </div>
