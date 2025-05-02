@@ -1595,7 +1595,7 @@ a.team-member p {
 
 .hero-logo {
   width: 100px;            /* adjust as you like */
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
   animation: bounce 1.2s infinite;
 }
 
