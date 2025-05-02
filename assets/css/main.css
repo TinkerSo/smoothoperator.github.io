@@ -1622,3 +1622,7 @@ a.team-member p {
   animation: float 3s linear infinite;
 }
 
+
+.indented-list {
+  padding-left: 3rem; /* Increase this value to indent more */
+}
