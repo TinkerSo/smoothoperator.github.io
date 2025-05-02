@@ -228,17 +228,19 @@
         <div class="subsection-details" id="sensor-details">
           <div class="details-grid">
             <div class="details-image">
-              <img src="assets/images/sensor.gif" alt="Sensor layout diagram">
+              <img src="assets/images/camera_ultrasonic.jpg" alt="Sensor layout diagram">
               <p class="image-caption">Sensor positioning and coverage zones</p>
             </div>
             <div class="details-content">
               <h4>Sensor Specifications</h4>
               <ul>
-                <li><strong>LiDAR:</strong> RPLiDAR A1 (360°, 12m range, 8000 samples/sec)</li>
-                <li><strong>Ultrasonic:</strong> 6× HC-SR04 sensors (2-400cm range)</li>
-                <li><strong>Encoders:</strong> Quadrature encoders with 8192 CPR resolution</li>
+                <li><strong>2D LiDAR:</strong> RPLiDAR A1 (360°, 12m range, 8000 samples/sec)</li>
+                <li><strong>Ultrasonic:</strong> 3× HC-SR04 sensors (2-400cm range)</li>
+                <li><strong>Through Bore Encoders:</strong> Quadrature encoders with 8192 CPR resolution</li>
                 <li><strong>IMU:</strong> MPU6050 6-axis accelerometer and gyroscope</li>
-                <li><strong>Camera:</strong> Logitech C270 HD (720p) with custom QR code algorithm</li>
+                <li><strong>HD Camera:</strong> Logitech C270 HD (720p) with custom QR code algorithm</li>
+                <li><strong>N-Open Limit Switch:</strong> Normally Open switches enabling for robust bumper detection</li>
+
               </ul>
               <p>Our sensor fusion approach combines data from all sensors to create reliable environmental mapping and obstacle detection, with redundant systems for safety-critical functions.</p>
             </div>
