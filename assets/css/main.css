@@ -1624,7 +1624,7 @@ a.team-member p {
 }
 
 .hero-logo-wrapper {
-  animation: float 3s linear infinite;
+  animation: bounce 1.2s infinite;
 }
 
 
