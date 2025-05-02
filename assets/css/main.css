@@ -1655,3 +1655,8 @@ a.team-member p {
   max-width: 700px;
 }
 
+.menu-label {
+  font-size: 0.8rem;  /* Adjust this value to your preference */
+  margin-right: 0.4rem;
+  color: #333;
+}
