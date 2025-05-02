@@ -1618,3 +1618,11 @@ a.team-member p {
 .hero-logo-wrapper {
   animation: float 3s linear infinite;
 }
+
+/* Add this to your CSS file */
+@media (max-width: 768px) {
+  p {
+    text-align: center; /* Override to center alignment on mobile */
+  }
+
+}
