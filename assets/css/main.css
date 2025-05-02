@@ -1596,6 +1596,7 @@ a.team-member p {
 .hero-logo {
   width: 100px;            /* adjust as you like */
   margin-bottom: 1rem;
+  animation: bounce 1.2s infinite;
 }
 
 .hero-title {
@@ -1611,11 +1612,7 @@ a.team-member p {
   color: #666;             /* lighter gray */
   margin-top: 0.5rem;
 }
-.hero-logo {
-  width: 100px;
-  margin-bottom: 1rem;
-  animation: bounce 1.2s infinite;
-}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
