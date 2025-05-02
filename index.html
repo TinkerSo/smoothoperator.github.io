@@ -274,7 +274,12 @@
                 <li><strong>Local Planner:</strong> Dynamic Window Approach (DWA).</li>
                 <li><strong>Recovery:</strong> Custom behaviors for handling edge cases and deadlocks.</li>
                 <li><strong>Control Interface:</strong> Serial communication to motor controllers at 115200 baud.</li>
+                <li><strong>Low-Level PID Controller:</strong> Fine tuned custom PID controller to reach desired velocity for each wheel.</li>
               </ul>
+              <div class="details-image">
+                <img src="assets/images/auto_nav_diagram.png" alt="Navigation system visualization 2">
+                <p class="image-caption">High-level visualization of the closed loop feedback control navigation stack.</p>
+              </div>
               <p>The navigation system pre-loads terminal maps and creates global and local costmaps based on map data. The local costmap can dynamically update as obstacles are detected, allowing for efficient and safe path planning even in crowded environments.
               </p>
             </div>
