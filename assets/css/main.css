@@ -1643,8 +1643,10 @@ a.team-member p {
   margin-bottom: 0.75rem;
   font-size: 1.5rem;
   color: #2c3e50; /* Match your theme */
+  text-align: center;
 }
 
 .acknowledgements p {
   margin: 0;
+  text-align: center;
 }
