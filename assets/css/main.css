@@ -256,6 +256,9 @@ footer {
 
 /* ── Mobile & Tablet ── */
 @media (max-width: 768px) {
+  p {
+    text-align: center; /* Override to center alignment on mobile */
+  }
   .nav-toggle {
     display: block;
     z-index: 1100;
@@ -1619,10 +1622,3 @@ a.team-member p {
   animation: float 3s linear infinite;
 }
 
-/* Add this to your CSS file */
-@media (max-width: 768px) {
-  p {
-    text-align: center; /* Override to center alignment on mobile */
-  }
-
-}
