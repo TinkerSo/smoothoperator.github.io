@@ -328,7 +328,7 @@
                 Our dual-interface system allows users to intuitively interact with SmoothOperator either directly through the onboard touchscreen or remotely via smartphone. A 4-digit passcode ensures secure pairing on the local Wi-Fi network. Users can control the robot's movement, adjust driving speed, operate the lifting mechanism, and scan boarding passes to automatically set their destination—all through a seamless, privacy-protected experience.
               </p>
               <div class="details-image">
-                <img src="assets/images/ui_use.gif" alt="UI use gif">
+                <img src="assets/images/ui_user.gif" alt="UI use gif">
                 <p class="image-caption">User interacting with onboard touchscreen UI</p>
               </div>
             </div>
@@ -356,13 +356,17 @@
             <div class="details-content">
               <h4>Electronics Specifications</h4>
               <ul>
-                <li><strong>Power:</strong> 2× 12V 12Ah lead-acid batteries with integrated BMS</li>
-                <li><strong>Main Computer:</strong> Nvidia Jetson Nano (4GB RAM, 128GB SSD)</li>
-                <li><strong>Microcontrollers:</strong> Arduino Mega 2560 for motors, Nano for sensors</li>
-                <li><strong>Motor Drivers:</strong> Dual BTS7960 43A H-Bridge controllers</li>
-                <li><strong>Networking:</strong> Integrated Wi-Fi 5 and Bluetooth 5.0 connectivity</li>
+                <ul>
+                  <li><strong>Power:</strong> 2× 12V 12Ah lead-acid batteries with integrated BMS</li>
+                  <li><strong>Redundancy:</strong> Separate microcontrollers isolate safety-critical tasks and capable of overiding core navigation logic</li>
+                  <li><strong>Main Computer:</strong> Nvidia Jetson Nano (4GB RAM, 128GB SSD)</li>
+                  <li><strong>Microcontrollers:</strong> Arduino Mega 2560 for motor control and hardware safety overrides, Arduino Uno for proximity sensing</li>
+                  <li><strong>Motor Drivers:</strong> RoboClaw 15A×2 for drivetrain, L298N for lifting actuator control, both outputting PWM signals.</li>
+                  <li><strong>Bi-Directional Communication:</strong> FTDI-enabled UART for bidirectional data between Jetson and Arduino at 115200 baud</li>
+                  <li><strong>Debugging:</strong> Custom-designed Arduino Mega shield with LED indicators and screw terminals for modular part swapping and rapid debugging</li>
+                </ul>
               </ul>
-              <p>The dual-battery system can hot-swap without interruption, providing extended runtime and redundancy. The segregated computing architecture isolates critical safety systems from higher-level functions.</p>
+              <p>The dual 12V battery architecture supports seamless hot-swapping for uninterrupted operation, enabling extended runtime in mission-critical scenarios. A fault-tolerant computing hierarchy ensures that low-level safety subsystems remain electrically and logically isolated from high-level perception and navigation processes, maximizing system reliability and resilience.</p>
             </div>
           </div>
         </div>
