@@ -487,13 +487,13 @@
         <p>
           Our first prototype focused on basic locomotion, remote control, and structural integrity. Built 
           using a simple chassis and manual control system, V0 served as a functional feasibility test 
-          of motor capabilities, wheelbase stability, and weight-bearing performance.
+          of network, controller, system design, and processor capabilities.
         </p>
         <ul>
-          <li>Custom-cut 80/20 aluminum frame</li>
-          <li>Basic dual-motor drivetrain</li>
+          <li>Hand drilled scrap plywood </li>
+          <li>4 wheel differential drivetrain</li>
           <li>Manual lift operation</li>
-          <li>Arduino-controlled with joystick input</li>
+          <li>ESP32-controlled with keyboard input through Node.js server</li>
         </ul>
       </div>
       <div class="image-block" data-aos="fade-left">
@@ -517,16 +517,19 @@
     <div class="prototype-block reverse">
       <div class="text-block" data-aos="fade-left" data-aos-delay="100">
         <h3>Final Prototype: Fully Integrated Smart Assistant</h3>
+        <h3>Final Prototype: Fully Integrated Smart Assistant</h3>
         <p>
-          The final SmoothOperator system integrated hardware and software subsystems, enabling semi-autonomous 
-          operation. The robot can scan boarding passes, plan routes, lift luggage, and navigate terminals while 
-          ensuring user safety.
+          The final SmoothOperator prototype represents a fully integrated autonomous system, combining advanced perception, intelligent control, and robust mechanical design. Capable of scanning boarding passes, autonomously generating navigation paths, dynamically avoiding obstacles, and lifting and transporting luggage, the robot operates seamlessly in crowded terminal environments. Every subsystem—hardware and software—was engineered to ensure safe, efficient, and intuitive human-robot interaction.
         </p>
+
         <ul>
-          <li>SLAM-based localization and navigation</li>
-          <li>Touchscreen-based interface and passcode pairing</li>
-          <li>Linear actuator with safe overload lift design</li>
-          <li>ROS-powered control and custom Android app</li>
+          <li>Real-time SLAM for environment mapping and autonomous navigation</li>
+          <li>21.5" touchscreen interface with secure passcode-based pairing</li>
+          <li>Linear actuator with overload-protected lifting mechanism</li>
+          <li>ROS-integrated control stack with custom cross-platform React Native app</li>
+          <li>Dual-microcontroller architecture for real-time safety and motion control</li>
+          <li>FTDI-enabled bidirectional serial communication at 115200 baud</li>
+          <li>433 MHz wireless emergency stop with hardware-level cutoff response</li>
         </ul>
       </div>
       <div class="image-block" data-aos="fade-right" data-aos-delay="200">
